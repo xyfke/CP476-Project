@@ -1,3 +1,4 @@
+/* Top header across all pages */
 .topHeader {
     overflow: hidden;
     background-color: #000000;
@@ -12,14 +13,18 @@
     text-decoration: none;
     font-size: 16px;
 }
+/* -------------------------- */
 
+/* General over all pages */
+h1 {
+    color: #f5f5dc;
+}
+/* -------------------------- */
+
+/* Profile & Profile Edit Pages */
 table tr td {
     width: 250px;
     padding: 5px 0px;
-    color: #f5f5dc;
-}
-
-h1 {
     color: #f5f5dc;
 }
 
@@ -48,7 +53,10 @@ img {
 textarea {
     resize:none;
 }
+/* -------------------------- */
 
+
+/* Landing Page - different section formats */
 .division {
     width: 260px;
     min-height: 500px;
@@ -64,47 +72,6 @@ textarea {
 
 .sessionHeading {
     text-align: center;
-}
-
-.board {
-    width : 650px;
-    height : 550px;
-    float: left;
-    background-color: white;
-}
-
-.chatWindow {
-    width : 240px;
-    height : 550px;
-    float: right;
-    background-color: beige;
-}
-
-.toolbar {
-    overflow: hidden;
-    background-color: lightblue;
-    width: 650px;
-    height: 40px;
-    margin-top: 10px;
-    float: left;
-}
-
-.btn {
-    float: left;
-    margin: 20px;
-}
-
-.toolbarItems {
-    font-size: 13px;
-    margin: 10px;
-    margin-right: 0px;
-    float: left;
-}
-
-
-td a {
-    text-decoration: none;
-    color: beige;
 }
 
 div a {
@@ -130,6 +97,39 @@ div a {
   padding: 3px;
 }
 
+/* -------------------------- */
+
+/* Whiteboard page - including board, toolbar, and message section*/
+.board {
+    width : 650px;
+    height : 550px;
+    float: left;
+    background-color: white;
+}
+
+.chatWindow {
+    width : 240px;
+    height : 550px;
+    float: right;
+    background-color: beige;
+}
+
+.toolbar {
+    overflow: hidden;
+    background-color: lightblue;
+    width: 650px;
+    height: 40px;
+    margin-top: 10px;
+    float: left;
+}
+
+.toolbarItems {
+    font-size: 13px;
+    margin: 10px;
+    margin-right: 0px;
+    float: left;
+}
+
 .drawSection {
     border-style: solid;
     border-color: black;
@@ -149,3 +149,5 @@ div a {
     height: 5em;
     width: 20em;
 }
+
+/* -------------------------- */
