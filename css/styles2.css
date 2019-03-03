@@ -45,6 +45,10 @@ img {
     float: left;
 } 
 
+textarea {
+    resize:none;
+}
+
 .division {
     width: 300px;
     float: left;
