@@ -100,3 +100,38 @@ body{
 	margin-left:10px;
 	margin-top: 10px;
 }
+
+/*------------------------------------------HEADER */
+#header{
+	margin-top: 10px;
+	border: 0.009px solid #4c7a70;
+	border-radius: 4px;
+	height: 30px;
+	background-color: #2d4943;
+	padding-left: 10px;
+	padding-top: 20px;
+}
+.headerLinks, #sessionLink{
+	color: #dfd7c3;
+	padding-right: 10px;
+	text-decoration: none;
+	font-weight: bold;
+}
+.headerLinks:hover{
+	color: white;
+}
+#sessionLink:hover{
+	color: #f9f982;
+}
+
+/*------------------------------------------FOOTER */
+#footer{
+	clear: both;
+	border-radius: 4px;
+	margin-top: 10px;
+	background-color: black;
+	line-height: 2.7;
+	font-size: 9.5px;
+	color: gray;
+	text-align: center;
+}
