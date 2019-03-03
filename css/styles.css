@@ -39,11 +39,11 @@ body{
 .loginFormBox{
 	border-radius: 4px;
 }
-#loginSubButton{
+.SubButtons{
 	border-radius: 4px;
 	background-color: #70840b;
 }
-#loginSubButton:hover{
+.SubButtons:hover{
 	color: white;
 	background-color: #426328;
 	cursor: pointer;
@@ -129,9 +129,10 @@ body{
 	clear: both;
 	border-radius: 4px;
 	margin-top: 10px;
+	padding-right: 10px;
 	background-color: black;
 	line-height: 2.7;
 	font-size: 9.5px;
 	color: gray;
-	text-align: center;
+	text-align: right;
 }
