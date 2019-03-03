@@ -121,14 +121,15 @@ div a {
     width: 650px;
     height: 40px;
     margin-top: 10px;
+    margin-bottom: 10px;
     float: left;
+    text-align: center;
 }
 
 .toolbarItems {
     font-size: 13px;
-    margin: 10px;
-    margin-right: 0px;
-    float: left;
+    margin-top: 10px;
+    margin-right: 15px;
 }
 
 .drawSection {
