@@ -27,6 +27,24 @@ h1 {
     color: #f5f5dc;
 }
 
+.rightPortion {
+    float: right;
+    width: 450px;
+}
+
+.leftPortion {
+    float: left;
+    width: 450px;
+}
+
+img {
+    height: auto; 
+    width: auto; 
+    max-width: 100px; 
+    max-height: 100px;
+    float: left;
+} 
+
 .division {
     width: 300px;
     float: left;
