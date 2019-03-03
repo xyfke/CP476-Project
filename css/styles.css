@@ -36,14 +36,14 @@ body{
 .loginFormTitles{
 	color: #dfd7c3;
 }
-.loginFormBox{
+.roundTextBox{
 	border-radius: 4px;
 }
-.SubButtons{
+.subButtons{
 	border-radius: 4px;
 	background-color: #70840b;
 }
-.SubButtons:hover{
+.subButtons:hover{
 	color: white;
 	background-color: #426328;
 	cursor: pointer;
@@ -106,12 +106,12 @@ body{
 	margin-top: 10px;
 	border: 0.009px solid #4c7a70;
 	border-radius: 4px;
-	height: 30px;
+	height: 50px;
 	background-color: #2d4943;
 	padding-left: 10px;
-	padding-top: 20px;
 }
 .headerLinks, #sessionLink{
+	padding-top: 20px;
 	color: #dfd7c3;
 	padding-right: 10px;
 	text-decoration: none;
@@ -122,6 +122,24 @@ body{
 }
 #sessionLink:hover{
 	color: #f9f982;
+}
+#logo{
+	padding-top: 2px;
+	padding-right: 10px;
+	width: 59px;
+	height: 47px;
+}
+#logo:hover{
+	filter: brightness(1.5);
+}
+#help{
+	padding-top: 8px;
+	padding-right: 10px;
+	width: 31px;
+	height: 35px;
+}
+#help:hover{
+	filter: brightness(1.5);
 }
 
 /*------------------------------------------FOOTER */
