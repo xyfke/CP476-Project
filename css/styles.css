@@ -110,7 +110,7 @@ body{
 	background-color: #2d4943;
 	padding-left: 10px;
 }
-.headerLinks, #sessionLink{
+.headerLinks{
 	padding-top: 20px;
 	color: #dfd7c3;
 	padding-right: 10px;
@@ -122,6 +122,16 @@ body{
 }
 #sessionLink:hover{
 	color: #f9f982;
+}
+.sessionLinkRun{
+	padding-top: 20px;
+	color: #f9f982;
+	padding-right: 10px;
+	text-decoration: none;
+	font-weight: bold;
+}
+.sessionLinkRun:hover{
+	color: red;
 }
 #logo{
 	padding-top: 2px;
