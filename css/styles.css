@@ -36,14 +36,14 @@ body{
 .loginFormTitles{
 	color: #dfd7c3;
 }
-.loginFormBox{
+.roundTextBox{
 	border-radius: 4px;
 }
-.SubButtons{
+.subButtons{
 	border-radius: 4px;
 	background-color: #70840b;
 }
-.SubButtons:hover{
+.subButtons:hover{
 	color: white;
 	background-color: #426328;
 	cursor: pointer;
