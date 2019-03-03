@@ -14,7 +14,7 @@
 }
 
 table tr td {
-    width: 200px;
+    width: 250px;
     padding: 5px 0px;
     color: #f5f5dc;
 }
@@ -50,8 +50,14 @@ textarea {
 }
 
 .division {
-    width: 300px;
+    width: 280px;
+    min-height: 500px;
     float: left;
+    color: lightcyan;
+    border-style: solid;
+    border-color: lightpink;
+    margin: 10px;
+    margin-left: 0px;
 }
 
 .division td {
@@ -93,4 +99,41 @@ textarea {
     margin: 10px;
     margin-right: 0px;
     float: left;
+}
+
+.centerBtn {
+    padding: 0px 200px; 
+
+}
+
+.centerBtn button {
+    font-size: 20px;
+    margin-right: 16px;
+    padding: 10px;
+    background-color: green;
+}
+
+td a {
+    text-decoration: none;
+    color: beige;
+}
+
+.drawSection {
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+    margin: 5px;
+    height:475px;
+}
+
+.display {
+    margin: 5px;
+    height: 35em;
+    width: 20em;
+}
+
+.enter {
+    margin: 5px;
+    height: 5em;
+    width: 20em;
 }
