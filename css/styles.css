@@ -12,3 +12,91 @@
 
 	Version  2019-03-02
 	*/
+
+body{
+	font-family: 'Proxima Nova Soft', 'Helvetica Neue', sans-serif;
+	font-size: 14px;
+	line-height: 1.2;
+	color: black;
+	background-image: url(../images/background.png);
+	max-width: 900px;
+	margin: auto;
+	padding: 0;
+	border: 0;
+}
+
+/*------------------------------------------LOG IN */
+#loginHeader{
+	margin-top: 10px;
+	border: 0.009px solid #4c7a70;
+	border-radius: 4px;
+	height: 64px;
+	background-color: #2d4943;
+}
+.loginFormTitles{
+	color: #dfd7c3;
+}
+.loginFormBox{
+	border-radius: 4px;
+}
+#loginSubButton{
+	border-radius: 4px;
+	background-color: #70840b;
+}
+#loginSubButton:hover{
+	color: white;
+	background-color: #426328;
+	cursor: pointer;
+}
+
+/*------------------------------------------SIGN UP */
+#signupForm{
+	border: 0.009px solid #4c7a70;
+	border-radius: 4px;
+	margin-top: 30px;
+	width: 445px;
+	float: left;
+}
+#signupFormTitle{
+	text-align: center;
+	margin-top: 10px;
+	font-size: 35px;
+	color: #dfd7c3;
+	font-weight: bold;
+}
+.signupFormBox{
+	margin-top: 10px;
+	margin-left: 10px;
+	border-radius: 4px;
+	width: 420px;
+	height: 30px;
+}
+.signupFormBoxSmall{
+	margin-top: 10px;
+	margin-left: 10px;
+	border-radius: 4px;
+	width: 200px;
+	height: 30px;
+}
+#signupSubButton{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 4px;
+	background-color: #70840b;
+	width: 200px;
+	height: 50px;
+	font-size: 18px;
+	font-weight: bold;
+}
+#signupSubButton:hover{
+	color: white;
+	background-color: #426328;
+	cursor: pointer;
+}
+#signupImg{
+	width:440px;
+	height: 306px;
+	float: right;
+	margin-left:10px;
+	margin-top: 10px;
+}
