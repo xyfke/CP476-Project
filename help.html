@@ -21,20 +21,16 @@
 		<link rel="stylesheet" href="css/styles.css" />
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script type="text/javascript"> window.jQuery || document.write('<script src="jQuery/jquery-3.3.1.min.js"><\/script>');</script>
+		<script>
+			$(document).ready(function(){
+				$("#header").load("header.html");
+				$("#footer").load("footer.html");
+			});
+		</script>
 	</head>
 
 	<body>
 		<div id="header"></div>
-		<script>
-			$(function(){
-				$("#header").load("header.html");
-			});
-		</script>
 		<div id="footer"></div>
-		<script>
-			$(function(){
-		  		$("#footer").load("footer.html");
-			});
-		</script>
 	</body>
 </html>
