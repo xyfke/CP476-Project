@@ -31,7 +31,7 @@
 	<body>
 		<div style="overflow:hidden">
 			<div id="loginHeader">
-				<form name="loginForm" action="">
+				<form name="loginForm" method="post">
 					<div style="float:left; padding-left:500px; padding-top:14px">
 						<div class="loginFormTitles"> Username </div>
 						<input type="text" name="userName" class="roundTextBox">
@@ -42,13 +42,13 @@
 					</div>
 					<div style="float:left; padding-left:10px; padding-top:14px">
 						<div style="visibility:hidden">.</div>
-						<input type="submit" name="submit" value="LOG IN" class="subButtons"/>
+						<input type="submit" formaction="landing_home.html" name="submit" value="LOG IN" class="subButtons"/>
 					</div>
 				</form>
 			</div>
 
 			<div>
-				<form id="signupForm" name="signupForm" action="">
+				<form id="signupForm" name="signupForm" method="post">
 					<div id="signupFormTitle"> Join us to start! </div>
 					<input type="text" name="userName" placeholder="Username" class="signupFormBox">
 					<div>
@@ -61,7 +61,7 @@
 						<input type="password" name="password" placeholder="Repeat Password" class="signupFormBoxSmall">
 					</div>
 					<div style="text-align:center">
-						<input type="submit" name="submit" value="SIGN UP" id="signupSubButton"/>
+						<input type="submit" formaction="landing_home.html" name="submit" value="SIGN UP" id="signupSubButton"/>
 					</div>
 				</form>
 				<div id="signupImg">
