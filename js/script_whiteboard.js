@@ -15,19 +15,20 @@
 window.onload = start;
 
 function start() {
-  var btn;
+	var toolBtns = document.querySelectorAll(".toolbarItems");
+	var changed = [0, 0, 0, 0 ,0];
 
-  function changeColor(event) {
-    btn.style.backgroundColor = "#808080";
-  }
-
-  var toolBtns = document.querySelectorAll(".toolbarItems");
-  for (i = 0; i < toolBtns.length; i++) {
-
-    toolBtns[i].style.backgroundColor = "#FFFFFF";
-    toolBtns[i].onclick = changeColor;
-    /* toolBtns[i].addEventListener("onclick", function() {
-      toolBtns[i].style.backgroundColor = "#808080";
-    });*/
-  }
+	for (i = 0; i < toolBtns.length; i++) {
+		toolBtns[i].addEventListener("click", function() {
+			index = this.classList[1];
+			if (changed[index] == 0){
+				this.style.backgroundColor = "#808080";
+				changed[index] = 1;
+			}
+			else{
+				this.style.backgroundColor = "#FFFFFF";
+				changed[index] = 0;
+			}
+		});
+	}
 }

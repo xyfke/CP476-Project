@@ -20,6 +20,13 @@
 h1 {
     color: #f5f5dc;
 }
+
+h2 {
+	color: #94c0cc;
+}
+
+p { color: #c4adc9;
+}
 /* -------------------------- */
 
 /* Profile & Profile Edit Pages */
@@ -116,20 +123,33 @@ div a {
 }
 
 .toolbar {
-    overflow: hidden;
     background-color: lightblue;
     width: 650px;
     height: 40px;
     margin-top: 10px;
     margin-bottom: 10px;
     float: left;
+	overflow:hidden;
     text-align: center;
 }
 
 .toolbarItems {
-    font-size: 13px;
-    margin-top: 10px;
-    margin-right: 15px;
+	float: left;
+    font-size: 14px;
+    margin-top: 8px;
+	margin-right: 15px;
+	border: 0.009px solid #4c7a70;
+	border-radius: 4px;
+	background-color: #FFFFFF;
+	width: 25px;
+	height: 25px;
+}
+.toolbarItems:hover {
+	filter: brightness(1.5);
+}
+.toolbarItems i{
+	padding-top:5px;
+	cursor: pointer;
 }
 
 .drawSection {
