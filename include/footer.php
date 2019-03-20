@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<!-- footer.html
+<!-- footer.php
 
 	CP476 Final Project
 
@@ -14,4 +13,6 @@
 	Version  2019-03-02
 	-->
 
-&copy; 2019
+<div id="footer">
+	&copy; 2019
+</div>
