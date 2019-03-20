@@ -15,19 +15,34 @@
 window.onload = start;
 
 function start() {
+	// get all the tool buttons
 	var toolBtns = document.querySelectorAll(".toolbarItems");
-	var changed = [0, 0, 0, 0 ,0];
+	// initialize their "chosen" value as not picked
+	var picked = [0, 0, 0, 0 ,0];
 
+	// walk through all the buttons
 	for (i = 0; i < toolBtns.length; i++) {
 		toolBtns[i].addEventListener("click", function() {
+			// on click, get it's index number (saved on the classlist)
 			index = this.classList[1];
-			if (changed[index] == 0){
+			if (picked[index] == 0){
+				// if it is not picked, walk through all the buttons and set to not picked
+				// (in case there is another currently picked button)
+				var j;
+				for(j = 0; j < picked.length; j++){
+					picked[j] = 0;
+					toolBtns[j].style.backgroundColor = "#FFFFFF"
+				}
+				// change its background color to "picked" color
 				this.style.backgroundColor = "#808080";
-				changed[index] = 1;
+				// change its value to "picked"
+				picked[index] = 1;
 			}
 			else{
+				// if it is already picked, change its background color to "not picked"
 				this.style.backgroundColor = "#FFFFFF";
-				changed[index] = 0;
+				// also change its value to "not picked"
+				picked[index] = 0;
 			}
 		});
 	}
