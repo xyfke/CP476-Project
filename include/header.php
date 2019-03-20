@@ -12,7 +12,7 @@
 
 	Version  2019-03-02
 	-->
-<div id="header">
+<div class="header">
 	<div id="logo" style="float:left">
 		<a href="landing_home.php">
 			<img src="images/logo_og.png" alt="Logo Image" id="logoImg" style="width:100%;height:100%;object-fit:contain;"/>

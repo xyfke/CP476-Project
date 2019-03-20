@@ -21,45 +21,52 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	</head>
 
-	<body>
-		<div style="overflow:hidden">
-			<div id="loginHeader">
-				<form name="loginForm" method="post">
-					<div style="float:left; padding-left:500px; padding-top:14px">
+	<body class="m-auto">
+		<nav id="loginHeader" class="navbar navbar-expand py-3">
+			<div class="accountText col-md-3"></div>
+			<div class="col-md-9">
+				<form name="loginForm" method="post" class="nav float-right">
+					<div class="mr-1">
 						<div class="loginFormTitles"> Username </div>
 						<input type="text" name="userName" class="roundTextBox">
 					</div>
-					<div style="float:left; padding-left:10px; padding-top:14px">
+					<div class="mr-1">
 						<div class="loginFormTitles"> Password </div>
 						<input type="password" name="password" class="roundTextBox">
 					</div>
-					<div style="float:left; padding-left:10px; padding-top:14px">
-						<div style="visibility:hidden">.</div>
+					<div class="mr-1">
+						<div style="visibility: hidden"> . </div>
 						<input type="submit" formaction="landing_home.php" name="submit" value="LOG IN" class="subButtons"/>
 					</div>
 				</form>
 			</div>
+		</nav>
 
-			<div>
+		<div class="row">
+			<div class="col-md-6 mt-4">
 				<form id="signupForm" name="signupForm" method="post">
 					<div id="signupFormTitle"> Join us to start! </div>
-					<input type="text" name="userName" placeholder="Username" class="signupFormBox">
-					<div>
-						<input type="text" name="firstName" placeholder="First Name" class="signupFormBoxSmall">
-						<input type="text" name="lastName" placeholder="Last Name" class="signupFormBoxSmall">
+					<div class="mb-1 mx-4">
+						<input type="text" name="userName" placeholder="Username" class="form-control">
 					</div>
-					<input type="text" name="email" placeholder="Email" class="signupFormBox">
-					<div>
-						<input type="password" name="password" placeholder="New Password" class="signupFormBoxSmall">
-						<input type="password" name="password" placeholder="Repeat Password" class="signupFormBoxSmall">
+					<div class="row mb-1 mx-4">
+						<input type="text" name="firstName" placeholder="First Name" class="form-control col-sm-6">
+						<input type="text" name="lastName" placeholder="Last Name" class="form-control col-sm-6">
 					</div>
-					<div style="text-align:center">
+					<div class="mb-1 mx-4">
+						<input type="text" name="email" placeholder="Email" class="form-control">
+					</div>
+					<div class="row mb-2 mx-4">
+						<input type="password" name="password" placeholder="New Password" class="form-control col-sm-6">
+						<input type="password" name="password" placeholder="Repeat Password" class="form-control col-sm-6">
+					</div>
+					<div class="mb-2">
 						<input type="submit" formaction="landing_home.php" name="submit" value="SIGN UP" id="signupSubButton"/>
 					</div>
 				</form>
-				<div id="signupImg">
-					<img src="images/logo_big.png" alt="Signup Image" style="width:100%;height:100%;object-fit:contain;"/>
-				</div>
+			</div>
+			<div id="signupImg" class="col-md-6 mt-2">
+				<img src="images/logo_big.png" alt="Signup Image" style="width:100%;height:100%;object-fit:contain;"/>
 			</div>
 		</div>
 		<?php include("include/footer.php") ?>

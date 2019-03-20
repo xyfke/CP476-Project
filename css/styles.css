@@ -15,32 +15,26 @@
 
 body{
 	font-family: 'Proxima Nova Soft', 'Helvetica Neue', sans-serif;
-	font-size: 14px;
-	line-height: 1.2;
+	font-size: 0.875em;
 	color: black;
 	background-image: url(../images/background.png);
-	max-width: 900px;
-	margin: auto;
-	padding: 0;
-	border: 0;
+	width: 80%;
 }
 
 /*------------------------------------------LOG IN */
 #loginHeader{
-	margin-top: 10px;
-	border: 0.009px solid #4c7a70;
-	border-radius: 4px;
-	height: 64px;
+	border: 0.001em solid #4c7a70;
+	border-radius: 0.333em;
 	background-color: #2d4943;
 }
 .loginFormTitles{
 	color: #dfd7c3;
 }
 .roundTextBox{
-	border-radius: 4px;
+	border-radius: 0.333em;
 }
 .subButtons{
-	border-radius: 4px;
+	border-radius: 0.333em;
 	background-color: #70840b;
 }
 .subButtons:hover{
@@ -51,41 +45,22 @@ body{
 
 /*------------------------------------------SIGN UP */
 #signupForm{
-	border: 0.009px solid #4c7a70;
-	border-radius: 4px;
-	margin-top: 30px;
-	width: 445px;
-	float: left;
+	border: 0.001em solid #4c7a70;
+	border-radius: 0.333em;
+	text-align: center;
 }
 #signupFormTitle{
-	text-align: center;
-	margin-top: 10px;
-	font-size: 35px;
+	font-size: 2.917em;
 	color: #dfd7c3;
 	font-weight: bold;
 }
-.signupFormBox{
-	margin-top: 10px;
-	margin-left: 10px;
-	border-radius: 4px;
-	width: 420px;
-	height: 30px;
-}
-.signupFormBoxSmall{
-	margin-top: 10px;
-	margin-left: 10px;
-	border-radius: 4px;
-	width: 200px;
-	height: 30px;
-}
+
 #signupSubButton{
-	margin-top: 10px;
-	margin-bottom: 10px;
-	border-radius: 4px;
+	border-radius: 0.333em;
 	background-color: #70840b;
-	width: 200px;
-	height: 50px;
-	font-size: 18px;
+	width: 8em;
+	height: 2.2em;
+	font-size: 2em;
 	font-weight: bold;
 }
 #signupSubButton:hover{
@@ -94,15 +69,12 @@ body{
 	cursor: pointer;
 }
 #signupImg{
-	width:440px;
-	height: 306px;
-	float: right;
-	margin-left:10px;
-	margin-top: 10px;
+	width:36.667em;
+	height: 25.5em;
 }
 
 /*------------------------------------------HEADER */
-#header{
+.header{
 	margin-top: 10px;
 	border: 0.009px solid #4c7a70;
 	border-radius: 4px;
