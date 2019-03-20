@@ -30,8 +30,8 @@
         <a href="./landing_home.html">Home</a>
     </div>
   -->
-  <body>
-    <?php include("include/header.php") ?>
+  <body class="m-auto">
+    <?php include("include/header_session.php") ?>
 
     <h1>Introduction to Fortnite - Session: OB?78A4</h1>
 
