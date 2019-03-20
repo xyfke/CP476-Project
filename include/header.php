@@ -12,18 +12,22 @@
 
 	Version  2019-03-02
 	-->
-<div class="header">
-	<div id="logo" style="float:left">
-		<a href="landing_home.php">
-			<img src="images/logo_og.png" alt="Logo Image" id="logoImg" style="width:100%;height:100%;object-fit:contain;"/>
-		</a>
+<nav class="header navbar navbar-expand">
+	<div class="nav col-md-6">
+		<div id="logo" class="mr-2">
+			<a href="landing_home.php">
+				<img src="images/logo_og.png" alt="Logo Image" id="logoImg"/>
+			</a>
+		</div>
+		<a href="whiteboard.php" class="headerLinks pt-4" id="sessionLink"> START SESSION </a>
 	</div>
-	<a href="whiteboard.php" class="headerLinks" id="sessionLink" style="float:left; padding-right:200px;"> START SESSION </a>
-	<a href="landing_login_signup.php" class="headerLinks" style="float:right"> LOG OUT </a>
-	<a href="profile.php" class="headerLinks" style="float:right"> PROFILE </a>
-	<div id="help" style="float:right">
-		<a href="help.php">
-			<img src="images/help.png" alt="Help Image" style="width:100%;height:100%;object-fit:contain;"/>
-		</a>
+	<div class="col-md-6">
+		<div class="nav float-right">
+			<a href="help.php" id="help" class="mt-2">
+				<img src="images/help.png" alt="Help Image" style="width:100%;height:100%;object-fit:contain;"/>
+			</a>
+			<a href="profile.php" class="headerLinks mr-2 mt-4"> PROFILE </a>
+			<a href="landing_login_signup.php" class="headerLinks mt-4"> LOG OUT </a>
+		</div>
 	</div>
-</div>
+</nav>

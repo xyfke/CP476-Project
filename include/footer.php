@@ -13,6 +13,11 @@
 	Version  2019-03-02
 	-->
 
-<div id="footer">
-	&copy; 2019
-</div>
+<nav id="footer" class="navbar mt-1">
+	<div class="col-md-6"> </div>
+	<div class="col-md-6">
+		<div class="nav float-right">
+			&copy; 2019
+		</div>
+	</div>
+</nav>
