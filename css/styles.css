@@ -18,7 +18,7 @@ body{
 	font-size: 0.875em;
 	color: black;
 	background-image: url(../images/background.png);
-	width: 80%;
+	width: 70%;
 }
 
 /*------------------------------------------LOG IN */
@@ -75,50 +75,40 @@ body{
 
 /*------------------------------------------HEADER */
 .header{
-	margin-top: 10px;
-	border: 0.009px solid #4c7a70;
-	border-radius: 4px;
-	height: 50px;
+	border: 0.001em solid #4c7a70;
+	border-radius: 0.333em;
 	background-color: #2d4943;
-	padding-left: 10px;
 }
 .headerLinks{
-	padding-top: 20px;
 	color: #dfd7c3;
-	padding-right: 10px;
 	text-decoration: none;
 	font-weight: bold;
 }
 .headerLinks:hover{
 	color: white;
+	text-decoration: none;
 }
 #sessionLink:hover{
 	color: #f9f982;
+	text-decoration: none;
 }
 .sessionLinkRun{
-	padding-top: 20px;
 	color: #f9f982;
-	padding-right: 10px;
 	text-decoration: none;
 	font-weight: bold;
 }
 .sessionLinkRun:hover{
 	color: red;
-}
-#logo{
-	padding-top: 2px;
-	padding-right: 10px;
-	width: 59px;
-	height: 47px;
+	text-decoration: none;
 }
 #logo:hover{
 	filter: brightness(1.5);
 }
 #help{
-	padding-top: 8px;
-	padding-right: 10px;
-	width: 31px;
-	height: 35px;
+	padding-top: 0.667em;
+	padding-right: 0.833em;
+	width: 2.583em;
+	height: 2.917em;
 }
 #help:hover{
 	filter: brightness(1.5);
@@ -127,12 +117,8 @@ body{
 /*------------------------------------------FOOTER */
 #footer{
 	clear: both;
-	border-radius: 4px;
-	margin-top: 10px;
-	padding-right: 10px;
+	border-radius: 0.333em;
 	background-color: black;
-	line-height: 2.7;
-	font-size: 9.5px;
+	font-size: 0.792em;
 	color: gray;
-	text-align: right;
 }
