@@ -15,14 +15,14 @@
 window.onload = start;
 
 function start() {
-		var sessionLink = document.querySelector("#sessionLink");
-		var logoImg = document.querySelector("#logoImg");
-		sessionLink.addEventListener("mouseover", function(){
-			// update logo to left spotlight lit up
-			logoImg.src = "images/logo_single.png";
-		});
-		sessionLink.addEventListener("mouseout", function(){
-			// update logo to no spotlight lit up
-			logoImg.src = "images/logo_og.png";
-		});
+	var sessionLink = document.querySelector("#sessionLink");
+	var logoImg = document.querySelector("#logoImg");
+	sessionLink.addEventListener("mouseover", function(){
+		// update logo to left spotlight lit up
+		logoImg.src = "images/logo_single.png";
+	});
+	sessionLink.addEventListener("mouseout", function(){
+		// update logo to no spotlight lit up
+		logoImg.src = "images/logo_og.png";
+	});
 }
