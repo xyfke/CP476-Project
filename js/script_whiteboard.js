@@ -12,9 +12,26 @@
 	Version  2019-03-02
 	*/
 
-window.onload = start;
+// ----------------------------------------------------------------------------------------- load all functions on window load
+function loadFunctions(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	}
+	else {
+		window.onload = function() {
+			if (oldonload) {
+				oldonload();
+			}
+			func();
+		}
+	}
+}
+loadFunctions(toolButtons);
+loadFunctions(navLogo);
 
-function start() {
+// ----------------------------------------------------------------------------------------- tool buttons
+function toolButtons() {
 	// get all the tool buttons
 	var toolBtns = document.querySelectorAll(".toolbarItems");
 	// initialize their "chosen" value as not picked
@@ -46,4 +63,18 @@ function start() {
 			}
 		});
 	}
+}
+
+// ----------------------------------------------------------------------------------------- nav bar
+function navLogo() {
+	var sessionLinkSess = document.querySelector("#sessionLinkSess");
+	var logoImgSess = document.querySelector("#logoImgSess");
+	sessionLinkSess.addEventListener("mouseover", function(){
+		// update logo to left spotlight lit up
+		logoImgSess.src = "images/logo_og.png";
+	});
+	sessionLinkSess.addEventListener("mouseout", function(){
+		// update logo to no spotlight lit up
+		logoImgSess.src = "images/logo_single.png";
+	});
 }
