@@ -33,40 +33,42 @@
   <body class="m-auto">
     <?php include("include/header_session.php") ?>
 
-    <h1>Introduction to Fortnite - Session: OB?78A4</h1>
+	<div class="container" style="width:940px">
+	    <h1>Introduction to Fortnite - Session: OB?78A4</h1>
 
-    <div class="board">
-        <h3>White Board:</h3>
-        <div class="drawSection">
+	    <div class="board">
+	        <h3>White Board:</h3>
+	        <div class="drawSection">
 
-        </div>
-    </div>
+	        </div>
+	    </div>
 
-    <div class="chatWindow">
-        <h3>Session Chat:</h3>
-        <textarea class="display">Conversation as of Today:</textarea>
-        <textarea class="enter" placeholder="Press enter to send"></textarea>
-    </div>
+	    <div class="chatWindow">
+	        <h3>Session Chat:</h3>
+	        <textarea class="display">Conversation as of Today:</textarea>
+	        <textarea class="enter" placeholder="Press enter to send"></textarea>
+	    </div>
 
-    <br style="clear : both;">
+	    <br style="clear : both;">
 
-    <div class="toolbar">
-        <div class="toolbarItems 0" style="margin-left:235px;">
-            <i class="fa fa-font"  style="width:100%;height:100%;object-fit:contain;"></i>
-        </div>
-        <div class="toolbarItems 1">
-            <i class="fa fa-image" style="width:100%;height:100%;object-fit:contain;"></i>
-        </div>
-        <div class="toolbarItems 2">
-            <i class="fa fa-pencil" style="width:100%;height:100%;object-fit:contain;"></i>
-        </div>
-        <div class="toolbarItems 3">
-            <i class="fa fa-paint-brush" style="width:100%;height:100%;object-fit:contain;"></i>
-        </div>
-        <div class="toolbarItems 4">
-            <i class="fa fa-eraser" style="width:100%;height:100%;object-fit:contain;"></i>
-        </div>
-    </div>
+	    <div class="toolbar">
+	        <div class="toolbarItems 0" style="margin-left:235px;">
+	            <i class="fa fa-font"  style="width:100%;height:100%;object-fit:contain;"></i>
+	        </div>
+	        <div class="toolbarItems 1">
+	            <i class="fa fa-image" style="width:100%;height:100%;object-fit:contain;"></i>
+	        </div>
+	        <div class="toolbarItems 2">
+	            <i class="fa fa-pencil" style="width:100%;height:100%;object-fit:contain;"></i>
+	        </div>
+	        <div class="toolbarItems 3">
+	            <i class="fa fa-paint-brush" style="width:100%;height:100%;object-fit:contain;"></i>
+	        </div>
+	        <div class="toolbarItems 4">
+	            <i class="fa fa-eraser" style="width:100%;height:100%;object-fit:contain;"></i>
+	        </div>
+	    </div>
+	</div>
 
     <?php include("include/footer.php") ?>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

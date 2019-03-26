@@ -31,23 +31,28 @@ p { color: #c4adc9;
 
 /* Profile & Profile Edit Pages */
 table tr td {
-    width: 250px;
+    width: 260px;
     padding: 5px 0px;
+	margin-right: 5px;
     color: #f5f5dc;
 }
 
+.checkbox{
+	margin-right:5px;
+}
 .checkboxText {
     color: #f5f5dc;
 }
 
 .rightPortion {
+	margin-left: 5px;
     float: right;
-    width: 450px;
+    width: 465px;
 }
 
 .leftPortion {
     float: left;
-    width: 450px;
+    width: 465px;
 }
 
 img {
@@ -66,8 +71,8 @@ textarea {
 
 /* Landing Page - different section formats */
 .division {
-    width: 260px;
-    min-height: 500px;
+    width: 342px;
+    min-height: 582px;
     padding-left: 10px;
     padding-right: 10px;
     float: left;
