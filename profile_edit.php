@@ -32,8 +32,8 @@
       -->
       <?php include("include/header.php") ?>
 
-        <h1>Edit My Profile</h1>
-        <form>
+        <form style="width:980px">
+			<h1>Edit My Profile</h1>
             <div class="leftPortion">
                 <table>
                     <tr>
@@ -87,11 +87,12 @@
 
             <br style="clear:both;">
             <br>
-        </form>
 
-        <div class="checkboxText"><input type="checkbox">I changed my password</div>
-        <br>
-        <button type="submit" onclick="window.location.href='./profile.php'" class="subButtons">Done</button>
+	        <div class="checkboxText"><input type="checkbox" class="checkbox">I changed my password</div>
+	        <br>
+	        <button type="submit" onclick="window.location.href='./profile.php'" class="subButtons">Done</button>
+		</form>
+
         <?php include("include/footer.php") ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

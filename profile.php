@@ -32,50 +32,52 @@
       -->
         <?php include("include/header.php") ?>
 
-        <h1>My Profile</h1>
-        <div class="leftPortion">
-            <table>
-                <tr>
-                    <td>Username: </td>
-                    <td>hello123</td>
-                </tr>
-                <tr>
-                    <td>First Name: </td>
-                    <td>David</td>
-                </tr>
-                <tr>
-                    <td>Last Name: </td>
-                    <td>Moreno</td>
-                </tr>
-                <tr>
-                    <td>Email: </td>
-                    <td>david@gmail.com</td>
-                </tr>
-                <tr>
-                    <td>Password: </td>
-                    <td>*********</td>
-                </tr>
-                <tr>
-                    <td>Short Bio: </td>
-                    <td>My Name is David. I like to play Fortnite! I am a CS student a Laurier.</td>
-                </tr>
-            </table>
-        </div>
+		<div style="width:980px">
+			<h1>My Profile</h1>
+	        <div class="leftPortion">
+	            <table>
+	                <tr>
+	                    <td>Username: </td>
+	                    <td>hello123</td>
+	                </tr>
+	                <tr>
+	                    <td>First Name: </td>
+	                    <td>David</td>
+	                </tr>
+	                <tr>
+	                    <td>Last Name: </td>
+	                    <td>Moreno</td>
+	                </tr>
+	                <tr>
+	                    <td>Email: </td>
+	                    <td>david@gmail.com</td>
+	                </tr>
+	                <tr>
+	                    <td>Password: </td>
+	                    <td>*********</td>
+	                </tr>
+	                <tr>
+	                    <td>Short Bio: </td>
+	                    <td>My Name is David. I like to play Fortnite! I am a CS student a Laurier.</td>
+	                </tr>
+	            </table>
+	        </div>
 
-        <div class="rightPortion">
-            <table>
-                <tr>
-                    <td>Current Profile Picture:</td>
-                </tr>
-                <tr>
-                    <td><img src="./images/image9.jpg"></td>
-                </tr>
-            </table>
-        </div>
+	        <div class="rightPortion">
+	            <table>
+	                <tr>
+	                    <td>Current Profile Picture:</td>
+	                </tr>
+	                <tr>
+	                    <td><img src="./images/image9.jpg"></td>
+	                </tr>
+	            </table>
+	        </div>
+			<br style="clear:both;">
+	        <br>
+	        <button onclick="window.location.href='./profile_edit.php'" class="subButtons">Edit Profile</button>
+		</div>
 
-        <br style="clear:both;">
-        <br>
-        <button onclick="window.location.href='./profile_edit.php'" class="subButtons">Edit Profile</button>
         <?php include("include/footer.php") ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
