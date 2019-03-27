@@ -15,7 +15,6 @@
 
 <?php
 	session_start();
-
 	if (!isset($_SESSION['userName'])){
 		header("Location: landing_login_signup.php");
 	}
@@ -40,7 +39,7 @@
       -->
 
         <?php include("include/header.php") ?>
-        <h1>Hello David!</h1>
+        <h1><?php echo "Hello " . $_SESSION['firstName'] . "!"?> </h1>
 
         <div class="division">
             <h2 class="sessionHeading">Session in Progress</h2>

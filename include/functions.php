@@ -73,4 +73,27 @@ function runBindedQuery($param1, $param2, $param3, $type, $db, $query){
     }
 }
 
+function runBindedQueryLong($param1, $param2, $param3, $param4, $param5, $param6, $param7, $type, $db, $query){
+    if ($statement = mysqli_prepare($db, $query)) {
+        // bind parameters s - string, b - blob, i - int, etc
+		if ($param6 == -1){
+			// if there's only five parameters
+	        mysqli_stmt_bind_param($statement, $type, $param1, $param2, $param3, $param4, $param5);
+		}
+		else if ($param7 == -1){
+			// if there's only six parameters
+	        mysqli_stmt_bind_param($statement, $type, $param1, $param2, $param3, $param4, $param5, $param6);
+		}
+		else{
+			// if there's seven parameters
+			mysqli_stmt_bind_param($statement, $type, $param1, $param2, $param3, $param4, $param5, $param6, $param7);
+		}
+        // execute query
+        mysqli_stmt_execute($statement);
+
+        $result = mysqli_stmt_get_result($statement);
+        return $result;
+    }
+}
+
 ?>

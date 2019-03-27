@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2019 at 03:29 AM
+-- Generation Time: Mar 27, 2019 at 08:30 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -85,15 +85,17 @@ CREATE TABLE `user` (
   `LastName` varchar(50) NOT NULL,
   `UserPassword` varchar(255) NOT NULL,
   `Email` varchar(254) NOT NULL,
-  `ShortBio` longtext
+  `ShortBio` longtext,
+  `PicName` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `UserPassword`, `Email`, `ShortBio`) VALUES
-(2, 'cloudMaster', 'fafa', 'ke', '$2y$10$IFSb1VxjxdImEhC2nU2uc.1Y.V7CjaZRHQH1lPdm1R7q0LbwCNLAW', 'fafa@league.com', NULL);
+INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `UserPassword`, `Email`, `ShortBio`, `PicName`) VALUES
+(6, 'cloudMaster', 'fafa', 'ke', '$2y$10$h6QE8Qi9jM6r3hqyu5/TTuLZ.IDuvS58JIQkivvvAQMn3aAyRkp2q', 'fafa@league.com', 'Nothing here yet...', '0'),
+(7, 'senorDavid', 'david', 'moreno', '$2y$10$0gp.sbhdqyFKCQEkYf1h9eq2sUHyCvKknIwXyGRpQFGstVBVkrAsq', 'david@fortniteisbetter.ca', 'They call me david. ', '0');
 
 -- --------------------------------------------------------
 
@@ -191,7 +193,7 @@ ALTER TABLE `session`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

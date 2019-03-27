@@ -19,6 +19,9 @@
 	if (!isset($_SESSION['userName'])){
 		header("Location: landing_login_signup.php");
 	}
+
+	include 'profile_edit_process.php';
+
 ?>
 
 <html lang="en">
@@ -40,41 +43,41 @@
       -->
       <?php include("include/header.php") ?>
 
-        <form style="width:980px">
+        <form style="width:980px" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 			<h1>Edit My Profile</h1>
             <div class="leftPortion">
                 <table>
                     <tr>
                         <td>Username: </td>
-                        <td>Hello123</td>
+                        <td><?php echo $userName?></td>
                     </tr>
                     <tr>
-                        <td>First Name: </td>
-                        <td><input value="David" class="roundTextBox"></td>
+                        <td style="color:<?php echo $firstNameStyle?>">First Name: </td>
+                        <td><input type="text" name="firstName" value="<?php echo $firstName?>" class="roundTextBox"></td>
                     </tr>
                     <tr>
-                        <td>Last Name: </td>
-                        <td><input value="Moreno" class="roundTextBox"></td>
+                        <td style="color:<?php echo $lastNameStyle?>">Last Name: </td>
+                        <td><input type="text" name="lastName" value="<?php echo $lastName?>" class="roundTextBox"></td>
                     </tr>
                     <tr>
-                        <td>Email: </td>
-                        <td><input value="david@gmail.com" class="roundTextBox"></td>
+                        <td style="color:<?php echo $emailStyle?>">Email: </td>
+                        <td><input type="text" name="email" value="<?php echo $email?>" class="roundTextBox"></td>
                     </tr>
                     <tr>
-                        <td>Enter Old Password: </td>
-                        <td><input value="*********" class="roundTextBox"></td>
+                        <td style="color:<?php echo $passwordOldStyle?>">Enter Old Password: </td>
+                        <td><input type="password" name="passwordOld" class="roundTextBox"></td>
                     </tr>
                     <tr>
-                        <td>Enter New Password: </td>
-                        <td><input value="*********" class="roundTextBox"></td>
+                        <td style="color:<?php echo $passwordNewStyle?>">Enter New Password: </td>
+                        <td><input type="password" name="passwordNew" class="roundTextBox"></td>
                     </tr>
                     <tr>
-                        <td>Re-enter New Password: </td>
-                        <td><input value="*********" class="roundTextBox"></td>
+                        <td style="color:<?php echo $passwordRepeatStyle?>">Re-enter New Password: </td>
+                        <td><input type="password" name="passwordRepeat" class="roundTextBox"></td>
                     </tr>
                     <tr>
-                        <td>Short Bio: </td>
-                        <td><textarea name="message" rows="10" cols="30" class="roundTextBox">My Name is David. I like to play Fortnite! I am a CS student a Laurier.</textarea></td>
+                        <td style="color:<?php echo $shortBioStyle?>">Short Bio: </td>
+                        <td><textarea name="shortBio" rows="10" cols="30" class="roundTextBox"> <?php echo $shortBio?> </textarea></td>
                     </tr>
                 </table>
             </div>
@@ -82,13 +85,13 @@
             <div class="rightPortion">
                 <table>
                     <tr>
-                        <td>Current Profile Picture:</td>
+                        <td style="color:<?php echo $picNameStyle?>">Current Profile Picture:</td>
                     </tr>
                     <tr>
-                        <td><img src="./images/image9.jpg"></td>
+                        <td><img src="./images/user/<?php echo $picName?>.png"></td>
                     </tr>
                     <tr>
-                        <td><input type="file"></td>
+                        <td><input name="picName" type="file"></td>
                     </tr>
                 </table>
             </div>
@@ -96,10 +99,21 @@
             <br style="clear:both;">
             <br>
 
-	        <div class="checkboxText"><input type="checkbox" class="checkbox">I changed my password</div>
+	        <div class="checkboxText"><input name="checkPassChange" type="checkbox" class="checkbox">I changed my password</div>
 	        <br>
-	        <button type="submit" onclick="window.location.href='./profile.php'" class="subButtons">Done</button>
+	        <button type="submit" class="subButtons">Done</button>
 		</form>
+		<div style="color:red; display: <?php echo $errorDisplay ?>">
+			<?php if ($userNameErr != ""){echo $userNameErr;echo "<br>";}?>
+			<?php if ($firstNameErr != ""){echo $firstNameErr;echo "<br>";}?>
+			<?php if ($lastNameErr != ""){echo $lastNameErr;echo "<br>";}?>
+			<?php if ($emailErr != ""){echo $emailErr;echo "<br>";}?>
+			<?php if ($passwordOldErr != ""){echo $passwordOldErr;echo "<br>";}?>
+			<?php if ($passwordNewErr != ""){echo $passwordNewErr;echo "<br>";}?>
+			<?php if ($passwordRepeatErr != ""){echo $passwordRepeatErr;echo "<br>";}?>
+			<?php if ($shortBioErr != ""){echo $shortBioErr;echo "<br>";}?>
+			<?php if ($picNameErr != ""){echo $picNameErr;echo "<br>";}?>
+		</div>
 
         <?php include("include/footer.php") ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

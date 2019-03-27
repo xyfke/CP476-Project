@@ -30,9 +30,9 @@
 	// if the sign up form was submitted, go on with the validation checks
 	if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["signUp"])) {
 		// ----------------------------------------------------------------------------- validate user name
-		$validFormat = "/^[A-Za-z0-9\s]+$/";
+		$validFormat = "/^[A-Za-z0-9]+$/";
 		if(!preg_match($validFormat, $_POST["userName"])){
-			$userNameErr = "Only letters, numbers, and white space allowed for first name";
+			$userNameErr = "Only letters and numbers allowed for user name";
 			$formValid = false;
 			if(empty($_POST["userName"])){
 				$userNameErr = "User name is required";
@@ -137,10 +137,17 @@
 		// ----------------------------------------------------------------------------- if form is valid then process registration
 		else{
 			$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-			$query = "INSERT INTO user (Username, FirstName, LastName, UserPassword, Email)
-					  VALUES ('$userName', '$firstName', '$lastName', '$password', '$email')";
-			mysqli_query($db, $query);
+			$shortBio = "Nothing here yet...";
+			$picName = "0";
+			$query = "INSERT INTO user (Username, FirstName, LastName, UserPassword, Email, ShortBio, PicName)
+					  VALUES (?, ?, ?, ?, ?, ?, ?)";
+			runBindedQueryLong($userName, $firstName, $lastName, $password, $email, $shortBio, $picName, "sssssss", $db, $query);
 			$_SESSION['userName'] = $userName;
+			$_SESSION['firstName'] = $firstName;
+			$_SESSION['lastName'] = $lastName;
+			$_SESSION['email'] = $email;
+			$_SESSION['shortBio'] = $shortBio;
+			$_SESSION['picName'] = $picName;
 			header("Location: landing_home.php");
 		}
 	}
@@ -158,32 +165,29 @@
 		// ----------------------------------------------------------------------------- validate input
 		$validFormatUser = "/^[A-Za-z0-9\s]+$/";
 		$validFormatPass = "/^.{6,18}$/";
-		if(!preg_match($validFormatUser, $_POST["userNameLog"]) || !preg_match($validFormatPass, $_POST["passwordLog"])){
-			$logErr = "Invalid username or password format";
-			$logValid = false;
-		}
-		// ----------------------------------------------------------------------------- verify input
-		else{
+		if(preg_match($validFormatUser, $_POST["userNameLog"]) && preg_match($validFormatPass, $_POST["passwordLog"])){
+			// if input is proper format
 			$query = "SELECT * FROM user WHERE Username = ?";
 			$users = runBindedQuery($_POST["userNameLog"], -1, -1, 's', $db, $query);
 			$row = mysqli_fetch_row($users);
 			if ($row){
-				// if username exists
+				// and if username exists
 				$fields = array_values($row);
 				$userHash = $fields[4];
 				if(password_verify($_POST["passwordLog"], $userHash)){
-					// and username matches password, then login is successful
+					// and if username matches password, then login is successful
 					$logValid = true;
 				}
 				else{
 					$logErr = "Wrong username or password";
-					$logValid = false;
 				}
 			}
 			else{
 				$logErr = "Wrong username or password";
-				$logValid = false;
 			}
+		}
+		else{
+			$logErr = "Wrong username or password";
 		}
 		// save username entered so that it doesn't have to be re-typed
 		$userNameLog = $_POST["userNameLog"];
@@ -195,6 +199,11 @@
 		// ----------------------------------------------------------------------------- if form is successful then send to home page
 		else{
 			$_SESSION['userName'] = $userNameLog;
+			$_SESSION['firstName'] = $fields[2];
+			$_SESSION['lastName'] = $fields[3];
+			$_SESSION['email'] = $fields[5];
+			$_SESSION['shortBio'] = $fields[6];
+			$_SESSION['picName'] = $fields[7];
 			header("Location: landing_home.php");
 		}
 	}
