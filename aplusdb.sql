@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2019 at 08:30 AM
+-- Generation Time: Mar 27, 2019 at 08:54 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -95,7 +95,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `UserPassword`, `Email`, `ShortBio`, `PicName`) VALUES
 (6, 'cloudMaster', 'fafa', 'ke', '$2y$10$h6QE8Qi9jM6r3hqyu5/TTuLZ.IDuvS58JIQkivvvAQMn3aAyRkp2q', 'fafa@league.com', 'Nothing here yet...', '0'),
-(7, 'senorDavid', 'david', 'moreno', '$2y$10$0gp.sbhdqyFKCQEkYf1h9eq2sUHyCvKknIwXyGRpQFGstVBVkrAsq', 'david@fortniteisbetter.ca', 'They call me david. ', '0');
+(7, 'senorDavid', 'david', 'moreno', '$2y$10$biiQJaVJOiG29xIQWWqYt.mmDBfAFnsnJyLS.MXemqQET1h7Me6Ye', 'david@fortniteisbetter.ca', 'They call me david.           ', '0');
 
 -- --------------------------------------------------------
 

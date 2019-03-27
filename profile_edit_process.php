@@ -116,9 +116,19 @@
 		if(!preg_match($validFormat, $_POST["passwordNew"]) && isset($_POST["checkPassChange"])){
 			$passwordNewErr = "New password should be between 6 and 18 characters";
 			$formValid = false;
-			if(empty($_POST["password"])){
+			if(empty($_POST["passwordNew"])){
 				$passwordNewErr = "New password is required";
 			}
+			// wrong format changes form to its red error display
+			$passwordNewStyle = "red";
+			// old password will also show error since it will be re-typed too
+			$passwordOldStyle = "red";
+			// password repeat will also show error since it will be re-typed too
+			$passwordRepeatStyle = "red";
+		}
+		if(!empty($_POST["passwordNew"]) && !isset($_POST["checkPassChange"])){
+			$passwordNewErr = "It looks like you want to change your password, please check the option";
+			$formValid = false;
 			// wrong format changes form to its red error display
 			$passwordNewStyle = "red";
 			// old password will also show error since it will be re-typed too
@@ -133,6 +143,16 @@
 			if(empty($_POST["passwordRepeat"])){
 				$passwordRepeatErr = "Password repeat is required";
 			}
+			// wrong format changes form to its red error display
+			$passwordRepeatStyle = "red";
+			// old password will also show error since it will be re-typed too
+			$passwordOldStyle = "red";
+			// new password will also show error since it will be re-typed too
+			$passwordNewStyle = "red";
+		}
+		if(!empty($_POST["passwordRepeat"]) && !isset($_POST["checkPassChange"])){
+			$passwordRepeatErr = "It looks like you want to change your password, please check the option";
+			$formValid = false;
 			// wrong format changes form to its red error display
 			$passwordRepeatStyle = "red";
 			// old password will also show error since it will be re-typed too
