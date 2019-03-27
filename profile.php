@@ -46,27 +46,24 @@
 	            <table>
 	                <tr>
 	                    <td>Username: </td>
-	                    <td>hello123</td>
+	                    <td><?php echo $_SESSION['userName']?></td>
 	                </tr>
 	                <tr>
 	                    <td>First Name: </td>
-	                    <td>David</td>
+	                    <td><?php echo $_SESSION['firstName']?></td>
 	                </tr>
 	                <tr>
 	                    <td>Last Name: </td>
-	                    <td>Moreno</td>
+	                    <td><?php echo $_SESSION['lastName']?></td>
 	                </tr>
 	                <tr>
 	                    <td>Email: </td>
-	                    <td>david@gmail.com</td>
-	                </tr>
-	                <tr>
-	                    <td>Password: </td>
-	                    <td>*********</td>
+	                    <td><?php echo $_SESSION['email']?></td>
 	                </tr>
 	                <tr>
 	                    <td>Short Bio: </td>
-	                    <td>My Name is David. I like to play Fortnite! I am a CS student a Laurier.</td>
+	                    <td><?php if ($_SESSION['shortBio'] != NULL){echo $_SESSION['shortBio'];}
+								  else{echo "Nothing here yet...";}?></td>
 	                </tr>
 	            </table>
 	        </div>
@@ -77,7 +74,8 @@
 	                    <td>Current Profile Picture:</td>
 	                </tr>
 	                <tr>
-	                    <td><img src="./images/image9.jpg"></td>
+	                    <td><img src="./images/user/<?php if($_SESSION['picName'] != NULL){echo $_SESSION['picName'];}
+														  else{echo "0";}?>.png"></td>
 	                </tr>
 	            </table>
 	        </div>
