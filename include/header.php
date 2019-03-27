@@ -12,6 +12,7 @@
 
 	Version  2019-03-02
 	-->
+
 <nav class="header navbar navbar-expand">
 	<div class="nav col-md-6">
 		<div id="logo" class="mr-2">
@@ -27,7 +28,7 @@
 				<img src="images/help.png" alt="Help Image" style="width:100%;height:100%;object-fit:contain;"/>
 			</a>
 			<a href="profile.php" class="headerLinks mr-2 mt-4"> PROFILE </a>
-			<a href="landing_login_signup.php" class="headerLinks mt-4"> LOG OUT </a>
+			<a href="logOut.php" class="headerLinks mt-4"> LOG OUT </a>
 		</div>
 	</div>
 </nav>
