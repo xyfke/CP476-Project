@@ -62,8 +62,7 @@
 	                </tr>
 	                <tr>
 	                    <td>Short Bio: </td>
-	                    <td><?php if ($_SESSION['shortBio'] != NULL){echo $_SESSION['shortBio'];}
-								  else{echo "Nothing here yet...";}?></td>
+	                    <td><?php echo $_SESSION['shortBio']?></td>
 	                </tr>
 	            </table>
 	        </div>
@@ -74,8 +73,7 @@
 	                    <td>Current Profile Picture:</td>
 	                </tr>
 	                <tr>
-	                    <td><img src="./images/user/<?php if($_SESSION['picName'] != NULL){echo $_SESSION['picName'];}
-														  else{echo "0";}?>.png"></td>
+	                    <td><img src="./images/user/<?php echo $_SESSION['picName'];?>.png"></td>
 	                </tr>
 	            </table>
 	        </div>
