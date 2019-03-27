@@ -13,6 +13,14 @@
 	Version  2019-03-02
 	-->
 
+<?php
+	session_start();
+
+	if (!isset($_SESSION['userName'])){
+		header("Location: landing_login_signup.php");
+	}
+?>
+
 <html lang="en">
     <header>
         <title>White Board</title>

@@ -12,6 +12,9 @@
 
 	Version  2019-03-02
 	-->
+<?php
+include 'landing_process.php';
+?>
 
 <html lang = "en">
 	<head>
@@ -25,124 +28,25 @@
 		<nav id="loginHeader" class="navbar navbar-expand py-3">
 			<div class="accountText col-md-3"></div>
 			<div class="col-md-9">
-				<form name="loginForm" method="post" class="nav float-right">
+				<form name="loginForm" method="post" class="nav float-right" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 					<div class="mr-1">
 						<div class="loginFormTitles"> Username </div>
-						<input type="text" name="userName" class="roundTextBox">
+						<input type="text" name="userNameLog" class="roundTextBox" value="<?php echo $userNameLog ?>">
 					</div>
 					<div class="mr-1">
 						<div class="loginFormTitles"> Password </div>
-						<input type="password" name="password" class="roundTextBox">
+						<input type="password" name="passwordLog" class="roundTextBox">
 					</div>
 					<div class="mr-1">
-						<div style="visibility: hidden"> . </div>
-						<input type="submit" formaction="landing_home.php" name="submit" value="LOG IN" class="subButtons"/>
+						<div style="color:red; visibility: <?php echo $failDisplay ?>">
+							<?php echo $logErr ?>
+						</div>
+						<input type="submit" name="logIn" value="LOG IN" class="subButtons"/>
 					</div>
 				</form>
 			</div>
 		</nav>
 
-		<?php
-			// --------------------------------------------------------------------------------------------------------------- SIGN UP VALIDATION
-			// define variables to hold form values
-			$userName = $firstName = $lastName = $email = "";
-			// define variables to hold form error messages
-			$userNameErr = $firstNameErr = $lastNameErr = $emailErr = $passwordErr = $passwordRepeatErr = "";
-			// define variables to hold form error styling (initialized at non-error)
-			$userNameClass = $firstNameClass = $lastNameClass = $emailClass = $paswordClass = $passwordRepeatClass = "";
-			$formValid = true;
-			$formAction = "";
-			$errorDisplay = "none";
-			// if the form was submitted, go on with the validation checks
-			if ($_SERVER["REQUEST_METHOD"] == "POST") {
-				// ----------------------------------------------------------------------------- validate user name
-				$validFormat = "/^[A-Za-z0-9\s]+$/";
-				if(!preg_match($validFormat, $_POST["userName"])){
-					$userNameErr = "Only letters, numbers, and white space allowed for first name";
-					$formValid = false;
-					if(empty($_POST["userName"])){
-						$userNameErr = "User name is required";
-					}
-					// wrong format changes form to its red error display
-					$userNameClass = "is-invalid";
-				}
-				// save value entered so that it doesn't have to be re-typed
-				$userName = $_POST["userName"];
-				// ----------------------------------------------------------------------------- validate first name
-				$validFormat = "/^[A-Za-z\s]+$/";
-				if(!preg_match($validFormat, $_POST["firstName"])){
-					$firstNameErr = "Only letters and white space allowed for first name";
-					$formValid = false;
-					if(empty($_POST["firstName"])){
-						$firstNameErr = "First name is required";
-					}
-					// wrong format changes form to its red error display
-					$firstNameClass = "is-invalid";
-				}
-				// save value entered so that it doesn't have to be re-typed
-				$firstName = $_POST["firstName"];
-				// ----------------------------------------------------------------------------- validate last name
-				$validFormat = "/^[A-Za-z\s]+$/";
-				if(!preg_match($validFormat, $_POST["lastName"])){
-					$lastNameErr = "Only letters and white space allowed for last name";
-					$formValid = false;
-					if(empty($_POST["lastName"])){
-						$lastNameErr = "Last name is required";
-					}
-					// wrong format changes form to its red error display
-					$lastNameClass = "is-invalid";
-				}
-				// save value entered so that it doesn't have to be re-typed
-				$lastName = $_POST["lastName"];
-				// ----------------------------------------------------------------------------- validate email
-				$validFormat = "/^[A-Za-z0-9]+@[A-Za-z0-9]+.[A-Za-z0-9]+$/";
-				if(!preg_match($validFormat, $_POST["email"])){
-					$emailErr = "Email should be of the format xx@yyy.zzz";
-					$formValid = false;
-					if(empty($_POST["email"])){
-						$emailErr = "Email is required";
-					}
-					// wrong format changes form to its red error display
-					$emailClass = "is-invalid";
-				}
-				// save value entered so that it doesn't have to be re-typed
-				$email = $_POST["email"];
-				// ----------------------------------------------------------------------------- validate password
-				$validFormat = "/^.{6,18}$/";
-				if(!preg_match($validFormat, $_POST["password"])){
-					$passwordErr = "Password should be between 6 and 18 characters";
-					$formValid = false;
-					if(empty($_POST["password"])){
-						$passwordErr = "Password is required";
-					}
-					// wrong format changes form to its red error display
-					$passwordClass = "is-invalid";
-					// password repeat will also show error since it will be re-typed too
-					$passwordRepeatClass = "is-invalid";
-				}
-				// ----------------------------------------------------------------------------- validate password repeat
-				if(empty($_POST["passwordRepeat"]) || $_POST["password"] != $_POST["passwordRepeat"]){
-					$passwordRepeatErr = "Passwords should match";
-					$formValid = false;
-					if(empty($_POST["passwordRepeat"])){
-						$passwordRepeatErr = "Password repeat is required";
-					}
-					// wrong format changes form to its red error display
-					$passwordRepeatClass = "is-invalid";
-					// password will also show error since it will be re-typed too
-					$passwordClass = "is-invalid";
-				}
-				// ----------------------------------------------------------------------------- if form is not valid then display errors
-				if (!$formValid){
-					$errorDisplay = "block";
-				}
-				// ----------------------------------------------------------------------------- if form is valid then take to home page
-				else{
-					$formAction = "";
-				}
-
-			}
-		?>
 		<div class="row">
 			<div class="col-md-6 mt-4">
 				<form id="signupForm" name="signupForm" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
@@ -162,7 +66,7 @@
 						<input type="password" name="passwordRepeat" placeholder="Repeat Password" class="<?php echo'form-control col-sm-6 ' . $passwordRepeatClass?>">
 					</div>
 					<div class="mb-2">
-						<input type="submit" formaction="<?php echo $formAction ?>" name="submit" value="SIGN UP" id="signupSubButton"/>
+						<input type="submit" name="signUp" value="SIGN UP" id="signupSubButton"/>
 					</div>
 					<div class="pl-4 pb-2" style="color:red; text-align:left; display: <?php echo $errorDisplay ?>">
 						<?php if ($userNameErr != ""){echo $userNameErr;echo "<br>";}?>
