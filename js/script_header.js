@@ -15,14 +15,28 @@
 window.onload = start;
 
 function start() {
-	var sessionLink = document.querySelector("#sessionLink");
 	var logoImg = document.querySelector("#logoImg");
+	// ----------------------------------------------------------- classroom link responsiveness
+	var sessionLink = document.querySelector("#sessionLink");
 	sessionLink.addEventListener("mouseover", function(){
-		// update logo to left spotlight lit up
-		logoImg.src = "images/logo_single.png";
+		// update logo to one that would display in classroom
+		var classImg = logoImg.classList[1];
+		logoImg.src = "images/" + classImg + ".png";
 	});
 	sessionLink.addEventListener("mouseout", function(){
-		// update logo to no spotlight lit up
-		logoImg.src = "images/logo_og.png";
+		// update logo to one that displays in other pages
+		var homeImg = logoImg.classList[0];
+		logoImg.src = "images/" + homeImg + ".png";
+	});
+	// ----------------------------------------------------------- log out link responsiveness
+	var logOutLink = document.querySelector("#logOutTextHome");
+	logOutLink.addEventListener("mouseover", function(){
+		// update logo to one that would display when session ends
+		logoImg.src = "images/sessZero.png";
+	});
+	logOutLink.addEventListener("mouseout", function(){
+		// update logo to one that displays in other pages
+		var homeImg = logoImg.classList[0];
+		logoImg.src = "images/" + homeImg + ".png";
 	});
 }

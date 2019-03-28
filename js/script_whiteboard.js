@@ -67,14 +67,63 @@ function toolButtons() {
 
 // ----------------------------------------------------------------------------------------- nav bar
 function navLogo() {
-	var sessionLinkSess = document.querySelector("#sessionLinkSess");
 	var logoImgSess = document.querySelector("#logoImgSess");
+	// ----------------------------------------------------------- logo link responsiveness
+	var logo = document.querySelector("#logo");
+	logo.addEventListener("mouseover", function(){
+		// update logo to one that would display in other pages
+		var homeImg = logoImgSess.classList[0];
+		logoImgSess.src = "images/" + homeImg + ".png";
+	});
+	logo.addEventListener("mouseout", function(){
+		// update logo to one that displays in classroom
+		var classImg = logoImgSess.classList[1];
+		logoImgSess.src = "images/" + classImg + ".png";
+	});
+	// ----------------------------------------------------------- end class link responsiveness
+	var sessionLinkSess = document.querySelector("#sessionLinkSess");
 	sessionLinkSess.addEventListener("mouseover", function(){
-		// update logo to left spotlight lit up
-		logoImgSess.src = "images/logo_og.png";
+		// update logo to one that would display when class ends
+		logoImgSess.src = "images/sessZero.png";
 	});
 	sessionLinkSess.addEventListener("mouseout", function(){
-		// update logo to no spotlight lit up
-		logoImgSess.src = "images/logo_single.png";
+		// update logo to one that displays in classroom
+		var classImg = logoImgSess.classList[1];
+		logoImgSess.src = "images/" + classImg + ".png";
+	});
+	// ----------------------------------------------------------- help link responsiveness
+	var help = document.querySelector("#help");
+	help.addEventListener("mouseover", function(){
+		// update logo to one that would display in other pages
+		var homeImg = logoImgSess.classList[0];
+		logoImgSess.src = "images/" + homeImg + ".png";
+	});
+	help.addEventListener("mouseout", function(){
+		// update logo to one that displays in classroom
+		var classImg = logoImgSess.classList[1];
+		logoImgSess.src = "images/" + classImg + ".png";
+	});
+	// ----------------------------------------------------------- profile link responsiveness
+	var prof = document.querySelector("#profileText");
+	prof.addEventListener("mouseover", function(){
+		// update logo to one that would display in other pages
+		var homeImg = logoImgSess.classList[0];
+		logoImgSess.src = "images/" + homeImg + ".png";
+	});
+	prof.addEventListener("mouseout", function(){
+		// update logo to one that displays in classroom
+		var classImg = logoImgSess.classList[1];
+		logoImgSess.src = "images/" + classImg + ".png";
+	});
+	// ----------------------------------------------------------- log out link responsiveness
+	var logOutLink = document.querySelector("#logOutText");
+	logOutLink.addEventListener("mouseover", function(){
+		// update logo to one that would display when class ends
+		logoImgSess.src = "images/sessZero.png";
+	});
+	logOutLink.addEventListener("mouseout", function(){
+		// update logo to one that displays in classroom
+		var classImg = logoImgSess.classList[1];
+		logoImgSess.src = "images/" + classImg + ".png";
 	});
 }

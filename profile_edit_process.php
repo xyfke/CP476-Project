@@ -27,7 +27,7 @@
 	// define variables to hold form error messages
 	$userNameErr = $firstNameErr = $lastNameErr = $emailErr = $passwordOldErr = $passwordNewErr = $passwordRepeatErr = $shortBioErr = $picNameErr = "";
 	// define variables to hold form error styling (initialized at non-error)
-	$userNameStyle = $firstNameStyle = $lastNameStyle = $emailStyle = $passwordOldStyle = $passwordNewStyle = $passwordRepeatStyle = $shortBioStyle = $picNameStyle = "#f5f5dc";
+	$userNameStyle = $firstNameStyle = $lastNameStyle = $emailStyle = $passwordOldStyle = $passwordNewStyle = $passwordRepeatStyle = $shortBioStyle = $picNameStyle = $checkPassStyle = "#f5f5dc";
 	$formValid = true;
 	$correctPassword = false;
 	$errorDisplay = "none";
@@ -103,13 +103,7 @@
 		}
 		if (!$correctPassword){
 			$formValid = false;
-			$passwordOldErr = "Incorrect password";
-			// wrong format changes form to its red error display
-			$passwordOldStyle = "red";
-			// new password will also show error since it will be re-typed too
-			$passwordNewStyle = "red";
-			// password repeat will also show error since it will be re-typed too
-			$passwordRepeatStyle = "red";
+			$passwordOldErr = "Correct password required to verify changes";
 		}
 		// ----------------------------------------------------------------------------- validate new password
 		$validFormat = "/^.{6,18}$/";
@@ -117,48 +111,36 @@
 			$passwordNewErr = "New password should be between 6 and 18 characters";
 			$formValid = false;
 			if(empty($_POST["passwordNew"])){
-				$passwordNewErr = "New password is required";
+				$passwordNewErr = "New password is required if option is checked";
 			}
-			// wrong format changes form to its red error display
-			$passwordNewStyle = "red";
-			// old password will also show error since it will be re-typed too
-			$passwordOldStyle = "red";
-			// password repeat will also show error since it will be re-typed too
-			$passwordRepeatStyle = "red";
 		}
 		if(!empty($_POST["passwordNew"]) && !isset($_POST["checkPassChange"])){
 			$passwordNewErr = "It looks like you want to change your password, please check the option";
 			$formValid = false;
 			// wrong format changes form to its red error display
 			$passwordNewStyle = "red";
-			// old password will also show error since it will be re-typed too
-			$passwordOldStyle = "red";
 			// password repeat will also show error since it will be re-typed too
 			$passwordRepeatStyle = "red";
+			// password change check will also show error since it will be re-checked too
+			$checkPassStyle = "red";
 		}
 		// ----------------------------------------------------------------------------- validate password repeat
 		if((empty($_POST["passwordRepeat"]) || $_POST["passwordNew"] != $_POST["passwordRepeat"]) && isset($_POST["checkPassChange"])){
-			$passwordRepeatErr = "Passwords should match";
+			$passwordRepeatErr = "New passwords should match";
 			$formValid = false;
 			if(empty($_POST["passwordRepeat"])){
-				$passwordRepeatErr = "Password repeat is required";
+				$passwordRepeatErr = "New password repeat is required if option is checked";
 			}
-			// wrong format changes form to its red error display
-			$passwordRepeatStyle = "red";
-			// old password will also show error since it will be re-typed too
-			$passwordOldStyle = "red";
-			// new password will also show error since it will be re-typed too
-			$passwordNewStyle = "red";
 		}
 		if(!empty($_POST["passwordRepeat"]) && !isset($_POST["checkPassChange"])){
 			$passwordRepeatErr = "It looks like you want to change your password, please check the option";
 			$formValid = false;
 			// wrong format changes form to its red error display
 			$passwordRepeatStyle = "red";
-			// old password will also show error since it will be re-typed too
-			$passwordOldStyle = "red";
 			// new password will also show error since it will be re-typed too
 			$passwordNewStyle = "red";
+			// password change check will also show error since it will be re-checked too
+			$checkPassStyle = "red";
 		}
 		// ----------------------------------------------------------------------------- validate short bio
 		if(strlen($_POST["shortBio"]) > 5000){
@@ -172,6 +154,17 @@
 		// ----------------------------------------------------------------------------- if form is not valid then display errors
 		if (!$formValid){
 			$errorDisplay = "block";
+			// change password display to error, since it will have to be retyped
+			$passwordOldStyle = "red";
+
+			if (isset($_POST["checkPassChange"])){
+				// new password will also show error since it will be re-typed too
+				$passwordNewStyle = "red";
+				// password repeat will also show error since it will be re-typed too
+				$passwordRepeatStyle = "red";
+				// password change check will also show error since it will be re-checked too
+				$checkPassStyle = "red";
+			}
 		}
 		// ----------------------------------------------------------------------------- if form is valid then change profile
 		else{

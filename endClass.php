@@ -15,6 +15,9 @@
 
 <?php
 	session_start();
-	session_destroy();
-	header("Location: landing_login_signup.php");
+	$sessStatHome = "sessZero";
+	$sessStatClass = "sessOne";
+	$_SESSION['sessStatHome'] = $sessStatHome;
+	$_SESSION['sessStatClass'] = $sessStatClass;
+	header("Location: landing_home.php");
 ?>

@@ -64,20 +64,20 @@
                         <td><input type="text" name="email" value="<?php echo $email?>" class="roundTextBox"></td>
                     </tr>
                     <tr>
-                        <td style="color:<?php echo $passwordOldStyle?>">Enter Old Password: </td>
+                        <td style="color:<?php echo $shortBioStyle?>">Short Bio: </td>
+                        <td><textarea name="shortBio" rows="10" cols="30" class="roundTextBox"><?php echo $shortBio?></textarea></td>
+                    </tr>
+					<tr>
+                        <td style="color:<?php echo $passwordOldStyle?>">Password: </td>
                         <td><input type="password" name="passwordOld" class="roundTextBox"></td>
                     </tr>
                     <tr>
                         <td style="color:<?php echo $passwordNewStyle?>">Enter New Password: </td>
-                        <td><input type="password" name="passwordNew" class="roundTextBox"></td>
+                        <td><input type="password" name="passwordNew" placeholder="(only if changing)" class="roundTextBox"></td>
                     </tr>
                     <tr>
-                        <td style="color:<?php echo $passwordRepeatStyle?>">Re-enter New Password: </td>
-                        <td><input type="password" name="passwordRepeat" class="roundTextBox"></td>
-                    </tr>
-                    <tr>
-                        <td style="color:<?php echo $shortBioStyle?>">Short Bio: </td>
-                        <td><textarea name="shortBio" rows="10" cols="30" class="roundTextBox"> <?php echo $shortBio?> </textarea></td>
+                        <td style="color:<?php echo $passwordRepeatStyle?>">New Password: </td>
+                        <td><input type="password" name="passwordRepeat" placeholder="(re-enter if changed)" class="roundTextBox"></td>
                     </tr>
                 </table>
             </div>
@@ -99,7 +99,7 @@
             <br style="clear:both;">
             <br>
 
-	        <div class="checkboxText"><input name="checkPassChange" type="checkbox" class="checkbox">I changed my password</div>
+	        <div class="checkboxText" style="color:<?php echo $checkPassStyle?>"><input name="checkPassChange" type="checkbox" class="checkbox">I changed my password</div>
 	        <br>
 	        <button type="submit" class="subButtons">Done</button>
 		</form>
