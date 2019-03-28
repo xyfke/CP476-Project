@@ -17,10 +17,10 @@
 	<div class="nav col-md-6">
 		<div id="logo" class="mr-2">
 			<a href="landing_home.php">
-				<img src="images/logo_og.png" alt="Logo Image" id="logoImg"/>
+				<img class="<?php echo $_SESSION['sessStatHome']?> <?php echo $_SESSION['sessStatClass']?>" src="images/<?php echo $_SESSION['sessStatHome']?>.png" alt="Logo Image" id="logoImg"/>
 			</a>
 		</div>
-		<a href="whiteboard.php" class="headerLinks pt-4" id="sessionLink"> START SESSION </a>
+		<a href="whiteboard.php" class="headerLinks pt-4" id="sessionLink"> CLASSROOM </a>
 	</div>
 	<div class="col-md-6">
 		<div class="nav float-right">
@@ -28,7 +28,7 @@
 				<img src="images/help.png" alt="Help Image" style="width:100%;height:100%;object-fit:contain;"/>
 			</a>
 			<a href="profile.php" class="headerLinks mr-2 mt-4"> PROFILE </a>
-			<a href="logOut.php" class="headerLinks mt-4"> LOG OUT </a>
+			<a href="logOut.php" class="headerLinks mt-4" id="logOutTextHome"> LOG OUT </a>
 		</div>
 	</div>
 </nav>

@@ -17,18 +17,18 @@
 	<div class="nav col-md-6">
 		<div id="logo" class="mr-2">
 			<a href="landing_home.php">
-				<img src="images/logo_single.png" alt="Logo Image" id="logoImgSess"/>
+				<img class="<?php echo $_SESSION['sessStatHome']?> <?php echo $_SESSION['sessStatClass']?>" src="images/<?php echo $_SESSION['sessStatClass']?>.png" alt="Logo Image" id="logoImgSess"/>
 			</a>
 		</div>
-		<a href="landing_home.php" class="sessionLinkRun pt-4" id="sessionLinkSess"> END SESSION </a>
+		<a href="endClass.php" class="sessionLinkRun pt-4" id="sessionLinkSess"> END CLASS </a>
 	</div>
 	<div class="col-md-6">
 		<div class="nav float-right">
 			<a href="help.php" id="help" class="mt-2">
 				<img src="images/help.png" alt="Help Image" style="width:100%;height:100%;object-fit:contain;"/>
 			</a>
-			<a href="profile.php" class="headerLinks mr-2 mt-4"> PROFILE </a>
-			<a href="landing_login_signup.php" class="headerLinks mt-4"> LOG OUT </a>
+			<a href="profile.php" class="headerLinks mr-2 mt-4" id="profileText"> PROFILE </a>
+			<a href="landing_login_signup.php" class="headerLinks mt-4" id="logOutText"> LOG OUT </a>
 		</div>
 	</div>
 </nav>
