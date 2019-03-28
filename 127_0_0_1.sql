@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2019 at 08:54 AM
+-- Generation Time: Mar 28, 2019 at 12:54 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `aplusdb`
 --
+CREATE DATABASE IF NOT EXISTS `aplusdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `aplusdb`;
 
 -- --------------------------------------------------------
 
