@@ -39,4 +39,6 @@ function start() {
 		var homeImg = logoImg.classList[0];
 		logoImg.src = "images/" + homeImg + ".png";
 	});
+
+	var joinBtn = document.querySelector("#")
 }
