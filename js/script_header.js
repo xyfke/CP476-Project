@@ -40,5 +40,28 @@ function start() {
 		logoImg.src = "images/" + homeImg + ".png";
 	});
 
-	var joinBtn = document.querySelector("#")
+	var joinBtn = document.querySelector("#join");
+	joinBtn.addEventListener("click", function() {
+		makeSomeCalls();
+	})
+}
+
+function makeSomeCalls() {
+	var select = $('#sessionID').val();
+	var sessionPortion = "sessionID=" + select;
+
+	$.ajax({
+        type : "GET",
+        async : false,
+        url : "join_session.php",
+        data : sessionPortion,
+        dataType : 'json',
+        success : function (d) {
+            if (d.status == "ok") {
+				window.location.replace("whiteboard.php?sessionCode=" + select);
+			}
+        }
+    });
+
+	
 }

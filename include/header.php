@@ -59,7 +59,7 @@
 					<form>
 						<h5>Join session</h5>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Session ID">
+							<input type="text" class="form-control" placeholder="Session ID" id="sessionID">
 							<button type="button" class="btn btn-primary mt-2" id="join">Join Session</button>
 						</div>
 					</form>
