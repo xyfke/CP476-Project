@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2019 at 01:44 AM
+-- Generation Time: Mar 29, 2019 at 10:09 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -71,8 +71,16 @@ CREATE TABLE `point` (
 CREATE TABLE `session` (
   `SessionID` int(11) NOT NULL,
   `SessionName` varchar(50) NOT NULL,
+  `SessionCode` varchar(255) NOT NULL,
   `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `session`
+--
+
+INSERT INTO `session` (`SessionID`, `SessionName`, `SessionCode`, `Timestamp`) VALUES
+(6, 'Principles of Fortnite Betterness', '16343107141553893743', '2019-03-29 21:09:03');
 
 -- --------------------------------------------------------
 
@@ -111,6 +119,17 @@ CREATE TABLE `usersession` (
   `UserType` int(11) NOT NULL,
   `Status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `usersession`
+--
+
+INSERT INTO `usersession` (`UserID`, `SessionID`, `UserType`, `Status`) VALUES
+(7, 2, 1, 1),
+(7, 3, 1, 1),
+(7, 4, 1, 1),
+(7, 5, 1, 1),
+(7, 6, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -189,13 +208,13 @@ ALTER TABLE `point`
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
-  MODIFY `SessionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `SessionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -20,8 +20,11 @@
 		header("Location: landing_login_signup.php");
 	}
 
-	if (isset($_GET['sessionID'])) {
-		$sessionID = $_GET['sessionID'];
+	if (isset($_GET['sessionCode'])) {
+		$sessionCode = $_GET['sessionCode'];
+	}
+	if (isset($_GET['sessionName'])) {
+		$sessionName = $_GET['sessionName'];
 	}
 
 ?>
@@ -47,7 +50,8 @@
     <?php include("include/header_session.php") ?>
 
 	<div class="container" style="width:940px">
-	    <h1>Introduction to Fortnite - Session: <?php echo $sessionID; ?></h1>
+	    <h1><?php echo "Class Name: ".$sessionName; ?></h1>
+		<div class="mb-1" style="color:#dfd7c3"> <?php echo "Code: ".$sessionCode; ?></div>
 
 	    <div class="board">
 	        <h3>White Board:</h3>
