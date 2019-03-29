@@ -20,7 +20,7 @@
 				<img class="<?php echo $_SESSION['sessStatHome']?> <?php echo $_SESSION['sessStatClass']?>" src="images/<?php echo $_SESSION['sessStatHome']?>.png" alt="Logo Image" id="logoImg"/>
 			</a>
 		</div>
-		<a href="whiteboard.php" class="headerLinks pt-4" id="sessionLink"> CLASSROOM </a>
+		<div class="headerLinks pt-4" id="sessionLink" data-toggle="modal" data-target="#myModal"> CLASSROOM </div>
 	</div>
 	<div class="col-md-6">
 		<div class="nav float-right">
@@ -30,5 +30,45 @@
 			<a href="profile.php" class="headerLinks mr-2 mt-4"> PROFILE </a>
 			<a href="logOut.php" class="headerLinks mt-4" id="logOutTextHome"> LOG OUT </a>
 		</div>
+	</div>
+
+	<!-- The Modal -->
+	<div class="modal" id="myModal">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+
+		<!-- Modal Header -->
+		<div class="modal-header">
+			<h4 class="modal-title">Create or Join Session</h4>
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+		</div>
+
+		<!-- Modal body -->
+		<div class="modal-body container">
+			<div class="row">
+				<div class="col col-md-6">
+					<form>
+						<h5>Create session</h5>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Session Name">
+							<button type="button" class="btn btn-primary mt-2">Create Session</button>
+						</div>
+					</form>
+				</div> 
+				<div class="col col-md-6">
+					<form>
+						<h5>Join session</h5>
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Session ID">
+							<button type="button" class="btn btn-primary mt-2">Join Session</button>
+						</div>
+					</form>
+				</div> 
+			</div>
+			
+		</div>
+
+		</div>
+	</div>
 	</div>
 </nav>
