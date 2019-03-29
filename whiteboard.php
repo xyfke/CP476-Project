@@ -19,6 +19,11 @@
 	if (!isset($_SESSION['userName'])){
 		header("Location: landing_login_signup.php");
 	}
+
+	if (isset($_GET['sessionID'])) {
+		$sessionID = $_GET['sessionID'];
+	}
+
 ?>
 
 <html lang="en">
@@ -42,7 +47,7 @@
     <?php include("include/header_session.php") ?>
 
 	<div class="container" style="width:940px">
-	    <h1>Introduction to Fortnite - Session: OB?78A4</h1>
+	    <h1>Introduction to Fortnite - Session: <?php echo $sessionID; ?></h1>
 
 	    <div class="board">
 	        <h3>White Board:</h3>

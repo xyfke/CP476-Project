@@ -47,11 +47,11 @@
 		<div class="modal-body container">
 			<div class="row">
 				<div class="col col-md-6">
-					<form>
+					<form method="post" action="create_session.php">
 						<h5>Create session</h5>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Session Name">
-							<button type="button" class="btn btn-primary mt-2">Create Session</button>
+							<input type="text" class="form-control" placeholder="Session Name" name="sessionName">
+							<button type="submit" class="btn btn-primary mt-2">Create Session</button>
 						</div>
 					</form>
 				</div> 
@@ -60,7 +60,7 @@
 						<h5>Join session</h5>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Session ID">
-							<button type="button" class="btn btn-primary mt-2">Join Session</button>
+							<button type="button" class="btn btn-primary mt-2" id="join">Join Session</button>
 						</div>
 					</form>
 				</div> 
