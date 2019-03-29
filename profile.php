@@ -73,7 +73,7 @@
 	                    <td>Current Profile Picture:</td>
 	                </tr>
 	                <tr>
-	                    <td><img src="./images/user/<?php echo $_SESSION['picName'];?>.png"></td>
+	                    <td><img src="./images/user/<?php echo $_SESSION['picName'];?>"></td>
 	                </tr>
 	            </table>
 	        </div>

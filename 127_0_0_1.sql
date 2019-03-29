@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2019 at 12:54 AM
+-- Generation Time: Mar 29, 2019 at 01:44 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -88,7 +88,7 @@ CREATE TABLE `user` (
   `UserPassword` varchar(255) NOT NULL,
   `Email` varchar(254) NOT NULL,
   `ShortBio` longtext,
-  `PicName` varchar(20) NOT NULL
+  `PicName` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -96,8 +96,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`UserID`, `Username`, `FirstName`, `LastName`, `UserPassword`, `Email`, `ShortBio`, `PicName`) VALUES
-(6, 'cloudMaster', 'fafa', 'ke', '$2y$10$h6QE8Qi9jM6r3hqyu5/TTuLZ.IDuvS58JIQkivvvAQMn3aAyRkp2q', 'fafa@league.com', 'Nothing here yet...', '0'),
-(7, 'senorDavid', 'david', 'moreno', '$2y$10$biiQJaVJOiG29xIQWWqYt.mmDBfAFnsnJyLS.MXemqQET1h7Me6Ye', 'david@fortniteisbetter.ca', 'They call me david.           ', '0');
+(6, 'cloudMaster', 'fafa', 'ke', '$2y$10$h6QE8Qi9jM6r3hqyu5/TTuLZ.IDuvS58JIQkivvvAQMn3aAyRkp2q', 'fafa@league.com', 'Nothing here yet...', '15122474951553820024.png'),
+(7, 'senorDavid', 'david', 'moreno', '$2y$10$o/SD9I1pHXNrZCgCvSQSVu0b5yF9NULdPff9cpuJqsVLHqYkMkHLe', 'david@fortniteisbetter.ca', 'They call me david.', '18200786351553819914.png');
 
 -- --------------------------------------------------------
 
@@ -195,7 +195,7 @@ ALTER TABLE `session`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `UserID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

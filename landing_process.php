@@ -138,7 +138,7 @@
 		else{
 			$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 			$shortBio = "Nothing here yet...";
-			$picName = "0";
+			$picName = "0.png";
 			$query = "INSERT INTO user (Username, FirstName, LastName, UserPassword, Email, ShortBio, PicName)
 					  VALUES (?, ?, ?, ?, ?, ?, ?)";
 			runBindedQueryLong($userName, $firstName, $lastName, $password, $email, $shortBio, $picName, "sssssss", $db, $query);
