@@ -43,7 +43,7 @@
       -->
       <?php include("include/header.php") ?>
 
-        <form style="width:980px" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+        <form style="width:980px" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
 			<h1>Edit My Profile</h1>
             <div class="leftPortion">
                 <table>
@@ -77,7 +77,7 @@
                     </tr>
                     <tr>
                         <td style="color:<?php echo $passwordRepeatStyle?>">New Password: </td>
-                        <td><input type="password" name="passwordRepeat" placeholder="(re-enter if changed)" class="roundTextBox"></td>
+                        <td><input type="password" name="passwordRepeat" placeholder="(re-enter if changing)" class="roundTextBox"></td>
                     </tr>
                 </table>
             </div>
@@ -88,7 +88,7 @@
                         <td style="color:<?php echo $picNameStyle?>">Current Profile Picture:</td>
                     </tr>
                     <tr>
-                        <td><img src="./images/user/<?php echo $picName?>.png"></td>
+                        <td><img src="./images/user/<?php echo $picName?>"></td>
                     </tr>
                     <tr>
                         <td><input name="picName" type="file"></td>
@@ -108,10 +108,10 @@
 			<?php if ($firstNameErr != ""){echo $firstNameErr;echo "<br>";}?>
 			<?php if ($lastNameErr != ""){echo $lastNameErr;echo "<br>";}?>
 			<?php if ($emailErr != ""){echo $emailErr;echo "<br>";}?>
+			<?php if ($shortBioErr != ""){echo $shortBioErr;echo "<br>";}?>
 			<?php if ($passwordOldErr != ""){echo $passwordOldErr;echo "<br>";}?>
 			<?php if ($passwordNewErr != ""){echo $passwordNewErr;echo "<br>";}?>
 			<?php if ($passwordRepeatErr != ""){echo $passwordRepeatErr;echo "<br>";}?>
-			<?php if ($shortBioErr != ""){echo $shortBioErr;echo "<br>";}?>
 			<?php if ($picNameErr != ""){echo $picNameErr;echo "<br>";}?>
 		</div>
 

@@ -84,6 +84,15 @@
 		}
 		// save value entered so that it doesn't have to be re-typed
 		$email = $_POST["email"];
+		// ----------------------------------------------------------------------------- validate short bio
+		if(strlen($_POST["shortBio"]) > 5000){
+			$shortBioErr = "Bio should not be longer than 5,000 characters";
+			$formValid = false;
+			// wrong format changes form to its red error display
+			$shortBioStyle = "red";
+		}
+		// save value entered so that it doesn't have to be re-typed
+		$shortBio = $_POST["shortBio"];
 		// ----------------------------------------------------------------------------- validate old password
 		$validFormatPass = "/^.{6,18}$/";
 		if(preg_match($validFormatPass, $_POST["passwordOld"])){
@@ -142,15 +151,24 @@
 			// password change check will also show error since it will be re-checked too
 			$checkPassStyle = "red";
 		}
-		// ----------------------------------------------------------------------------- validate short bio
-		if(strlen($_POST["shortBio"]) > 5000){
-			$shortBioErr = "Bio should not be longer than 5,000 characters";
-			$formValid = false;
-			// wrong format changes form to its red error display
-			$shortBioStyle = "red";
+		// ----------------------------------------------------------------------------- validate pic upload
+		if (isset($_FILES["picName"])){
+			$fileSplit = explode('.',$_FILES["picName"]["name"]);
+			$fileExt = strtolower(end($fileSplit));
+			$fileSize = $_FILES["picName"]["size"];
+			if ($fileSize > 2097152){
+				$picNameErr = "Picture upload cannot be bigger than 2MB";
+				$formValid = false;
+			}
+			if(($fileExt != "png") && ($fileExt != "jpg") && ($fileExt != "jpeg")){
+				$picNameErr = "Picture upload should be a PNG, JPG, or JPEG file";
+				$formValid = false;
+			}
+			if ($fileSize == 0){
+				$picNameErr = "Picture upload should be a valid file";
+				$formValid = false;
+			}
 		}
-		// save value entered so that it doesn't have to be re-typed
-		$shortBio = $_POST["shortBio"];
 		// ----------------------------------------------------------------------------- if form is not valid then display errors
 		if (!$formValid){
 			$errorDisplay = "block";
@@ -165,9 +183,20 @@
 				// password change check will also show error since it will be re-checked too
 				$checkPassStyle = "red";
 			}
+			if (isset($_FILES["picName"])){
+				// picture upload will also show error since it will be re-uploaded too
+				$picNameStyle = "red";
+			}
 		}
 		// ----------------------------------------------------------------------------- if form is valid then change profile
 		else{
+			if (isset($_FILES["picName"])){
+				$fileLocation = $_FILES["picName"]["tmp_name"];
+				$num = rand();
+				$time = time();
+				$picName = $num . $time . "." . $fileExt;
+				move_uploaded_file($fileLocation,"images/user/".$picName);
+			}
 			if (isset($_POST["checkPassChange"])){
 				$password = password_hash($_POST["passwordNew"], PASSWORD_DEFAULT);
 				$query = "UPDATE user SET FirstName = ?, LastName = ?, UserPassword = ?, Email = ?, ShortBio = ?, PicName = ?
