@@ -16,13 +16,14 @@
 <?php
 	session_start();
 	include 'include/functions.php';
-	
+
 	$db = getDB();
 
 	date_default_timezone_set('America/New_York');
 	$timeRn = date("g:i A");
-	$query = "SELECT * FROM chat WHERE SessionID = ? AND UserID != ?";
 
+	// ----------------------------------------------- alert the other user in session that this user has left
+	$query = "SELECT * FROM chat WHERE SessionID = ? AND UserID != ?";
 	if ($statement = mysqli_prepare($db, $query)) {
 		mysqli_stmt_bind_param($statement, 'ii', $_SESSION['classID'], $_SESSION['userId']);
 		mysqli_stmt_execute($statement);
@@ -34,13 +35,14 @@
 
 			$fp = fopen("chats/".$logName, 'a');
 			fwrite($fp,'<div class="container" style="text-align:center">'
-					   .'<div class="row pl-3" style="font-size:0.8em;font-weight:bold"><i>'.$_SESSION['userName'].' has left the chat</i></div>'
+					   .'<div class="row pl-3" style="font-size:0.8em;font-weight:bold"><i>'.$_SESSION['userName'].' has left the class</i></div>'
 					   .'<div class="row pl-3" style="font-size:0.8em"><i>'.$timeRn.'</i></div></div>'
 					   .'<div style="clear:both"></div>');
 			fclose($fp);
 		}
 	}
 
+	//---------------------------------------------- change nav bar display for no joined session
 	$sessStatHome = "sessZero";
 	$sessStatClass = "sessOne";
 	$_SESSION['sessStatHome'] = $sessStatHome;

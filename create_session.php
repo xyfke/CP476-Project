@@ -24,28 +24,28 @@ if (isset($_POST["sessionName"])) {
     $userID = $_SESSION['userId'];
     $sessionName = $_POST["sessionName"];
 
+	// ------------------------------- generate random code
 	$num = rand();
 	$time = time();
 	$sessionCode = $num . $time;
 
+	// ----------------------------------------------------------------------- add session to database
     $query = "INSERT INTO session (SessionName, SessionCode) VALUES (?, ?)";
     if ($statement = mysqli_prepare($db, $query)) {
-
-		// insert params
 		mysqli_stmt_bind_param($statement, 'ss', $sessionName, $sessionCode);
 		mysqli_stmt_execute($statement);
 	}
 
+	// ------------------------------------------------- extract the id
     $query = "SELECT LAST_INSERT_ID() FROM session";
     if ($statement = mysqli_prepare($db, $query)) {
-
-		// insert params
 		mysqli_stmt_execute($statement);
         $result = mysqli_stmt_get_result($statement);
         $row = mysqli_fetch_array($result);
         $sessionID = $row[0];
 	}
 
+	// ------------------------------------------------------------------------------------------- add current user to session
     $query = "INSERT INTO usersession (UserID, SessionID, UserType, Status) VALUES (?,?, 1, 1)";
     if ($statement = mysqli_prepare($db, $query)) {
 		// insert params
@@ -53,17 +53,17 @@ if (isset($_POST["sessionName"])) {
 		mysqli_stmt_execute($statement);
     }
 
-	// ------------------------------------------------------------------------------------------------- create chat session logs
+	// ----------------------------------------------------------------------------- create chat session log for current user
 	$num = rand();
 	$time = time();
 	$logLocation = $num . $time .".html";
 	$query = "INSERT INTO chat (UserID, SessionID, LogLocation) VALUES (?,?,?)";
 	if ($statement = mysqli_prepare($db, $query)) {
-		// insert params
 		mysqli_stmt_bind_param($statement, 'iis', $userID, $sessionID, $logLocation);
 		mysqli_stmt_execute($statement);
 	}
 
+	//---------------------------------------------- remember user's ids
 	$_SESSION['classID'] = $sessionID;
 	$_SESSION['logLocation'] = $logLocation;
 
