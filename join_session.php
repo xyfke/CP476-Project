@@ -9,6 +9,11 @@ if (isset($_POST["sessionCode"])) {
     $userID = $_SESSION['userId'];
     $sessionCode = $_POST["sessionCode"];
 
+	date_default_timezone_set('America/New_York');
+	$timeRn = date("g:i A");
+	// -------------------------------------------- initialize chat message as already a member
+	$chatMsg = 'is paying attention again';
+
 	// ----------------------------------------------------------- find the current session from database
     $query = "SELECT * From session WHERE sessionCode=?";
     if ($statement = mysqli_prepare($db, $query)) {
@@ -56,23 +61,22 @@ if (isset($_POST["sessionCode"])) {
 					$sessStatClass = "sessThree";
 					$_SESSION['sessStatHome'] = $sessStatHome;
 					$_SESSION['sessStatClass'] = $sessStatClass;
+					// -------------------------------------------- message for chat is about joining
+					$chatMsg = 'has joined the class';
 				}
 			}
 
 			if(!isset($logLocation)){
 				$logLocation = $_SESSION['logLocation'];
 			}
-			// ----------------------------------------------- update chat log with session join message
-			date_default_timezone_set('America/New_York');
-			$timeRn = date("g:i A");
 
+			// ----------------------------------------------- update chat log with session join message
 			$fp = fopen("chats/".$logLocation, 'a');
 			fwrite($fp,'<div class="container" style="text-align:center">'
-					   .'<div class="row pl-3" style="font-size:0.8em;font-weight:bold"><i>'.$_SESSION['userName'].' has joined the class</i></div>'
+					   .'<div class="row pl-3" style="font-size:0.8em;font-weight:bold"><i>'.$_SESSION['userName']. ' '.$chatMsg.'</i></div>'
 					   .'<div class="row pl-3" style="font-size:0.8em"><i>'.$timeRn.'</i></div></div>'
 					   .'<div style="clear:both"></div>');
 			fclose($fp);
-
 			// ----------------------------------------------- alert the other user in session that this user has joined
 			$query = "SELECT * FROM chat WHERE SessionID = ? AND UserID != ?";
 			if ($statement = mysqli_prepare($db, $query)) {
@@ -86,7 +90,7 @@ if (isset($_POST["sessionCode"])) {
 
 					$fp = fopen("chats/".$logName, 'a');
 					fwrite($fp,'<div class="container" style="text-align:center">'
-							   .'<div class="row pl-3" style="font-size:0.8em;font-weight:bold"><i>'.$_SESSION['userName'].' has joined the class</i></div>'
+							   .'<div class="row pl-3" style="font-size:0.8em;font-weight:bold"><i>'.$_SESSION['userName']. ' '.$chatMsg.'</i></div>'
 							   .'<div class="row pl-3" style="font-size:0.8em"><i>'.$timeRn.'</i></div></div>'
 							   .'<div style="clear:both"></div>');
 				    fclose($fp);
