@@ -45,7 +45,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitMsg"]) && isset(
 				.'<div class="col-md-5"></div>'
 				.'<div class="col-md-7">'
 					.htmlspecialchars($text).'</div></div>'
-				.'<div class="row pr-4" style="font-size:0.8em;float:right"><i>'.$timeRn.'</i></div>'
+				.'<div class="row" style="clear:both;">'
+					.'<div class="col-md-5"></div>'
+					.'<div class="col-md-7">'
+						.'<div style="font-size:0.8em;float:left"><i>'.$timeRn.'</i></div></div></div>'
 				.'<div style="clear:both"></div>');
 		fclose($fp);
 	}
