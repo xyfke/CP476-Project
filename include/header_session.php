@@ -16,7 +16,7 @@
 <nav class="header navbar navbar-expand">
 	<div class="nav col-md-6">
 		<div id="logo" class="mr-2">
-			<a href="landing_home.php">
+			<a href="browseInClass.php?page=landing_home">
 				<img class="<?php echo $_SESSION['sessStatHome']?> <?php echo $_SESSION['sessStatClass']?>" src="images/<?php echo $_SESSION['sessStatClass']?>.png" alt="Logo Image" id="logoImgSess"/>
 			</a>
 		</div>
@@ -24,10 +24,10 @@
 	</div>
 	<div class="col-md-6">
 		<div class="nav float-right">
-			<a href="help.php" id="help" class="mt-2">
+			<a href="browseInClass.php?page=help" id="help" class="mt-2">
 				<img src="images/help.png" alt="Help Image" style="width:100%;height:100%;object-fit:contain;"/>
 			</a>
-			<a href="profile.php" class="headerLinks mr-2 mt-4" id="profileText"> PROFILE </a>
+			<a href="browseInClass.php?page=profile" class="headerLinks mr-2 mt-4" id="profileText"> PROFILE </a>
 			<a href="logOut.php" class="headerLinks mt-4" id="logOutText"> LOG OUT </a>
 		</div>
 	</div>
