@@ -21,10 +21,10 @@
 	}
 
 	if (isset($_GET['sessionCode'])) {
-		$sessionCode = $_GET['sessionCode'];
+		$_SESSION['sessionCode'] = $_GET['sessionCode'];
 	}
 	if (isset($_GET['sessionName'])) {
-		$sessionName = $_GET['sessionName'];
+		$_SESSION['sessionName'] = $_GET['sessionName'];
 	}
 
 ?>
@@ -49,9 +49,9 @@
   <body class="m-auto">
     <?php include("include/header_session.php") ?>
 
-	<div class="container" style="width:940px">
-	    <h1><?php echo "Class Name: ".$sessionName; ?></h1>
-		<div class="mb-1" style="color:#dfd7c3"> <?php echo "Code: ".$sessionCode; ?></div>
+	<div class="container" style="width:980px">
+	    <h1><?php echo "Class Name: ".$_SESSION['sessionName']; ?></h1>
+		<div class="mb-1" style="color:#dfd7c3"> <?php echo "Code: ".$_SESSION['sessionCode']; ?></div>
 
 	    <div class="board">
 	        <h3>White Board:</h3>
@@ -60,10 +60,22 @@
 	        </div>
 	    </div>
 
-	    <div class="chatWindow">
-	        <h3>Session Chat:</h3>
-	        <textarea class="display">Conversation as of Today:</textarea>
-	        <textarea class="enter" placeholder="Press enter to send"></textarea>
+	    <div class="chatWindow" style="background-color:#f6f7f7">
+	        <h3 class="mb-1" style="background-color:#f6f7f7">Classroom Chat:</h3>
+	        <div class="display container" id="chatBox" style="overflow:scroll;background-color:white">
+				<?php $logFile = $_SESSION['logLocation'];
+					if(file_exists($logFile) && filesize($logFile) > 0){
+						$handle = fopen($logFile, "r");
+						$contents = fread($handle, filesize($logFile));
+						fclose($handle);
+
+						echo $contents;
+				}?>
+			</div>
+			<form name="message" action="">
+	        	<textarea name="userMsg" style="resize: none;" class="enter" id="userMsg"></textarea>
+				<input class="mr-1 subButtons" style="float:right" name="submitMsg" type="submit" id="submitMsg" value="SEND" />
+			</form>
 	    </div>
 
 	    <br style="clear : both;">
