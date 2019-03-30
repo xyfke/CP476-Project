@@ -121,7 +121,7 @@ div a {
 }
 
 .chatWindow {
-    width : 240px;
+    width : 280px;
     height : 550px;
     float: right;
     background-color: beige;
@@ -174,7 +174,7 @@ div a {
 .enter {
     margin: 5px;
     height: 80px;
-    width: 220px;
+    width: 270px;
 }
 
 /* -------------------------- */

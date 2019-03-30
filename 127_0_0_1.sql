@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 29, 2019 at 10:09 PM
+-- Generation Time: Mar 30, 2019 at 03:00 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -27,26 +27,33 @@ USE `aplusdb`;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `chat`
+--
+
+CREATE TABLE `chat` (
+  `ChatID` int(11) NOT NULL,
+  `UserID` int(11) NOT NULL,
+  `SessionID` int(11) NOT NULL,
+  `LogLocation` varchar(255) DEFAULT NULL,
+  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `chat`
+--
+
+INSERT INTO `chat` (`ChatID`, `UserID`, `SessionID`, `LogLocation`, `Timestamp`) VALUES
+(34, 7, 40, '13457284421553911146.html', '2019-03-30 01:59:06');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `line`
 --
 
 CREATE TABLE `line` (
   `LineID` int(11) NOT NULL,
   `SessionID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `message`
---
-
-CREATE TABLE `message` (
-  `MessageID` int(11) NOT NULL,
-  `UserID` int(11) NOT NULL,
-  `SessionID` int(11) NOT NULL,
-  `MessageContent` longtext,
-  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -80,7 +87,7 @@ CREATE TABLE `session` (
 --
 
 INSERT INTO `session` (`SessionID`, `SessionName`, `SessionCode`, `Timestamp`) VALUES
-(6, 'Principles of Fortnite Betterness', '16343107141553893743', '2019-03-29 21:09:03');
+(40, 'Principles of Fortnite Betterness', '2036809291553911146', '2019-03-30 01:59:06');
 
 -- --------------------------------------------------------
 
@@ -125,15 +132,20 @@ CREATE TABLE `usersession` (
 --
 
 INSERT INTO `usersession` (`UserID`, `SessionID`, `UserType`, `Status`) VALUES
-(7, 2, 1, 1),
-(7, 3, 1, 1),
-(7, 4, 1, 1),
-(7, 5, 1, 1),
-(7, 6, 1, 1);
+(7, 40, 1, 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`ChatID`),
+  ADD KEY `MessageID` (`ChatID`),
+  ADD KEY `UserID` (`UserID`),
+  ADD KEY `SessionID` (`SessionID`);
 
 --
 -- Indexes for table `line`
@@ -141,15 +153,6 @@ INSERT INTO `usersession` (`UserID`, `SessionID`, `UserType`, `Status`) VALUES
 ALTER TABLE `line`
   ADD PRIMARY KEY (`LineID`),
   ADD KEY `LineID` (`LineID`),
-  ADD KEY `SessionID` (`SessionID`);
-
---
--- Indexes for table `message`
---
-ALTER TABLE `message`
-  ADD PRIMARY KEY (`MessageID`),
-  ADD KEY `MessageID` (`MessageID`),
-  ADD KEY `UserID` (`UserID`),
   ADD KEY `SessionID` (`SessionID`);
 
 --
@@ -187,16 +190,16 @@ ALTER TABLE `usersession`
 --
 
 --
+-- AUTO_INCREMENT for table `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `ChatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
 -- AUTO_INCREMENT for table `line`
 --
 ALTER TABLE `line`
   MODIFY `LineID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `message`
---
-ALTER TABLE `message`
-  MODIFY `MessageID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `point`
@@ -208,7 +211,7 @@ ALTER TABLE `point`
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
-  MODIFY `SessionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `SessionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `user`
