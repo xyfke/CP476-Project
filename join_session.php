@@ -5,9 +5,9 @@ include 'include/functions.php';
 
 $db = getDB();
 
-if (isset($_POST["sessionCode"])) {
+if (isset($_GET["sessionCode"])) {
     $userID = $_SESSION['userId'];
-    $sessionCode = $_POST["sessionCode"];
+    $sessionCode = $_GET["sessionCode"];
 
 	date_default_timezone_set('America/New_York');
 	$timeRn = date("g:i A");
@@ -98,19 +98,20 @@ if (isset($_POST["sessionCode"])) {
 			}
 
 			// ---------------------------------------------------------------------------------------- display the classroom
-		    header("Location: whiteboard.php?sessionCode=".$sessionCode."&sessionName=".$sessionName);
+		    echo json_encode(array('status' => 'ok', 'sessionCode' => $sessionCode, "sessionName" => $sessionName));
         }
 		else {
             echo json_encode(array('status' => 'fail'));
-			header("Location: landing_home.php");
         }
 
     }
     else {
         echo json_encode(array('status' => 'fail'));
-		header("Location: landing_home.php");
     }
 
+}
+else {
+	echo json_encode(array('status' => 'fail'));
 }
 
 

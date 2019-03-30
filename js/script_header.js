@@ -43,22 +43,29 @@ function start() {
 	var joinBtn = document.querySelector("#join");
 	joinBtn.addEventListener("click", function() {
 		makeSomeCalls();
-	})
+	});
 }
 
 function makeSomeCalls() {
-	var select = $('#sessionID').val();
-	var sessionPortion = "sessionID=" + select;
+	var select = $('#sessionCode').val();
+	var sessionPortion = "sessionCode=" + select;
+	var errorMessage = document.querySelector("#errorMessage");
 
 	$.ajax({
-        type : "GET",
-        async : false,
+		type : "GET",
+		async : false,
         url : "join_session.php",
         data : sessionPortion,
         dataType : 'json',
         success : function (d) {
+			alert(d["status"]);
+			//window.location.replace("whiteboard.php?sessionCode=" + select);
             if (d.status == "ok") {
-				window.location.replace("whiteboard.php?sessionCode=" + select);
+				alert(d["sessionCode"]);
+				alert(d["sessionName"]);
+			}
+			else {
+				errorMessage.innerHTML = "Cannot locate session";
 			}
         }
     });
