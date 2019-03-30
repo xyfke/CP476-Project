@@ -66,6 +66,11 @@ if (isset($_POST["sessionName"])) {
 	//---------------------------------------------- remember user's ids
 	$_SESSION['classID'] = $sessionID;
 	$_SESSION['logLocation'] = $logLocation;
+	//---------------------------------------------- change nav bar display for joined session
+	$sessStatHome = "sessTwo";
+	$sessStatClass = "sessThree";
+	$_SESSION['sessStatHome'] = $sessStatHome;
+	$_SESSION['sessStatClass'] = $sessStatClass;
 
     header("Location: whiteboard.php?sessionCode=".$sessionCode."&sessionName=".$sessionName);
 
