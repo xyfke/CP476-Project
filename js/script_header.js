@@ -58,11 +58,12 @@ function makeSomeCalls() {
         data : sessionPortion,
         dataType : 'json',
         success : function (d) {
-			alert(d["status"]);
+			//alert(d["status"]);
 			//window.location.replace("whiteboard.php?sessionCode=" + select);
             if (d.status == "ok") {
-				alert(d["sessionCode"]);
-				alert(d["sessionName"]);
+				/*alert(d["sessionCode"]);
+				alert(d["sessionName"]);*/
+				window.location.replace("whiteboard.php?sessionCode=" + d["sessionCode"] + "&sessionName=" + encode(d["sessionName"]);
 			}
 			else {
 				errorMessage.innerHTML = "Cannot locate session";
