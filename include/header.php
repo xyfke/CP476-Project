@@ -50,22 +50,22 @@
 					<form method="post" action="create_session.php">
 						<h5>Create session</h5>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Session Name" name="sessionName">
-							<button type="submit" class="btn btn-primary mt-2">Create Session</button>
+							<input type="text" class="form-control" placeholder="Class Name" name="sessionName">
+							<button type="submit" class="btn btn-primary mt-2">Create Class</button>
 						</div>
 					</form>
-				</div> 
+				</div>
 				<div class="col col-md-6">
-					<form>
+					<form method="post" action="join_session.php">
 						<h5>Join session</h5>
 						<div class="form-group">
-							<input type="text" class="form-control" placeholder="Session ID" id="sessionID">
-							<button type="button" class="btn btn-primary mt-2" id="join">Join Session</button>
+							<input type="text" class="form-control" placeholder="Class Code" id="sessionCode" name="sessionCode">
+							<button type="submit" class="btn btn-primary mt-2" id="join">Join Class</button>
 						</div>
 					</form>
-				</div> 
+				</div>
 			</div>
-			
+
 		</div>
 
 		</div>

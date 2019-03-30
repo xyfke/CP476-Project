@@ -48,7 +48,7 @@
   -->
   <body class="m-auto">
     <?php include("include/header_session.php") ?>
-
+	<?php 	include "processChat.php" ?>
 	<div class="container" style="width:980px">
 	    <h1><?php echo "Class Name: ".$_SESSION['sessionName']; ?></h1>
 		<div class="mb-1" style="color:#dfd7c3"> <?php echo "Code: ".$_SESSION['sessionCode']; ?></div>
@@ -64,15 +64,14 @@
 	        <h3 class="mb-1" style="background-color:#f6f7f7">Classroom Chat:</h3>
 	        <div class="display container" id="chatBox" style="overflow:scroll;background-color:white">
 				<?php $logFile = $_SESSION['logLocation'];
-					if(file_exists($logFile) && filesize($logFile) > 0){
-						$handle = fopen($logFile, "r");
-						$contents = fread($handle, filesize($logFile));
+					if(file_exists("chats/".$logFile) && filesize("chats/".$logFile) > 0){
+						$handle = fopen("chats/".$logFile, "r");
+						$contents = fread($handle, filesize("chats/".$logFile));
 						fclose($handle);
-
 						echo $contents;
 				}?>
 			</div>
-			<form name="message" action="">
+			<form name="message" method="POST" action="<?php echo $_SERVER['PHP_SELF']; ?>">
 	        	<textarea name="userMsg" style="resize: none;" class="enter" id="userMsg"></textarea>
 				<input class="mr-1 subButtons" style="float:right" name="submitMsg" type="submit" id="submitMsg" value="SEND" />
 			</form>
