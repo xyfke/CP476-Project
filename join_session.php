@@ -17,37 +17,51 @@ if (isset($_POST["sessionCode"])) {
         $result = mysqli_stmt_get_result($statement);
         $row = mysqli_fetch_array($result);
 
-		// ----------------------------------------- if code matches, add user to the session
+		// ----------------------------------------- if code matches the class code
         if($row){
 			$sessionID = $row[0];
 			$sessionName = $row[1];
-            $query = "INSERT INTO usersession (UserID, SessionID, UserType, Status) VALUES (?, ?, 2, 1)";
-            if ($statement = mysqli_prepare($db, $query)) {
-                // insert params
-                mysqli_stmt_bind_param($statement, 'ii', $userID, $sessionID);
-                mysqli_stmt_execute($statement);
-            }
-            echo json_encode(array('status' => 'ok'));
-			// ------------------------------------------------------------------------------------------------- create chat session log for user
-			$num = rand();
-			$time = time();
-			$logLocation = $num . $time .".html";
-			$query = "INSERT INTO chat (UserID, SessionID, LogLocation) VALUES (?,?,?)";
+			// --------------------------------------------------------------------- check if user is already a member of the class
+			$query = "SELECT * FROM chat WHERE SessionID = ? AND UserID = ?";
 			if ($statement = mysqli_prepare($db, $query)) {
-				// insert params
-				mysqli_stmt_bind_param($statement, 'iis', $userID, $sessionID, $logLocation);
+				mysqli_stmt_bind_param($statement, 'ii', $sessionID, $userID);
 				mysqli_stmt_execute($statement);
+
+				$result = mysqli_stmt_get_result($statement);
+				$row2 = mysqli_fetch_array($result);
+				// --------------------------------------------------- if user is not a member, add user to the session
+				if(!$row2){
+		            $query = "INSERT INTO usersession (UserID, SessionID, UserType, Status) VALUES (?, ?, 2, 1)";
+		            if ($statement = mysqli_prepare($db, $query)) {
+		                // insert params
+		                mysqli_stmt_bind_param($statement, 'ii', $userID, $sessionID);
+		                mysqli_stmt_execute($statement);
+		            }
+		            echo json_encode(array('status' => 'ok'));
+					// ----------------------------------------------------------------------------------- create chat session log for user
+					$num = rand();
+					$time = time();
+					$logLocation = $num . $time .".html";
+					$query = "INSERT INTO chat (UserID, SessionID, LogLocation) VALUES (?,?,?)";
+					if ($statement = mysqli_prepare($db, $query)) {
+						// insert params
+						mysqli_stmt_bind_param($statement, 'iis', $userID, $sessionID, $logLocation);
+						mysqli_stmt_execute($statement);
+					}
+					//---------------------------------------------- remember user's ids
+					$_SESSION['classID'] = $sessionID;
+					$_SESSION['logLocation'] = $logLocation;
+					//---------------------------------------------- change nav bar display for joined session
+					$sessStatHome = "sessTwo";
+					$sessStatClass = "sessThree";
+					$_SESSION['sessStatHome'] = $sessStatHome;
+					$_SESSION['sessStatClass'] = $sessStatClass;
+				}
 			}
 
-			//---------------------------------------------- remember user's ids
-			$_SESSION['classID'] = $sessionID;
-			$_SESSION['logLocation'] = $logLocation;
-			//---------------------------------------------- change nav bar display for joined session
-			$sessStatHome = "sessTwo";
-			$sessStatClass = "sessThree";
-			$_SESSION['sessStatHome'] = $sessStatHome;
-			$_SESSION['sessStatClass'] = $sessStatClass;
-
+			if(!isset($logLocation)){
+				$logLocation = $_SESSION['logLocation'];
+			}
 			// ----------------------------------------------- update chat log with session join message
 			date_default_timezone_set('America/New_York');
 			$timeRn = date("g:i A");
