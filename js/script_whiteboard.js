@@ -29,6 +29,8 @@ function loadFunctions(func) {
 }
 loadFunctions(toolButtons);
 loadFunctions(navLogo);
+loadFunctions(chatRefresh);
+setInterval(chatRefresh, 2500);
 
 // ----------------------------------------------------------------------------------------- tool buttons
 function toolButtons() {
@@ -126,4 +128,13 @@ function navLogo() {
 		var classImg = logoImgSess.classList[1];
 		logoImgSess.src = "images/" + classImg + ".png";
 	});
+}
+
+// ----------------------------------------------------------------------------------------- chat refresh
+function chatRefresh(){
+	var logFile = $("#logFile").attr('class');
+	$("#chatBox").load(logFile);
+	$("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
+	//-----------------------------------------------------------also refresh logo
+	$("#logo").load($("#logo").children());
 }

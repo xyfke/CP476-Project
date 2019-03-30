@@ -20,6 +20,7 @@ $db = getDB();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitMsg"]) && isset($_POST["userMsg"])) {
 	$text = $_POST['userMsg'];
+	date_default_timezone_set('America/New_York');
 	$timeRn = date("g:i A");
 
 	//--------------------------------------------------------------------------------------------------------------fill own chatlog
@@ -41,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitMsg"]) && isset(
 				   </div>
 			    </div>
 				<div class="row" style="background-color:#ddfafa;clear:both;">'
-				.'<div class="col-md-3"></div>'
-				.'<div class="col-md-9">'
+				.'<div class="col-md-5"></div>'
+				.'<div class="col-md-7">'
 					.htmlspecialchars($text).'</div></div>'
 				.'<div class="row pr-4" style="font-size:0.8em;float:right"><i>'.$timeRn.'</i></div>'
 				.'<div style="clear:both"></div>');
@@ -62,16 +63,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submitMsg"]) && isset(
 
 			$fp = fopen("chats/".$logName, 'a');
 			fwrite($fp,
-				   '<div class="row pl-1 pr-1">
-					   <div style="font-weight:bold;height:50px" class="pt-3 pr-1 ml-1">'.$_SESSION['userName'].'</div>'
+				   '<div class="row pl-1 pr-1">'
 				   	   .'<div style="width:50px;height:50px">
 					       <img src="./images/user/'.$_SESSION['picName'].'" style="max-width:100%;max-height:100%">
-					   </div>
-				    </div>
+					   </div>'
+					   .'<div style="font-weight:bold;height:50px" class="pt-3 pr-1 ml-1">'.$_SESSION['userName'].'</div>'
+				    .'</div>
 					<div class="row">'
-					.'<div class="col-md-9">'
+					.'<div class="col-md-8">'
 						.htmlspecialchars($text).'</div>'
-					.'<div class="col-md-3"></div></div>'
+					.'<div class="col-md-4"></div></div>'
 					.'<div class="row pl-3" style="font-size:0.8em"><i>'.$timeRn.'</i></div>'
 					.'<div style="clear:both"></div>');
 		    fclose($fp);

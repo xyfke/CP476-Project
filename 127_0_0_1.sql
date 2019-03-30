@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2019 at 03:00 AM
+-- Generation Time: Mar 30, 2019 at 07:57 AM
 -- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.2
+-- PHP Version: 7.3.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,7 +43,8 @@ CREATE TABLE `chat` (
 --
 
 INSERT INTO `chat` (`ChatID`, `UserID`, `SessionID`, `LogLocation`, `Timestamp`) VALUES
-(34, 7, 40, '13457284421553911146.html', '2019-03-30 01:59:06');
+(71, 7, 62, '17689357911553928608.html', '2019-03-30 06:50:08'),
+(72, 6, 62, '10926854911553928617.html', '2019-03-30 06:50:17');
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,7 @@ CREATE TABLE `session` (
 --
 
 INSERT INTO `session` (`SessionID`, `SessionName`, `SessionCode`, `Timestamp`) VALUES
-(40, 'Principles of Fortnite Betterness', '2036809291553911146', '2019-03-30 01:59:06');
+(62, 'Teach fafa fortnite', '16705301361553928607', '2019-03-30 06:50:07');
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,8 @@ CREATE TABLE `usersession` (
 --
 
 INSERT INTO `usersession` (`UserID`, `SessionID`, `UserType`, `Status`) VALUES
-(7, 40, 1, 1);
+(6, 62, 2, 1),
+(7, 62, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -193,7 +195,7 @@ ALTER TABLE `usersession`
 -- AUTO_INCREMENT for table `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `ChatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `ChatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `line`
@@ -211,7 +213,7 @@ ALTER TABLE `point`
 -- AUTO_INCREMENT for table `session`
 --
 ALTER TABLE `session`
-  MODIFY `SessionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `SessionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `user`

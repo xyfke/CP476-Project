@@ -60,6 +60,7 @@
 	        </div>
 	    </div>
 
+		<div id="logFile" style="display: none;" class="<?php echo "chats/".$_SESSION['logLocation'] ?>"></div>
 	    <div class="chatWindow" style="background-color:#f6f7f7">
 	        <h3 class="mb-1" style="background-color:#f6f7f7">Classroom Chat:</h3>
 	        <div class="display container" id="chatBox" style="overflow:scroll;background-color:white">
