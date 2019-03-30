@@ -20,7 +20,7 @@ if (isset($_POST["sessionCode"])) {
 
         if($row){
 			$sessionID = $row[0];
-			$sessionName = $row[2];
+			$sessionName = $row[1];
             $query = "INSERT INTO usersession (UserID, SessionID, UserType, Status) VALUES (?, ?, 2, 1)";
             if ($statement = mysqli_prepare($db, $query)) {
                 // insert params
@@ -41,6 +41,10 @@ if (isset($_POST["sessionCode"])) {
 
 			$_SESSION['classID'] = $sessionID;
 			$_SESSION['logLocation'] = $logLocation;
+			$sessStatHome = "sessOne";
+			$sessStatClass = "sessThree";
+			$_SESSION['sessStatHome'] = $sessStatHome;
+			$_SESSION['sessStatClass'] = $sessStatClass;
 
 		    header("Location: whiteboard.php?sessionCode=".$sessionCode."&sessionName=".$sessionName);
         }

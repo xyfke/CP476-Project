@@ -39,7 +39,7 @@
 
 		<!-- Modal Header -->
 		<div class="modal-header">
-			<h4 class="modal-title">Create or Join Session</h4>
+			<h4 class="modal-title">Create or Join Class Session</h4>
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
 		</div>
 
@@ -48,19 +48,19 @@
 			<div class="row">
 				<div class="col col-md-6">
 					<form method="post" action="create_session.php">
-						<h5>Create session</h5>
+						<h5>Create Class</h5>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Class Name" name="sessionName">
-							<button type="submit" class="btn btn-primary mt-2">Create Class</button>
+							<button type="submit" class="btn btn-primary mt-2">Create</button>
 						</div>
 					</form>
 				</div>
 				<div class="col col-md-6">
 					<form method="post" action="join_session.php">
-						<h5>Join session</h5>
+						<h5>Join Class</h5>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Class Code" id="sessionCode" name="sessionCode">
-							<button type="submit" class="btn btn-primary mt-2" id="join">Join Class</button>
+							<button type="submit" class="btn btn-primary mt-2" id="join">Join</button>
 						</div>
 					</form>
 				</div>
