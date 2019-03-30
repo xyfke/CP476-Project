@@ -28,7 +28,7 @@
 				<img src="images/help.png" alt="Help Image" style="width:100%;height:100%;object-fit:contain;"/>
 			</a>
 			<a href="profile.php" class="headerLinks mr-2 mt-4" id="profileText"> PROFILE </a>
-			<a href="landing_login_signup.php" class="headerLinks mt-4" id="logOutText"> LOG OUT </a>
+			<a href="logOut.php" class="headerLinks mt-4" id="logOutText"> LOG OUT </a>
 		</div>
 	</div>
 </nav>
