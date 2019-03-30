@@ -56,11 +56,12 @@
 					</form>
 				</div>
 				<div class="col col-md-6">
-					<form method="post" action="join_session.php">
+					<form>
 						<h5>Join Class</h5>
 						<div class="form-group">
 							<input type="text" class="form-control" placeholder="Class Code" id="sessionCode" name="sessionCode">
-							<button type="submit" class="btn btn-primary mt-2" id="join">Join</button>
+							<button type="button" class="btn btn-primary mt-2" id="join">Join</button>
+							<div class="text-danger" id="errorMessage"></div>
 						</div>
 					</form>
 				</div>

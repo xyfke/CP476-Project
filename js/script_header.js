@@ -63,7 +63,7 @@ function makeSomeCalls() {
             if (d.status == "ok") {
 				/*alert(d["sessionCode"]);
 				alert(d["sessionName"]);*/
-				window.location.replace("whiteboard.php?sessionCode=" + d["sessionCode"] + "&sessionName=" + encode(d["sessionName"]);
+				window.location.replace("whiteboard.php?sessionCode=" + d["sessionCode"] + "&sessionName=" + encode(d["sessionName"]));
 			}
 			else {
 				errorMessage.innerHTML = "Cannot locate session";
