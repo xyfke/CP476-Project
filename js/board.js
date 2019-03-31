@@ -1,7 +1,7 @@
-window.onload = start;
+window.onload = boardDraw;
 
-function start(){
-    var canvas = document.querySelector("#board").getContext("2d");
+function boardDraw() {
+	var canvas = document.querySelector("#board").getContext("2d");
     var c = document.querySelector("#board");
     var msg = document.querySelector("#coordinates");
     var paint = false;
@@ -43,7 +43,9 @@ function start(){
     }
 
     function redraw() {
-        canvas.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
+		canvas.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
+		
+		console.log(lines);
 
         for (var lineNum = 0; lineNum < lines.length; lineNum++) {
             for (var pos = 0; pos < lines[lineNum].length; pos++) {
@@ -61,6 +63,4 @@ function start(){
         }
         
     }
-
-
 }

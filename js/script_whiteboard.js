@@ -30,7 +30,10 @@ function loadFunctions(func) {
 loadFunctions(toolButtons);
 loadFunctions(navLogo);
 loadFunctions(chatRefresh);
+
 setInterval(chatRefresh, 2500);
+
+
 
 // ----------------------------------------------------------------------------------------- tool buttons
 function toolButtons() {
