@@ -152,7 +152,7 @@
 			$checkPassStyle = "red";
 		}
 		// ----------------------------------------------------------------------------- validate pic upload
-		if (isset($_FILES["picName"])){
+		if (file_exists($_FILES["picName"]['tmp_name']) && is_uploaded_file($_FILES["picName"]['tmp_name'])){
 			$fileSplit = explode('.',$_FILES["picName"]["name"]);
 			$fileExt = strtolower(end($fileSplit));
 			$fileSize = $_FILES["picName"]["size"];
@@ -183,14 +183,14 @@
 				// password change check will also show error since it will be re-checked too
 				$checkPassStyle = "red";
 			}
-			if (isset($_FILES["picName"])){
+			if (file_exists($_FILES["picName"]['tmp_name']) && is_uploaded_file($_FILES["picName"]['tmp_name'])){
 				// picture upload will also show error since it will be re-uploaded too
 				$picNameStyle = "red";
 			}
 		}
 		// ----------------------------------------------------------------------------- if form is valid then change profile
 		else{
-			if (isset($_FILES["picName"])){
+			if (file_exists($_FILES["picName"]['tmp_name']) && is_uploaded_file($_FILES["picName"]['tmp_name'])){
 				$fileLocation = $_FILES["picName"]["tmp_name"];
 				$num = rand();
 				$time = time();
