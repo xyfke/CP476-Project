@@ -162,7 +162,9 @@ div a {
     border-color: black;
     border-width: 1px;
     margin: 5px;
-    height:475px;
+    /*width: 490px;
+    height: 220px;*/
+    /*height:475px;*/
 }
 
 .display {
