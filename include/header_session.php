@@ -20,7 +20,7 @@
 				<img class="<?php echo $_SESSION['sessStatHome']?> <?php echo $_SESSION['sessStatClass']?>" src="images/<?php echo $_SESSION['sessStatClass']?>.png" alt="Logo Image" id="logoImgSess"/>
 			</a>
 		</div>
-		<a href="endClass.php" class="sessionLinkRun pt-4" id="sessionLinkSess"> END CLASS </a>
+		<a href="endClass.php" class="sessionLinkRun pt-4" id="sessionLinkSess"><?php echo $_SESSION['classOwnerPerm']?></a>
 	</div>
 	<div class="col-md-6">
 		<div class="nav float-right">
