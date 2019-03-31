@@ -54,7 +54,7 @@
         <div class="container">
             <div class="row">
                 <div class="division col-md-4">
-                    <h2 class="sessionHeading">Session in Progress</h2>
+                    <h2 class="sessionHeading">Session Attending</h2>
                         <?php
                             $inProg = loadCourse($db, 2, 1, $_SESSION['userId']);
 
@@ -71,44 +71,44 @@
                         <?php
                             }
                         ?>
-						<?php
-	                        $inTeach = loadCourse($db, 1, 1, $_SESSION['userId']);
-
-	                        while ($row = mysqli_fetch_array($inTeach)) {
-	                            $params = "join_session.php?sessionCode=".urlencode($row[2])."&fromHome=yes";
-	                            $phpdate = strtotime( $row[1] );
-	                            $date = date( 'M-d', $phpdate );
-	                    ?>
-	                    <div class="sessionClass">
-	                    <div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
-	                    <div class="date"><?php echo $date; ?></div>
-	                    <br style="clear:both;">
-	                    </div>
-	                    <?php
-	                        }
-	                    ?>
                 </div>
                 <div class="division col-md-4">
-                    <h2 class="sessionHeading">Session Taught</h2>
-                    <?php
-                        $inTeach = loadCourse($db, 1, 0, $_SESSION['userId']);
+                    <h2 class="sessionHeading">Session Teaching</h2>
+					<?php
+						$inTeach = loadCourse($db, 1, 1, $_SESSION['userId']);
 
-                        while ($row = mysqli_fetch_array($inTeach)) {
+						while ($row = mysqli_fetch_array($inTeach)) {
+							$params = "join_session.php?sessionCode=".urlencode($row[2])."&fromHome=yes";
+							$phpdate = strtotime( $row[1] );
+							$date = date( 'M-d', $phpdate );
+					?>
+					<div class="sessionClass">
+					<div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
+					<div class="date"><?php echo $date; ?></div>
+					<br style="clear:both;">
+					</div>
+					<?php
+						}
+					?>
+                </div>
+                <div class="division col-md-4">
+                    <h2 class="sessionHeading">Sessions Completed</h2>
+					<?php
+                        $inCom = loadCourse($db, 1, 0, $_SESSION['userId']);
+
+                        while ($row = mysqli_fetch_array($inCom)) {
                             $params = "join_session.php?sessionCode=".urlencode($row[2])."&fromHome=yes";
                             $phpdate = strtotime( $row[1] );
                             $date = date( 'M-d', $phpdate );
                     ?>
                     <div class="sessionClass">
-                    <div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
+                    <div class="title"><?php echo $row[0]; ?></div>
                     <div class="date"><?php echo $date; ?></div>
                     <br style="clear:both;">
                     </div>
                     <?php
                         }
                     ?>
-                </div>
-                <div class="division col-md-4">
-                    <h2 class="sessionHeading">Session Attended</h2>
                     <?php
                         $inCom = loadCourse($db, 2, 0, $_SESSION['userId']);
 
@@ -118,7 +118,7 @@
                             $date = date( 'M-d', $phpdate );
                     ?>
                     <div class="sessionClass">
-                    <div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
+                    <div class="title"><?php echo $row[0]; ?></div>
                     <div class="date"><?php echo $date; ?></div>
                     <br style="clear:both;">
                     </div>
@@ -128,12 +128,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
 
         <?php include("include/footer.php") ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
