@@ -61,7 +61,7 @@ if (isset($_GET["sessionCode"])) {
 					$_SESSION['sessStatHome'] = $sessStatHome;
 					$_SESSION['sessStatClass'] = $sessStatClass;
 					// -------------------------------------------- message for chat is about joining
-					$chatMsg = 'has joined the class';
+					$chatMsg = ' has joined the class';
 				}
 			}
 
