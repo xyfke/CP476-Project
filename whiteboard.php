@@ -36,8 +36,10 @@
         <link rel="stylesheet" type="text/css" href="./css/styles.css">
         <link rel="stylesheet" type="text/css" href="./css/styles2.css">
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script type="text/javascript" src="./js/script_whiteboard.js"></script>
+		<script type="text/javascript" src="./js/board.js"></script>
     </header>
     <!--
     <div class="topHeader">
@@ -55,9 +57,8 @@
 
 	    <div class="board">
 	        <h3>White Board:</h3>
-	        <div class="drawSection">
-
-	        </div>
+	        <canvas class="drawSection" id="board" width="640" height="450"></canvas>
+			<div id="coordinates"></div>
 	    </div>
 
 		<div id="logFile" style="display: none;" class="<?php echo "chats/".$_SESSION['logLocation'] ?>"></div>
