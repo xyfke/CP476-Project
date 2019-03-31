@@ -60,10 +60,12 @@
 
                             while ($row = mysqli_fetch_array($inProg)) {
                                 $params = "whiteboard.php?sessionCode=".urlencode($row[2])."&sessionName=".urlencode($row[0]);
+                                $phpdate = strtotime( $row[1] );
+                                $date = date( 'M-d', $phpdate );
                         ?>
                         <div class="sessionClass">
                         <div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
-                        <div class="date">Feb 22</div>
+                        <div class="date"><?php echo $date; ?></div>
                         <br style="clear:both;">
                         </div>
                         <?php 
@@ -77,10 +79,12 @@
 
                         while ($row = mysqli_fetch_array($inTeach)) {
                             $params = "whiteboard.php?sessionCode=".urlencode($row[2])."&sessionName=".urlencode($row[0]);
+                            $phpdate = strtotime( $row[1] );
+                            $date = date( 'M-d', $phpdate );
                     ?>
                     <div class="sessionClass">
                     <div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
-                    <div class="date">Feb 22</div>
+                    <div class="date"><?php echo $date; ?></div>
                     <br style="clear:both;">
                     </div>
                     <?php 
@@ -94,10 +98,12 @@
 
                         while ($row = mysqli_fetch_array($inCom)) {
                             $params = "whiteboard.php?sessionCode=".urlencode($row[2])."&sessionName=".urlencode($row[0]);
+                            $phpdate = strtotime( $row[1] );
+                            $date = date( 'M-d', $phpdate );
                     ?>
                     <div class="sessionClass">
                     <div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
-                    <div class="date">Feb 22</div>
+                    <div class="date"><?php echo $date; ?></div>
                     <br style="clear:both;">
                     </div>
                     <?php 
