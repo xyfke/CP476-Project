@@ -33,6 +33,7 @@ loadFunctions(chatRefresh);
 loadFunctions(board);
 
 setInterval(chatRefresh, 2500);
+setInterval(redraw, 100);
 
 // ----------------------------------------------------------------------------------------- tool buttons
 function toolButtons() {
@@ -144,27 +145,55 @@ function board(){
     var c = document.querySelector("#board");
     var msg = document.querySelector("#coordinates");
     var paint = false;
-    var lines = new Array();
-    var count = -1;
+    //var lines = new Array();
+	//var count = -1;
+	var lineID = -1;
 
-    console.log(lines);
+    //console.log(lines);
 
     $('#board').mousedown(function (e){
         var mouseX = e.clientX - c.getBoundingClientRect().left; //- this.offsetLeft;
         var mouseY = e.clientY - c.getBoundingClientRect().top; //- this.offsetTop;
-        paint = true;
-        count = count + 1;
-        lines.push(new Array());
-        addCoordinate(mouseX, mouseY);
-        redraw();
+		paint = true;
+
+		// create line and add point
+		$.ajax({
+			type : "GET",
+			async : false,
+			url : "create_points.php",
+			data : {"x" : mouseX, "y" : mouseY},
+			dataType : 'json',
+			success : function (d) {
+				if (d['status'] == "ok") {
+					lineID = d['lineId'];
+				}
+			}
+		});
+
+        //lines.push(new Array());
+        //addCoordinate(mouseX, mouseY);
+        redraw(canvas);
     });
 
     $('#board').mousemove(function(e) {
         var mouseX = e.clientX - c.getBoundingClientRect().left; //- this.offsetLeft;
         var mouseY = e.clientY - c.getBoundingClientRect().top;
         if (paint) {
-            addCoordinate(mouseX, mouseY);
-            redraw();
+
+			// add point
+            $.ajax({
+				type : "GET",
+				async : false,
+				url : "create_points.php",
+				data : {"x" : mouseX, "y" : mouseY, "lineId" : lineID},
+				dataType : 'json',
+				success : function (d) {
+					if (d['status'] == "ok") {
+						lineID = d['lineId'];
+					}
+				}
+			});
+            redraw(canvas);
         }
         msg.innerHTML = "<" + mouseX + ", " + mouseY + ">";
     });
@@ -175,31 +204,65 @@ function board(){
 
     $('#board').mouseleave(function(e){
         paint = false;
-    });
+	});
+	
+	/*function addCoordinate(x, y) {
+		lines[count].push(new Array(x, y));
+	}*/
 
-    function addCoordinate(x, y) {
-        lines[count].push(new Array(x, y));
-    }
-
-    function redraw() {
-		canvas.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
-
-		console.log(lines);
-
-        for (var lineNum = 0; lineNum < lines.length; lineNum++) {
-            for (var pos = 0; pos < lines[lineNum].length; pos++) {
-                if (pos == 0) {
-                    canvas.beginPath();
-                    canvas.lineWidth = "2";
-                    canvas.strokeStyle = "green";
-                    canvas.moveTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
-                }
-                else {
-                    canvas.lineTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
-                }
-            }
-            canvas.stroke();
-        }
-
-    }
 }
+
+function redraw(canvas) {
+	var canvas = document.querySelector("#board").getContext("2d");
+	canvas.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
+	var lines;
+
+	// create line and add point
+	$.ajax({
+		type : "GET",
+		async : false,
+		url : "create_points.php",
+		data : {"retrieve" : true},
+		dataType : 'json',
+		success : function (d) {
+			lines = convertResult(d);
+		}
+	});
+
+	console.log(lines);
+
+	for (var lineNum = 0; lineNum < lines.length; lineNum++) {
+		for (var pos = 0; pos < lines[lineNum].length; pos++) {
+			if (pos == 0) {
+				canvas.beginPath();
+				canvas.lineWidth = "2";
+				canvas.strokeStyle = "green";
+				canvas.moveTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
+			}
+			else {
+				canvas.lineTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
+			}
+		}
+		canvas.stroke();
+	}
+
+}
+
+function convertResult(d) {
+	var lines = new Array();
+	var lineID = -1;
+	var counter = -1;
+
+	for (var i = 0; i < d.length; i++) {
+		if (d[i]['LineID'] != lineID) {
+			lines.push(new Array());
+			counter++;
+			lineID = d[i]['LineID'];
+		}
+		lines[counter].push(new Array(d[i]['PointX'], d[i]['PointY']));
+	}
+
+	return lines;
+}
+
+//http://192.168.64.2/CP476-Project/whiteboard.php?sessionCode=18001429071553985758&sessionName=Hello+World
