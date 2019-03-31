@@ -53,22 +53,49 @@ if (isset($_GET["sessionCode"])) {
 						mysqli_stmt_execute($statement);
 					}
 					//---------------------------------------------- remember user's ids
-					$_SESSION['classID'] = $sessionID;
 					$_SESSION['logLocation'] = $logLocation;
 					$_SESSION['classOwnerPerm'] = " LEAVE CLASS ";
-					//---------------------------------------------- change nav bar display for joined session
-					$sessStatHome = "sessTwo";
-					$sessStatClass = "sessThree";
-					$_SESSION['sessStatHome'] = $sessStatHome;
-					$_SESSION['sessStatClass'] = $sessStatClass;
 					// -------------------------------------------- message for chat is about joining
 					$chatMsg = ' has joined the class';
 				}
 			}
 
+			// ----------------------------------------------------------------------- if not a new member, find logs
 			if(!isset($logLocation)){
-				$logLocation = $_SESSION['logLocation'];
+				$query = "SELECT * FROM chat WHERE SessionID = ? AND UserID = ?";
+				if ($statement = mysqli_prepare($db, $query)) {
+					mysqli_stmt_bind_param($statement, 'ii', $sessionID, $userID);
+					mysqli_stmt_execute($statement);
+					$result = mysqli_stmt_get_result($statement);
+					$row = mysqli_fetch_array($result);
+
+					if($row){
+						$logLocation = $row[3];
+						$_SESSION['logLocation'] = $logLocation;
+					}
+				}
 			}
+			// ------------------------------------------------------------------ if not a new member, find class permissions
+			$query = "SELECT * FROM usersession WHERE SessionID = ? AND UserID = ?";
+			if ($statement = mysqli_prepare($db, $query)) {
+				mysqli_stmt_bind_param($statement, 'ii', $sessionID, $userID);
+				mysqli_stmt_execute($statement);
+				$result = mysqli_stmt_get_result($statement);
+				$row = mysqli_fetch_array($result);
+				if($row && $row[2] == 1){
+					$_SESSION['classOwnerPerm'] = " END CLASS ";
+				}
+				else if($row && $row[2] != 1){
+					$_SESSION['classOwnerPerm'] = " LEAVE CLASS ";
+				}
+			}
+			//---------------------------------------------- remember user's ids regardless if new or old
+			$_SESSION['classID'] = $sessionID;
+			//---------------------------------------------- change nav bar display for joined session
+			$sessStatHome = "sessTwo";
+			$sessStatClass = "sessThree";
+			$_SESSION['sessStatHome'] = $sessStatHome;
+			$_SESSION['sessStatClass'] = $sessStatClass;
 
 			// ----------------------------------------------- update chat log with session join message
 			$fp = fopen("chats/".$logLocation, 'a');
