@@ -17,7 +17,13 @@
 	session_start();
 	if (!isset($_SESSION['userName'])){
 		header("Location: landing_login_signup.php");
-	}
+    }
+    
+    include "include/functions.php";
+    include "load_courses.php";
+
+    $db = getDB();
+
 ?>
 
 <html lang="en">
@@ -49,22 +55,54 @@
             <div class="row">
                 <div class="division col-md-4">
                     <h2 class="sessionHeading">Session in Progress</h2>
-                    <div class="sessionClass">
-                        <div class="title"><a href="./whiteboard.php">Introduction to Programming & Introduction League of Legend</a></div>
+                        <?php
+                            $inProg = loadCourse($db, 2, 1, $_SESSION['userId']);
+
+                            while ($row = mysqli_fetch_array($inProg)) {
+                                $params = "whiteboard.php?sessionCode=".urlencode($row[2])."&sessionName=".urlencode($row[0]);
+                        ?>
+                        <div class="sessionClass">
+                        <div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
                         <div class="date">Feb 22</div>
                         <br style="clear:both;">
-                    </div>
-                    <div class="sessionClass">
-                        <div class="title"><a href="./whiteboard.php">Introduction to Fortnite</a></div>
-                        <div class="date">Feb 22</div>
-                        <br style="clear:both;">
-                    </div>
+                        </div>
+                        <?php 
+                            }
+                        ?>
                 </div>
                 <div class="division col-md-4">
                     <h2 class="sessionHeading">Session Taught</h2>
+                    <?php
+                        $inTeach = loadCourse($db, 1, 1, $_SESSION['userId']);
+
+                        while ($row = mysqli_fetch_array($inTeach)) {
+                            $params = "whiteboard.php?sessionCode=".urlencode($row[2])."&sessionName=".urlencode($row[0]);
+                    ?>
+                    <div class="sessionClass">
+                    <div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
+                    <div class="date">Feb 22</div>
+                    <br style="clear:both;">
+                    </div>
+                    <?php 
+                        }
+                    ?>
                 </div>
                 <div class="division col-md-4">
                     <h2 class="sessionHeading">Session Completed</h2>
+                    <?php
+                        $inCom = loadCourse($db, 1, 0, $_SESSION['userId']);
+
+                        while ($row = mysqli_fetch_array($inCom)) {
+                            $params = "whiteboard.php?sessionCode=".urlencode($row[2])."&sessionName=".urlencode($row[0]);
+                    ?>
+                    <div class="sessionClass">
+                    <div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
+                    <div class="date">Feb 22</div>
+                    <br style="clear:both;">
+                    </div>
+                    <?php 
+                        }
+                    ?>
                 </div>
             </div>
         </div>
