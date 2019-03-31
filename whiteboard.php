@@ -39,7 +39,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script type="text/javascript" src="./js/script_whiteboard.js"></script>
-		<script type="text/javascript" src="./js/board.js"></script>
+		<!--<script type="text/javascript" src="./js/board.js"></script> -->
     </header>
     <!--
     <div class="topHeader">
