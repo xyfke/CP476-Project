@@ -33,7 +33,7 @@ loadFunctions(chatRefresh);
 loadFunctions(board);
 
 setInterval(chatRefresh, 2500);
-setInterval(redraw, 250);
+setInterval(redraw, 100);
 
 // ----------------------------------------------------------------------------------------- tool buttons
 function toolButtons() {
