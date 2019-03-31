@@ -9,7 +9,7 @@
         <script type="text/javascript" src="./js/testAPI.js"></script>
     </header>
     <body>
-        <canvas class="drawSection" id="board"></canvas>
+        <canvas class="drawSection" id="board" width="640" height="450" style="width:640;height:450;"></canvas>
         <div id="coordinates"></div>
     </body>
 </html>

@@ -57,8 +57,8 @@
 
 	    <div class="board">
 	        <h3>White Board:</h3>
-	        <canvas class="drawSection" id="board" width="640" height="450"></canvas>
-			<div id="coordinates"></div>
+	        <canvas class="drawSection" id="board" width="640" height="450" style="width:640;height:450;"></canvas>
+			<!--<div id="coordinates"></div>-->
 	    </div>
 
 		<div id="logFile" style="display: none;" class="<?php echo "chats/".$_SESSION['logLocation'] ?>"></div>
