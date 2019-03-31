@@ -71,7 +71,7 @@ textarea {
 
 /* Landing Page - different section formats */
 .division {
-    width: 335px;
+    /*width: 335px;*/
     min-height: 582px;
     padding-left: 10px;
     padding-right: 10px;
@@ -79,7 +79,7 @@ textarea {
     color: lightcyan;
     border-style: solid;
     border-color: lightpink;
-    margin: 10px;
+    /*margin: 10px;*/
     margin-left: 0px;
 }
 
@@ -162,7 +162,7 @@ div a {
     border-color: black;
     border-width: 1px;
     margin: 5px;
-    width: 640;
+    /*width: 640;
     height: 450;
     /*height:475px;*/
 }

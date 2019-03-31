@@ -11,8 +11,8 @@ function boardDraw() {
     console.log(lines);
 
     $('#board').mousedown(function (e){
-        var mouseX = e.pageX - c.getBoundingClientRect().left; //- this.offsetLeft;
-        var mouseY = e.pageY - c.getBoundingClientRect().top; //- this.offsetTop;
+        var mouseX = e.clientX - c.getBoundingClientRect().left; //- this.offsetLeft;
+        var mouseY = e.clientY - c.getBoundingClientRect().top; //- this.offsetTop;
         paint = true;
         count = count + 1;
         lines.push(new Array());
@@ -21,8 +21,8 @@ function boardDraw() {
     });
 
     $('#board').mousemove(function(e) {
-        var mouseX = e.pageX - c.getBoundingClientRect().left; //- this.offsetLeft;
-        var mouseY = e.pageY - c.getBoundingClientRect().top;
+        var mouseX = e.clientX - c.getBoundingClientRect().left; //- this.offsetLeft;
+        var mouseY = e.clientY - c.getBoundingClientRect().top;
         if (paint) {
             addCoordinate(mouseX, mouseY);
             redraw();

@@ -45,28 +45,35 @@
         <?php include("include/header.php") ?>
         <h1><?php echo "Hello " . $_SESSION['firstName'] . "!"?> </h1>
 
-        <div class="division">
-            <h2 class="sessionHeading">Session in Progress</h2>
-            <div class="sessionClass">
-                <div class="title"><a href="./whiteboard.php">Introduction to Programming & Introduction League of Legend</a></div>
-                <div class="date">Feb 22</div>
-                <br style="clear:both;">
+        <div class="container">
+            <div class="row">
+                <div class="division col-md-4">
+                    <h2 class="sessionHeading">Session in Progress</h2>
+                    <div class="sessionClass">
+                        <div class="title"><a href="./whiteboard.php">Introduction to Programming & Introduction League of Legend</a></div>
+                        <div class="date">Feb 22</div>
+                        <br style="clear:both;">
+                    </div>
+                    <div class="sessionClass">
+                        <div class="title"><a href="./whiteboard.php">Introduction to Fortnite</a></div>
+                        <div class="date">Feb 22</div>
+                        <br style="clear:both;">
+                    </div>
+                </div>
+                <div class="division col-md-4">
+                    <h2 class="sessionHeading">Session Taught</h2>
+                </div>
+                <div class="division col-md-4">
+                    <h2 class="sessionHeading">Session Completed</h2>
+                </div>
             </div>
-            <div class="sessionClass">
-              <div class="title"><a href="./whiteboard.php">Introduction to Fortnite</a></div>
-              <div class="date">Feb 22</div>
-              <br style="clear:both;">
-            </div>
         </div>
+        
 
 
-        <div class="division">
-            <h2 class="sessionHeading">Session Taught</h2>
-        </div>
+        
 
-        <div class="division">
-            <h2 class="sessionHeading">Session Completed</h2>
-        </div>
+        
 
         <?php include("include/footer.php") ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
