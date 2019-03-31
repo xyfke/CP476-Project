@@ -66,6 +66,7 @@ if (isset($_POST["sessionName"])) {
 	//---------------------------------------------- remember user's ids
 	$_SESSION['classID'] = $sessionID;
 	$_SESSION['logLocation'] = $logLocation;
+	$_SESSION['classOwnerPerm'] = " END CLASS ";
 	//---------------------------------------------- change nav bar display for joined session
 	$sessStatHome = "sessTwo";
 	$sessStatClass = "sessThree";

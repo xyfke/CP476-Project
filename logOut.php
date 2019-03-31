@@ -41,6 +41,19 @@
 				fclose($fp);
 			}
 		}
+		// ------------------------------------------------------------------------------- change the class status to ended if owner logs out
+		$query = "SELECT * FROM usersession WHERE SessionID = ? AND UserID = ?";
+		if ($statement = mysqli_prepare($db, $query)) {
+			mysqli_stmt_bind_param($statement, 'ii', $_SESSION['classID'], $_SESSION['userId']);
+			mysqli_stmt_execute($statement);
+
+			$result = mysqli_stmt_get_result($statement);
+			$row = mysqli_fetch_array($result);
+			if($row && $row[2] == 1){
+				$query = "UPDATE usersession SET Status = ? WHERE SessionID = ? AND UserID = ?";
+				runBindedQuery(2, $_SESSION['classID'], $_SESSION['userId'], 'iii', $db, $query);
+			}
+		}
 	}
 
 	session_destroy();
