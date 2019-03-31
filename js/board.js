@@ -42,25 +42,26 @@ function boardDraw() {
         lines[count].push(new Array(x, y));
     }
 
-    function redraw() {
-		canvas.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
-		
-		console.log(lines);
+}
 
-        for (var lineNum = 0; lineNum < lines.length; lineNum++) {
-            for (var pos = 0; pos < lines[lineNum].length; pos++) {
-                if (pos == 0) {
-                    canvas.beginPath();
-                    canvas.lineWidth = "2";
-                    canvas.strokeStyle = "green";
-                    canvas.moveTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
-                }
-                else {
-                    canvas.lineTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
-                }
+function redraw() {
+    canvas.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
+    
+    console.log(lines);
+
+    for (var lineNum = 0; lineNum < lines.length; lineNum++) {
+        for (var pos = 0; pos < lines[lineNum].length; pos++) {
+            if (pos == 0) {
+                canvas.beginPath();
+                canvas.lineWidth = "2";
+                canvas.strokeStyle = "green";
+                canvas.moveTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
             }
-            canvas.stroke();
+            else {
+                canvas.lineTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
+            }
         }
-        
+        canvas.stroke();
     }
+    
 }
