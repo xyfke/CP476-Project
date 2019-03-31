@@ -124,8 +124,13 @@ if (isset($_GET["sessionCode"])) {
 				}
 			}
 
-			// ---------------------------------------------------------------------------------------- display the classroom
-		    echo json_encode(array('status' => 'ok', 'sessionCode' => $sessionCode, "sessionName" => $sessionName));
+			if(isset($_GET["fromHome"])){
+				header("Location: whiteboard.php?sessionCode=".$sessionCode."&sessionName=".$sessionName);
+			}
+			else{
+				// ---------------------------------------------------------------------------------------- display the classroom
+			    echo json_encode(array('status' => 'ok', 'sessionCode' => $sessionCode, "sessionName" => $sessionName));
+			}
         }
 		else {
             echo json_encode(array('status' => 'fail'));
