@@ -135,6 +135,4 @@ function chatRefresh(){
 	var logFile = $("#logFile").attr('class');
 	$("#chatBox").load(logFile);
 	$("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
-	//-----------------------------------------------------------also refresh logo
-	$("#logo").load($("#logo").children());
 }

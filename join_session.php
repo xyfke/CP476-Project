@@ -12,7 +12,7 @@ if (isset($_GET["sessionCode"])) {
 	date_default_timezone_set('America/New_York');
 	$timeRn = date("g:i A");
 	// -------------------------------------------- initialize chat message as already a member
-	$chatMsg = 'is paying attention again';
+	$chatMsg = "'s attention is back";
 
 	// ----------------------------------------------------------- find the current session from database
     $query = "SELECT * From session WHERE sessionCode=?";
@@ -42,7 +42,6 @@ if (isset($_GET["sessionCode"])) {
 		                mysqli_stmt_bind_param($statement, 'ii', $userID, $sessionID);
 		                mysqli_stmt_execute($statement);
 		            }
-		            echo json_encode(array('status' => 'ok'));
 					// ----------------------------------------------------------------------------------- create chat session log for user
 					$num = rand();
 					$time = time();
@@ -73,7 +72,7 @@ if (isset($_GET["sessionCode"])) {
 			// ----------------------------------------------- update chat log with session join message
 			$fp = fopen("chats/".$logLocation, 'a');
 			fwrite($fp,'<div class="container" style="text-align:center">'
-					   .'<div class="row pl-3" style="font-size:0.8em;font-weight:bold"><i>'.$_SESSION['userName']. ' '.$chatMsg.'</i></div>'
+					   .'<div class="row pl-3" style="font-size:0.8em;font-weight:bold"><i>'.$_SESSION['userName']. $chatMsg.'</i></div>'
 					   .'<div class="row pl-3" style="font-size:0.8em"><i>'.$timeRn.'</i></div></div>'
 					   .'<div style="clear:both"></div>');
 			fclose($fp);
@@ -90,7 +89,7 @@ if (isset($_GET["sessionCode"])) {
 
 					$fp = fopen("chats/".$logName, 'a');
 					fwrite($fp,'<div class="container" style="text-align:center">'
-							   .'<div class="row pl-3" style="font-size:0.8em;font-weight:bold"><i>'.$_SESSION['userName']. ' '.$chatMsg.'</i></div>'
+							   .'<div class="row pl-3" style="font-size:0.8em;font-weight:bold"><i>'.$_SESSION['userName']. $chatMsg.'</i></div>'
 							   .'<div class="row pl-3" style="font-size:0.8em"><i>'.$timeRn.'</i></div></div>'
 							   .'<div style="clear:both"></div>');
 				    fclose($fp);
