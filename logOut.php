@@ -21,35 +21,7 @@
 	if ($_SESSION['sessStatHome'] == "sessTwo"){
 
 		$db = getDB();
-		$chatMsg = ' has left the class';
-
-		// ------------------------------------------------------------------------------- change the class status to ended if owner logs out
-		$query = "SELECT * FROM usersession WHERE SessionID = ? AND UserID = ?";
-		if ($statement = mysqli_prepare($db, $query)) {
-			mysqli_stmt_bind_param($statement, 'ii', $_SESSION['classID'], $_SESSION['userId']);
-			mysqli_stmt_execute($statement);
-			$result = mysqli_stmt_get_result($statement);
-			$row = mysqli_fetch_array($result);
-			// ------------------------------------------------ checking it is the owner
-			if($row && $row[2] == 1){
-				$query = "UPDATE usersession SET Status = ? WHERE SessionID = ? AND UserID = ?";
-				runBindedQuery(0, $_SESSION['classID'], $_SESSION['userId'], 'iii', $db, $query);
-				// ------------------------------------------------------------------------------------ update chat message
-				$chatMsg = ' has ended class';
-				// ------------------------------------------------------------------------------- change the class status for the student too
-				$query = "SELECT * FROM usersession WHERE SessionID = ? AND UserID != ?";
-				if ($statement = mysqli_prepare($db, $query)) {
-					mysqli_stmt_bind_param($statement, 'ii', $_SESSION['classID'], $_SESSION['userId']);
-					mysqli_stmt_execute($statement);
-					$result = mysqli_stmt_get_result($statement);
-					$row = mysqli_fetch_array($result);
-					if($row){
-						$query = "UPDATE usersession SET Status = ? WHERE SessionID = ? AND UserID != ?";
-						runBindedQuery(0, $_SESSION['classID'], $_SESSION['userId'], 'iii', $db, $query);
-					}
-				}
-			}
-		}
+		$chatMsg = ' has left the classroom';
 
 		date_default_timezone_set('America/New_York');
 		$timeRn = date("g:i A");
