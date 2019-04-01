@@ -18,7 +18,7 @@
 	include 'include/functions.php';
 
 	$db = getDB();
-	$chatMsg = ' has left the class';
+	$chatMsg = ' has left the classroom';
 
 	// ------------------------------------------------------------------------------- change the class status to ended if owner ends class
 	$query = "SELECT * FROM usersession WHERE SessionID = ? AND UserID = ?";
