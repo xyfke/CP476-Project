@@ -20,26 +20,27 @@ function start() {
 	var sessionLink = document.querySelector("#sessionLink");
 	sessionLink.addEventListener("mouseover", function(){
 		// update logo to one that would display in classroom
-		var classImg = logoImg.classList[1];
-		logoImg.src = "images/" + classImg + ".png";
+		logoImg.src = "images/sessThree.png";
 	});
 	sessionLink.addEventListener("mouseout", function(){
 		// update logo to one that displays in other pages
-		var homeImg = logoImg.classList[0];
-		logoImg.src = "images/" + homeImg + ".png";
-	});
-	// ----------------------------------------------------------- log out link responsiveness
-	var logOutLink = document.querySelector("#logOutTextHome");
-	logOutLink.addEventListener("mouseover", function(){
-		// update logo to one that would display when session ends
 		logoImg.src = "images/sessZero.png";
 	});
-	logOutLink.addEventListener("mouseout", function(){
-		// update logo to one that displays in other pages
-		var homeImg = logoImg.classList[0];
-		logoImg.src = "images/" + homeImg + ".png";
-	});
+	// ----------------------------------------------------------- home page link responsiveness
+	var homeTitles = document.getElementsByClassName("title");
+	var i;
+	for(i = 0; i < homeTitles.length; i++){
+		homeTitles[i].addEventListener("mouseover", function(){
+			// update logo to one that would display in classroom
+			logoImg.src = "images/sessThree.png";
+		});
+		homeTitles[i].addEventListener("mouseout", function(){
+			// update logo to one that displays in other pages
+			logoImg.src = "images/sessZero.png";
+		});
+	}
 
+	// ------------------------------------------------------------ join classroom responsiveness
 	var joinBtn = document.querySelector("#join");
 	joinBtn.addEventListener("click", function() {
 		makeSomeCalls();

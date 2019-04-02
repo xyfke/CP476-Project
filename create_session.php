@@ -67,11 +67,6 @@ if (isset($_POST["sessionName"])) {
 	$_SESSION['classID'] = $sessionID;
 	$_SESSION['logLocation'] = $logLocation;
 	$_SESSION['classOwnerPerm'] = " END CLASS ";
-	//---------------------------------------------- change nav bar display for joined session
-	$sessStatHome = "sessTwo";
-	$sessStatClass = "sessThree";
-	$_SESSION['sessStatHome'] = $sessStatHome;
-	$_SESSION['sessStatClass'] = $sessStatClass;
 
     header("Location: whiteboard.php?sessionCode=".$sessionCode."&sessionName=".$sessionName);
 

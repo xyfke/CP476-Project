@@ -154,11 +154,6 @@
 			$row = mysqli_fetch_row($users);
 			$fields = array_values($row);
 			$userId = $fields[0];
-			$sessStatHome = "sessZero";
-			$sessStatClass = "sessOne";
-			$_SESSION['userId'] = $userId;
-			$_SESSION['sessStatHome'] = $sessStatHome;
-			$_SESSION['sessStatClass'] = $sessStatClass;
 
 			header("Location: landing_home.php");
 		}
@@ -210,8 +205,6 @@
 		}
 		// ----------------------------------------------------------------------------- if form is successful then send to home page
 		else{
-			$sessStatHome = "sessZero";
-			$sessStatClass = "sessOne";
 			$_SESSION['userName'] = $userNameLog;
 			$_SESSION['firstName'] = $fields[2];
 			$_SESSION['lastName'] = $fields[3];
@@ -219,8 +212,7 @@
 			$_SESSION['shortBio'] = $fields[6];
 			$_SESSION['picName'] = $fields[7];
 			$_SESSION['userId'] = $fields[0];
-			$_SESSION['sessStatHome'] = $sessStatHome;
-			$_SESSION['sessStatClass'] = $sessStatClass;
+
 			header("Location: landing_home.php");
 		}
 	}

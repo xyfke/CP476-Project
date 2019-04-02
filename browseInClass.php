@@ -58,6 +58,10 @@ else if ($_GET["page"] == "help") {
 else if ($_GET["page"] == "profile") {
 	header("Location: profile.php");
 }
+else if ($_GET["page"] == "logout") {
+	session_destroy();
+	header("Location: landing_login_signup.php");
+}
 else{
 	header("Location: whiteboard.php");
 }

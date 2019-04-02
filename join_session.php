@@ -91,11 +91,6 @@ if (isset($_GET["sessionCode"])) {
 			}
 			//---------------------------------------------- remember user's ids regardless if new or old
 			$_SESSION['classID'] = $sessionID;
-			//---------------------------------------------- change nav bar display for joined session
-			$sessStatHome = "sessTwo";
-			$sessStatClass = "sessThree";
-			$_SESSION['sessStatHome'] = $sessStatHome;
-			$_SESSION['sessStatClass'] = $sessStatClass;
 
 			// ----------------------------------------------- update chat log with session join message
 			$fp = fopen("chats/".$logLocation, 'a');

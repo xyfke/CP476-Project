@@ -17,7 +17,7 @@
 	<div class="nav col-md-6">
 		<div id="logo" class="mr-2">
 			<a href="landing_home.php">
-				<img class="<?php echo $_SESSION['sessStatHome']?> <?php echo $_SESSION['sessStatClass']?>" src="images/<?php echo $_SESSION['sessStatHome']?>.png" alt="Logo Image" id="logoImg"/>
+				<img src="images/sessZero.png" alt="Logo Image" id="logoImg"/>
 			</a>
 		</div>
 		<div class="headerLinks pt-4" id="sessionLink" data-toggle="modal" data-target="#myModal"> CLASSROOM </div>
