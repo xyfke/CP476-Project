@@ -78,10 +78,5 @@
 		}
 	}
 
-	//---------------------------------------------- change nav bar display for no joined session
-	$sessStatHome = "sessZero";
-	$sessStatClass = "sessOne";
-	$_SESSION['sessStatHome'] = $sessStatHome;
-	$_SESSION['sessStatClass'] = $sessStatClass;
 	header("Location: landing_home.php");
 ?>

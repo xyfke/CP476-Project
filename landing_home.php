@@ -54,7 +54,7 @@
         <div class="container">
             <div class="row">
                 <div class="division col-md-4">
-                    <h2 class="sessionHeading">Session Attending</h2>
+                    <h2 class="sessionHeading">Sessions Attending</h2>
                         <?php
                             $inProg = loadCourse($db, 2, 1, $_SESSION['userId']);
 
@@ -73,7 +73,7 @@
                         ?>
                 </div>
                 <div class="division col-md-4">
-                    <h2 class="sessionHeading">Session Teaching</h2>
+                    <h2 class="sessionHeading">Sessions Teaching</h2>
 					<?php
 						$inTeach = loadCourse($db, 1, 1, $_SESSION['userId']);
 
@@ -102,7 +102,7 @@
                             $date = date( 'M-d', $phpdate );
                     ?>
                     <div class="sessionClass">
-                    <div class="title"><?php echo $row[0]; ?></div>
+                    <div class="title2"><?php echo $row[0]; ?></div>
                     <div class="date"><?php echo $date; ?></div>
                     <br style="clear:both;">
                     </div>
@@ -118,7 +118,7 @@
                             $date = date( 'M-d', $phpdate );
                     ?>
                     <div class="sessionClass">
-                    <div class="title"><?php echo $row[0]; ?></div>
+                    <div class="title2"><?php echo $row[0]; ?></div>
                     <div class="date"><?php echo $date; ?></div>
                     <br style="clear:both;">
                     </div>
