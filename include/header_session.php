@@ -20,7 +20,9 @@
 				<img src="images/sessThree.png" alt="Logo Image" id="logoImgSess"/>
 			</a>
 		</div>
-		<a href="endClass.php" class="sessionLinkRun pt-4" id="sessionLinkSess"><?php echo $_SESSION['classOwnerPerm']?></a>
+		<a href="endClass.php" class="sessionLinkRun pt-4" id="sessionLinkSess" <?php if($_SESSION['classOwnerPerm'] == ' END CLASS '){
+																						echo 'style="display:block">'.$_SESSION['classOwnerPerm'].'</a>';}
+																						else{echo 'style="display:none"></a>';}?>
 	</div>
 	<div class="col-md-6">
 		<div class="nav float-right">
