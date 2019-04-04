@@ -119,25 +119,26 @@ div a {
 
 /* Whiteboard page - including board, toolbar, and message section*/
 .board {
-    width : 650px;
-    height : 550px;
+    width : 600px;
+    height : 555px;
     float: left;
     background-color: white;
 }
 
 .chatWindow {
     width : 280px;
-    height : 550px;
-    float: right;
+    height : 555px;
+    float: left;
     background-color: beige;
 }
 
 .toolbar {
     background-color: lightblue;
-    width: 650px;
+    width: 600px;
     height: 40px;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-right: 10px;
     float: left;
 	overflow:hidden;
     text-align: center;

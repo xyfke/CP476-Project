@@ -57,8 +57,25 @@
 
 	    <div class="board">
 	        <h3>White Board:</h3>
-	        <canvas class="drawSection" id="board" width="640" height="450" style="width:640;height:450;"></canvas>
-			<div id="coordinates"></div>
+	        <canvas class="drawSection" id="board" width="585" height="450" style="width:585;height:450;"></canvas>
+			<!--<div id="coordinates"></div>-->
+			<div class="toolbar mr-2">
+				<div class="toolbarItems 0" style="margin-left:235px;">
+					<i class="fa fa-font"  style="width:100%;height:100%;object-fit:contain;"></i>
+				</div>
+				<div class="toolbarItems 1">
+					<i class="fa fa-image" style="width:100%;height:100%;object-fit:contain;"></i>
+				</div>
+				<div class="toolbarItems 2">
+					<i class="fa fa-pencil" style="width:100%;height:100%;object-fit:contain;"></i>
+				</div>
+				<div class="toolbarItems 3">
+					<i class="fa fa-paint-brush" style="width:100%;height:100%;object-fit:contain;"></i>
+				</div>
+				<div class="toolbarItems 4">
+					<i class="fa fa-eraser" style="width:100%;height:100%;object-fit:contain;"></i>
+				</div>
+			</div>
 	    </div>
 
 		<div id="logFile" style="display: none;" class="<?php echo "chats/".$_SESSION['logLocation'] ?>"></div>
@@ -81,23 +98,7 @@
 
 	    <br style="clear : both;">
 
-	    <div class="toolbar">
-	        <div class="toolbarItems 0" style="margin-left:235px;">
-	            <i class="fa fa-font"  style="width:100%;height:100%;object-fit:contain;"></i>
-	        </div>
-	        <div class="toolbarItems 1">
-	            <i class="fa fa-image" style="width:100%;height:100%;object-fit:contain;"></i>
-	        </div>
-	        <div class="toolbarItems 2">
-	            <i class="fa fa-pencil" style="width:100%;height:100%;object-fit:contain;"></i>
-	        </div>
-	        <div class="toolbarItems 3">
-	            <i class="fa fa-paint-brush" style="width:100%;height:100%;object-fit:contain;"></i>
-	        </div>
-	        <div class="toolbarItems 4">
-	            <i class="fa fa-eraser" style="width:100%;height:100%;object-fit:contain;"></i>
-	        </div>
-	    </div>
+	    
 	</div>
 
     <?php include("include/footer.php") ?>
