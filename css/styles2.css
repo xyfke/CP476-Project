@@ -73,9 +73,9 @@ textarea {
 .division {
     /*width: 335px;*/
     min-height: 582px;
-    padding-left: 10px;
+    /*padding-left: 10px;
     padding-right: 10px;
-    float: left;
+    float: left;*/
     color: lightcyan;
     border-style: solid;
     border-color: lightpink;
@@ -107,11 +107,12 @@ div a {
 }
 
 .sessionClass {
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
+  min-height: 50px;
   border-color: #f6f4f1;
   border-style: solid;
   border-width: 1px;
-  padding: 3px;
+  /*padding: 3px;*/
 }
 
 /* -------------------------- */

@@ -63,10 +63,9 @@
                                 $phpdate = strtotime( $row[1] );
                                 $date = date( 'M-d', $phpdate );
                         ?>
-                        <div class="sessionClass">
-                        <div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
-                        <div class="date"><?php echo $date; ?></div>
-                        <br style="clear:both;">
+                        <div class="sessionClass row m-1 mb-2">
+                        <div class="title col-md-8"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
+                        <div class="date col-md-4"><?php echo $date; ?></div>
                         </div>
                         <?php
                             }
@@ -74,57 +73,39 @@
                 </div>
                 <div class="division col-md-4">
                     <h2 class="sessionHeading">Sessions Teaching</h2>
-					<?php
-						$inTeach = loadCourse($db, 1, 1, $_SESSION['userId']);
+                        <?php
+                            $inProg = loadCourse($db, 1, 1, $_SESSION['userId']);
 
-						while ($row = mysqli_fetch_array($inTeach)) {
-							$params = "join_session.php?sessionCode=".urlencode($row[2])."&fromHome=yes";
-							$phpdate = strtotime( $row[1] );
-							$date = date( 'M-d', $phpdate );
-					?>
-					<div class="sessionClass">
-					<div class="title"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
-					<div class="date"><?php echo $date; ?></div>
-					<br style="clear:both;">
-					</div>
-					<?php
-						}
-					?>
+                            while ($row = mysqli_fetch_array($inProg)) {
+                                $params = "join_session.php?sessionCode=".urlencode($row[2])."&fromHome=yes";
+                                $phpdate = strtotime( $row[1] );
+                                $date = date( 'M-d', $phpdate );
+                        ?>
+                        <div class="sessionClass row m-1 mb-2">
+                        <div class="title col-md-8"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
+                        <div class="date col-md-4"><?php echo $date; ?></div>
+                        </div>
+                        <?php
+                            }
+                        ?>
                 </div>
                 <div class="division col-md-4">
                     <h2 class="sessionHeading">Sessions Completed</h2>
-					<?php
-                        $inCom = loadCourse($db, 1, 0, $_SESSION['userId']);
+                        <?php
+                            $inProg = loadCourse($db, 1, 0, $_SESSION['userId']);
 
-                        while ($row = mysqli_fetch_array($inCom)) {
-                            $params = "join_session.php?sessionCode=".urlencode($row[2])."&fromHome=yes";
-                            $phpdate = strtotime( $row[1] );
-                            $date = date( 'M-d', $phpdate );
-                    ?>
-                    <div class="sessionClass">
-                    <div class="title2"><?php echo $row[0]; ?></div>
-                    <div class="date"><?php echo $date; ?></div>
-                    <br style="clear:both;">
-                    </div>
-                    <?php
-                        }
-                    ?>
-                    <?php
-                        $inCom = loadCourse($db, 2, 0, $_SESSION['userId']);
-
-                        while ($row = mysqli_fetch_array($inCom)) {
-                            $params = "join_session.php?sessionCode=".urlencode($row[2])."&fromHome=yes";
-                            $phpdate = strtotime( $row[1] );
-                            $date = date( 'M-d', $phpdate );
-                    ?>
-                    <div class="sessionClass">
-                    <div class="title2"><?php echo $row[0]; ?></div>
-                    <div class="date"><?php echo $date; ?></div>
-                    <br style="clear:both;">
-                    </div>
-                    <?php
-                        }
-                    ?>
+                            while ($row = mysqli_fetch_array($inProg)) {
+                                $params = "join_session.php?sessionCode=".urlencode($row[2])."&fromHome=yes";
+                                $phpdate = strtotime( $row[1] );
+                                $date = date( 'M-d', $phpdate );
+                        ?>
+                        <div class="sessionClass row m-1 mb-2">
+                        <div class="title col-md-8"><?php echo $row[0]; ?></div>
+                        <div class="date col-md-4"><?php echo $date; ?></div>
+                        </div>
+                        <?php
+                            }
+                        ?>
                 </div>
             </div>
         </div>
