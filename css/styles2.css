@@ -85,6 +85,7 @@ textarea {
 
 .sessionHeading {
     text-align: center;
+    min-height: 75px;
 }
 
 div a {
@@ -95,6 +96,7 @@ div a {
 .title {
   float: left;
   width: 190px;
+  word-break: break-all;
 }
 .title2 {
   float: left;
@@ -102,8 +104,8 @@ div a {
 }
 
 .date {
-  float: right;
-  width: 50px;
+  /*float: right;*/
+  white-space: nowrap;
 }
 
 .sessionClass {
