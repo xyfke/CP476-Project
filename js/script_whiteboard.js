@@ -68,6 +68,7 @@ function toolButtons() {
 			}
 		});
 	}
+
 }
 
 // ----------------------------------------------------------------------------------------- nav bar
@@ -134,25 +135,33 @@ function chatRefresh(){
 function board(){
 	var canvas = document.querySelector("#board").getContext("2d");
     var c = document.querySelector("#board");
-    var msg = document.querySelector("#coordinates");
+    //var msg = document.querySelector("#coordinates");
     var paint = false;
     //var lines = new Array();
 	//var count = -1;
 	var lineID = -1;
 
-    //console.log(lines);
+	//console.log(lines);
+	
+	$('#board').css("cursor", "url('/CP476-Project/images/marker.png') 0 32,auto");
 
     $('#board').mousedown(function (e){
         var mouseX = e.clientX - c.getBoundingClientRect().left; //- this.offsetLeft;
         var mouseY = e.clientY - c.getBoundingClientRect().top; //- this.offsetTop;
 		paint = true;
 
+		//alert($("#grad").val());
+
+		var color1 = $('#color1').val();
+		var color2 = $('#color2').val();
+		var width = $('#width').val();
+
 		// create line and add point
 		$.ajax({
 			type : "GET",
 			async : false,
 			url : "create_points.php",
-			data : {"x" : mouseX, "y" : mouseY},
+			data : {"x" : mouseX, "y" : mouseY, "color1" : color1, "color2" : color2, "width" : width, "gradient": "false"},
 			dataType : 'json',
 			success : function (d) {
 				if (d['status'] == "ok") {
@@ -162,7 +171,8 @@ function board(){
 		});
 
         //lines.push(new Array());
-        //addCoordinate(mouseX, mouseY);
+		//addCoordinate(mouseX, mouseY);
+		// http://192.168.64.2/CP476-Project/create_points.php?x=5&y=5&color1=red&color2=green&gradient=false&width=1
         redraw(canvas);
     });
 
@@ -186,7 +196,7 @@ function board(){
 			});
             redraw(canvas);
         }
-        msg.innerHTML = "<" + mouseX + ", " + mouseY + ">";
+        //msg.innerHTML = "<" + mouseX + ", " + mouseY + ">";
     });
 
     $('#board').mouseup(function(e){
@@ -194,7 +204,13 @@ function board(){
     });
 
     $('#board').mouseleave(function(e){
-        paint = false;
+		paint = false;
+	});
+
+
+	// get color
+	$('#undo').click(function () {
+
 	});
 
 	/*function addCoordinate(x, y) {
@@ -226,9 +242,8 @@ function redraw(canvas) {
 		for (var pos = 0; pos < lines[lineNum].length; pos++) {
 			if (pos == 0) {
 				canvas.beginPath();
-				canvas.lineWidth = "2";
-				canvas.strokeStyle = "green";
-				canvas.moveTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
+				canvas.lineWidth = lines[lineNum][pos][2];
+				canvas.strokeStyle = lines[lineNum][pos][0];
 			}
 			else {
 				canvas.lineTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
@@ -249,11 +264,10 @@ function convertResult(d) {
 			lines.push(new Array());
 			counter++;
 			lineID = d[i]['LineID'];
+			lines[counter].push(new Array(d[i]['Color1'], d[i]['Color2'], d[i]['Width'], d[i]['Gradient']));
 		}
 		lines[counter].push(new Array(d[i]['PointX'], d[i]['PointY']));
 	}
 
 	return lines;
 }
-
-//http://192.168.64.2/CP476-Project/whiteboard.php?sessionCode=18001429071553985758&sessionName=Hello+World

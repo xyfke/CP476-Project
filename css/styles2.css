@@ -85,6 +85,7 @@ textarea {
 
 .sessionHeading {
     text-align: center;
+    min-height: 75px;
 }
 
 div a {
@@ -95,6 +96,7 @@ div a {
 .title {
   float: left;
   width: 190px;
+  word-break: break-all;
 }
 .title2 {
   float: left;
@@ -102,8 +104,8 @@ div a {
 }
 
 .date {
-  float: right;
-  width: 50px;
+  /*float: right;*/
+  white-space: nowrap;
 }
 
 .sessionClass {
@@ -136,12 +138,12 @@ div a {
     background-color: lightblue;
     width: 600px;
     height: 40px;
-    margin-top: 10px;
+    /*margin-top: 10px;
     margin-bottom: 10px;
     margin-right: 10px;
     float: left;
 	overflow:hidden;
-    text-align: center;
+    text-align: center;*/
 }
 
 .toolbarItems {

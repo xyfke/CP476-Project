@@ -38,7 +38,8 @@
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script type="text/javascript" src="./js/script_whiteboard.js"></script>
+		<script type="text/javascript" src="./js/script_whiteboard.js"></script>
+		<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 		<!--<script type="text/javascript" src="./js/board.js"></script> -->
     </header>
     <!--
@@ -59,22 +60,50 @@
 	        <h3>White Board:</h3>
 	        <canvas class="drawSection" id="board" width="585" height="450" style="width:585;height:450;"></canvas>
 			<!--<div id="coordinates"></div>-->
-			<div class="toolbar mr-2">
-				<div class="toolbarItems 0" style="margin-left:235px;">
-					<i class="fa fa-font"  style="width:100%;height:100%;object-fit:contain;"></i>
-				</div>
-				<div class="toolbarItems 1">
-					<i class="fa fa-image" style="width:100%;height:100%;object-fit:contain;"></i>
-				</div>
-				<div class="toolbarItems 2">
-					<i class="fa fa-pencil" style="width:100%;height:100%;object-fit:contain;"></i>
-				</div>
-				<div class="toolbarItems 3">
-					<i class="fa fa-paint-brush" style="width:100%;height:100%;object-fit:contain;"></i>
-				</div>
-				<div class="toolbarItems 4">
-					<i class="fa fa-eraser" style="width:100%;height:100%;object-fit:contain;"></i>
-				</div>
+			<div class="toolbar mr-2 p-1 text-center">
+				<form>
+					<div class="mr-3" style="float:left;">
+						Color1: 
+						<input type="color" id="color1">
+					</div>	
+					<div class="mr-3" style="float:left;">
+						Color2:
+						<input type="color" id="color2">
+					</div>
+					<div class="mr-3" style="float:left;">
+						Width:
+						<input type="number" min="1" max="10" value="1" id="width">
+					</div>
+					<div class="mr-3" style="float:left;">
+						Gradient:
+						<input type="checkbox" id="grad">
+					</div>
+					<div class="mr-3 mt-1 btn btn-light btn-sm" style="float:left;" id="undo">
+						<i class="fa fa-undo"></i>
+					</div>
+					<div class="mr-2 mt-1 btn btn-light btn-sm" style="float:left;" id="redo">
+						<i class="fa fa-redo"></i>
+					</div>
+
+				</form>
+				<!--<form>
+					<div class="toolbarItems 0" style="margin-left:235px;">
+						<i  class="fa fa-font"  style="width:100%;height:100%;object-fit:contain;">
+						</i>
+					</div>
+					<div class="toolbarItems 1">
+						<i class="fa fa-image" style="width:100%;height:100%;object-fit:contain;"></i>
+					</div>
+					<div class="toolbarItems 2">
+						<i class="fa fa-pencil" style="width:100%;height:100%;object-fit:contain;"></i>
+					</div>
+					<div class="toolbarItems 3">
+						<i class="fa fa-paint-brush" style="width:100%;height:100%;object-fit:contain;"></i>
+					</div>
+					<div class="toolbarItems 4">
+						<i class="fa fa-eraser" style="width:100%;height:100%;object-fit:contain;"></i>
+					</div>
+				</form>-->
 			</div>
 	    </div>
 

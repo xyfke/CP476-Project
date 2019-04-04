@@ -9,8 +9,8 @@
     if (isset($_GET['retrieve'])) {
         $sessionId = $_SESSION['classID'];
         
-        $sql = "SELECT point.LineID, PointX, PointY FROM point INNER JOIN line ON line.LineID = point.LineID 
-                WHERE SessionID = ? ORDER BY LineID, PointID";
+        $sql = "SELECT point.LineID, PointX, PointY, Color1, Color2, Width, Gradient FROM point INNER JOIN 
+        line ON line.LineID = point.LineID WHERE SessionID = ? ORDER BY LineID, PointID";
         if ($statement = mysqli_prepare($db, $sql)) {
             mysqli_stmt_bind_param($statement, 'i', $sessionId);
             mysqli_stmt_execute($statement);
@@ -25,12 +25,9 @@
         else {
             echo json_encode(array('status' => 'fail'));
         }
-
         
-        
-
     }
-    else if (isset($_GET['x']) && isset($_GET['y'])) {
+    else if (isset($_GET['x']) && isset($_GET['y']) ) {
 
         $sessionId = $_SESSION['classID'];
         $x = $_GET['x'];
@@ -40,9 +37,14 @@
         // if no line ID then it means new line, create line
         if (!isset($_GET['lineId'])) {
             // create new line
-            $sql = "INSERT INTO line (SessionID) VALUES (?)";
+            $color1 = $_GET['color1'];
+            $color2 = $_GET['color2'];
+            $width = $_GET['width'];
+            $gradient = $_GET['gradient'];
+
+            $sql = "INSERT INTO line (SessionID, Color1, Color2, Width, Gradient) VALUES (?, ?, ?, ?, ?)";
             if ($statement = mysqli_prepare($db, $sql)) {
-                mysqli_stmt_bind_param($statement, 'i', $sessionId);
+                mysqli_stmt_bind_param($statement, 'issis', $sessionId, $color1, $color2, $width, $gradient);
                 mysqli_stmt_execute($statement);
                 $lineID = mysqli_insert_id($db);
             }

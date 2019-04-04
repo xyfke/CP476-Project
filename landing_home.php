@@ -64,8 +64,8 @@
                                 $date = date( 'M-d', $phpdate );
                         ?>
                         <div class="sessionClass row m-1 mb-2">
-                        <div class="title col-md-8"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
-                        <div class="date col-md-4"><?php echo $date; ?></div>
+                        <div class="title col-xs-10"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
+                        <div class="date col-xs-2"><?php echo $date; ?></div>
                         </div>
                         <?php
                             }
@@ -82,8 +82,8 @@
                                 $date = date( 'M-d', $phpdate );
                         ?>
                         <div class="sessionClass row m-1 mb-2">
-                        <div class="title col-md-8"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
-                        <div class="date col-md-4"><?php echo $date; ?></div>
+                        <div class="title col-xs-10"><a href='<?php echo $params; ?>'><?php echo $row[0]; ?></a></div>
+                        <div class="date col-xs-2"><?php echo $date; ?></div>
                         </div>
                         <?php
                             }
@@ -100,8 +100,8 @@
                                 $date = date( 'M-d', $phpdate );
                         ?>
                         <div class="sessionClass row m-1 mb-2">
-                        <div class="title col-md-8"><?php echo $row[0]; ?></div>
-                        <div class="date col-md-4"><?php echo $date; ?></div>
+                        <div class="title col-xs-10"><?php echo $row[0]; ?></div>
+                        <div class="date col-xs-2"><?php echo $date; ?></div>
                         </div>
                         <?php
                             }
