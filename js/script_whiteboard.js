@@ -152,8 +152,7 @@ function board(){
 
 		//alert($("#grad").val());
 
-		var color1 = $('#color1').val();
-		var color2 = $('#color2').val();
+		var color = $('#color').val();
 		var width = $('#width').val();
 
 		// create line and add point
@@ -161,7 +160,7 @@ function board(){
 			type : "GET",
 			async : false,
 			url : "create_points.php",
-			data : {"x" : mouseX, "y" : mouseY, "color1" : color1, "color2" : color2, "width" : width, "gradient": "false"},
+			data : {"x" : mouseX, "y" : mouseY, "color" : color,  "width" : width},
 			dataType : 'json',
 			success : function (d) {
 				if (d['status'] == "ok") {
@@ -173,7 +172,7 @@ function board(){
         //lines.push(new Array());
 		//addCoordinate(mouseX, mouseY);
 		// http://192.168.64.2/CP476-Project/create_points.php?x=5&y=5&color1=red&color2=green&gradient=false&width=1
-        redraw(canvas);
+        //redraw(canvas);
     });
 
     $('#board').mousemove(function(e) {
@@ -194,7 +193,7 @@ function board(){
 					}
 				}
 			});
-            redraw(canvas);
+            //redraw(canvas);
         }
         //msg.innerHTML = "<" + mouseX + ", " + mouseY + ">";
     });
@@ -236,13 +235,13 @@ function redraw(canvas) {
 		}
 	});
 
-	console.log(lines);
+	//console.log(lines);
 
 	for (var lineNum = 0; lineNum < lines.length; lineNum++) {
 		for (var pos = 0; pos < lines[lineNum].length; pos++) {
 			if (pos == 0) {
 				canvas.beginPath();
-				canvas.lineWidth = lines[lineNum][pos][2];
+				canvas.lineWidth = lines[lineNum][pos][1];
 				canvas.strokeStyle = lines[lineNum][pos][0];
 			}
 			else {
@@ -264,7 +263,7 @@ function convertResult(d) {
 			lines.push(new Array());
 			counter++;
 			lineID = d[i]['LineID'];
-			lines[counter].push(new Array(d[i]['Color1'], d[i]['Color2'], d[i]['Width'], d[i]['Gradient']));
+			lines[counter].push(new Array(d[i]['Color'], d[i]['Width']));
 		}
 		lines[counter].push(new Array(d[i]['PointX'], d[i]['PointY']));
 	}
