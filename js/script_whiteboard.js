@@ -155,20 +155,7 @@ function board(){
 		var color = $('#color').val();
 		var width = $('#width').val();
 
-		for (var i = 0; i < undoList.length; i++) {
-			$.ajax({
-				type : "GET",
-				async : false,
-				url : "undo.php",
-				data : {"lineId" : userDraw[i][0], "delete" : true},
-				dataType : 'json',
-				success : function (d) {
-					if (d['status'] == "ok") {
-						undoList.shift();
-					}
-				}
-			});
-		}
+		
 		undoList.length = 0;
 
 		// ajax call to add line and also set the lineId, for future to add more points
