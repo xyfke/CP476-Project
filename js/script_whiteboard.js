@@ -132,30 +132,26 @@ function chatRefresh(){
 	$("#chatBox").scrollTop($("#chatBox")[0].scrollHeight);
 }
 
+// -------------------------------------------------------------------------------------- drawing on board
 function board(){
 	var canvas = document.querySelector("#board").getContext("2d");
     var c = document.querySelector("#board");
-    //var msg = document.querySelector("#coordinates");
     var paint = false;
-    //var lines = new Array();
-	//var count = -1;
 	var lineID = -1;
-
-	//console.log(lines);
 	
+	// set cursor image in board
 	$('#board').css("cursor", "url('/CP476-Project/images/marker.png') 0 32,auto");
 
+	// create line with coordinates when mouse down after getting x & y coordinates
     $('#board').mousedown(function (e){
-        var mouseX = e.clientX - c.getBoundingClientRect().left; //- this.offsetLeft;
-        var mouseY = e.clientY - c.getBoundingClientRect().top; //- this.offsetTop;
+        var mouseX = e.clientX - c.getBoundingClientRect().left; 
+        var mouseY = e.clientY - c.getBoundingClientRect().top; 
 		paint = true;
-
-		//alert($("#grad").val());
 
 		var color = $('#color').val();
 		var width = $('#width').val();
 
-		// create line and add point
+		// ajax call to add line and also set the lineId, for future to add more points
 		$.ajax({
 			type : "GET",
 			async : false,
@@ -168,15 +164,11 @@ function board(){
 				}
 			}
 		});
-
-        //lines.push(new Array());
-		//addCoordinate(mouseX, mouseY);
-		// http://192.168.64.2/CP476-Project/create_points.php?x=5&y=5&color1=red&color2=green&gradient=false&width=1
-        //redraw(canvas);
     });
 
+	// add point to line when mouse is dragging
     $('#board').mousemove(function(e) {
-        var mouseX = e.clientX - c.getBoundingClientRect().left; //- this.offsetLeft;
+        var mouseX = e.clientX - c.getBoundingClientRect().left;
         var mouseY = e.clientY - c.getBoundingClientRect().top;
         if (paint) {
 
@@ -193,11 +185,11 @@ function board(){
 					}
 				}
 			});
-            //redraw(canvas);
+            
         }
-        //msg.innerHTML = "<" + mouseX + ", " + mouseY + ">";
     });
 
+	// set continue to paint to false when mouse is out of bound or mouse is no longer dragging
     $('#board').mouseup(function(e){
         paint = false;
     });
@@ -212,13 +204,11 @@ function board(){
 
 	});
 
-	/*function addCoordinate(x, y) {
-		lines[count].push(new Array(x, y));
-	}*/
-
 }
 
+// ------------------------------------------------------------------------------------- update board
 function redraw(canvas) {
+	// get canvas and clear it
 	var canvas = document.querySelector("#board").getContext("2d");
 	canvas.clearRect(0, 0, canvas.canvas.width, canvas.canvas.height);
 	var lines;
@@ -237,6 +227,7 @@ function redraw(canvas) {
 
 	//console.log(lines);
 
+	// get all points and colours from line and draw on board
 	for (var lineNum = 0; lineNum < lines.length; lineNum++) {
 		for (var pos = 0; pos < lines[lineNum].length; pos++) {
 			if (pos == 0) {
@@ -253,11 +244,13 @@ function redraw(canvas) {
 
 }
 
+// ------------------------------------------------------------------------------ convert json to 2d array
 function convertResult(d) {
 	var lines = new Array();
 	var lineID = -1;
 	var counter = -1;
 
+	// format: lines[counter][0] = {Color, Width}, lines[counter][n] = {PointX, PointY} where n != 0
 	for (var i = 0; i < d.length; i++) {
 		if (d[i]['LineID'] != lineID) {
 			lines.push(new Array());
