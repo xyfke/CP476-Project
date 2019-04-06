@@ -235,7 +235,6 @@ function board(){
 				success : function (d) {
 					undoList.unshift(new Array(userDraw[0][0], userDraw[0][1]));
 					userDraw.shift();
-					alert(undoList[0][0]);
 				}
 			});
 
@@ -290,7 +289,6 @@ function board(){
 				success : function (d) {
 					userDraw.unshift(new Array(undoList[0][0], undoList[0][1]));
 					undoList.shift();
-					alert(userDraw[0][0]);
 				}
 			});
 			
