@@ -60,20 +60,20 @@
 	        <h3>White Board:</h3>
 	        <canvas class="drawSection" id="board" width="585" height="450" style="width:585;height:450;background-color:white"></canvas>
 			<!--<div id="coordinates"></div>-->
-			<div class="toolbar mr-2 p-1 text-center">
+			<div class="toolbar mt-2 p-1 justify-content-center align-items-center d-flex">
 				<form>
-					<div class="mr-3" style="float:left;">
+					<div class="mr-3 mt-3" style="float:left;">
 						Color: 
 						<input type="color" id="color1">
 					</div>	
-					<div class="mr-3" style="float:left;">
+					<div class="mr-3 mt-3" style="float:left;">
 						Width:
 						<input type="number" min="1" max="10" value="1" id="width">
 					</div>
-					<div class="mr-3 mt-1 btn btn-light btn-sm" style="float:left;" id="undo">
+					<div class="mr-3 mt-3 btn btn-light btn-sm" style="float:left;" id="undo">
 						<i class="fa fa-undo"></i>
 					</div>
-					<div class="mr-2 mt-1 btn btn-light btn-sm" style="float:left;" id="redo">
+					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="redo">
 						<i class="fa fa-redo"></i>
 					</div>
 
