@@ -6,14 +6,14 @@
 
     $db = getDB();
 
-    if (isset($_GET['lineId']) && isset($_GET['color'])) {
+    if (isset($_GET['lineId']) && isset($_GET['transparent'])) {
 
         $lineId = $_GET['lineId'];
-        $color = $_GET['color'];
-        $sql = "UPDATE line SET Color = ? WHERE LineID = ?";
+        $trans = $_GET['transparent'];
+        $sql = "UPDATE line SET Transparent = ? WHERE LineID = ?";
 
         if ($statement = mysqli_prepare($db, $sql)) {
-            mysqli_stmt_bind_param($statement, 'si', $color ,$lineId);
+            mysqli_stmt_bind_param($statement, 'di', $trans ,$lineId);
             mysqli_stmt_execute($statement);
 
             echo json_encode(array('status' => 'ok'));

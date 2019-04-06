@@ -9,7 +9,7 @@
     if (isset($_GET['retrieve'])) {
         $sessionId = $_SESSION['classID'];
         
-        $sql = "SELECT point.LineID, PointX, PointY, Color, Width FROM point INNER JOIN 
+        $sql = "SELECT point.LineID, PointX, PointY, Color, Width, Transparent FROM point INNER JOIN 
         line ON line.LineID = point.LineID WHERE SessionID = ? ORDER BY LineID, PointID";
         if ($statement = mysqli_prepare($db, $sql)) {
             mysqli_stmt_bind_param($statement, 'i', $sessionId);

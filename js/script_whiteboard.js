@@ -168,7 +168,7 @@ function board(){
 			success : function (d) {
 				if (d['status'] == "ok") {
 					lineID = d['lineId'];
-					userDraw.unshift(new Array(lineID, color));
+					userDraw.unshift(lineID);
 				}
 			}
 		});
@@ -217,10 +217,10 @@ function board(){
 				type : "GET",
 				async : false,
 				url : "undo.php",
-				data : {"lineId" : userDraw[0][0], "color" : "#FFFFFF"},
+				data : {"lineId" : userDraw[0], "transparent" : 0.0},
 				dataType : 'json',
 				success : function (d) {
-					undoList.unshift(new Array(userDraw[0][0], userDraw[0][1]));
+					undoList.unshift(userDraw[0]);
 					userDraw.shift();
 				}
 			});
@@ -271,10 +271,10 @@ function board(){
 				type : "GET",
 				async : false,
 				url : "undo.php",
-				data : {"lineId" : undoList[0][0], "color" : undoList[0][1]},
+				data : {"lineId" : undoList[0], "transparent" : 1.0},
 				dataType : 'json',
 				success : function (d) {
-					userDraw.unshift(new Array(undoList[0][0], undoList[0][1]));
+					userDraw.unshift(undoList[0]);
 					undoList.shift();
 				}
 			});
@@ -288,7 +288,7 @@ function board(){
 				type : "GET",
 				async : false,
 				url : "undo.php",
-				data : {"lineId" : undoList[i][0], "delete" : true},
+				data : {"lineId" : undoList[i], "delete" : true},
 				dataType : 'json',
 				success : function (d) {
 					if (d['status'] == "ok") {
@@ -304,7 +304,7 @@ function board(){
 				type : "GET",
 				async : false,
 				url : "undo.php",
-				data : {"lineId" : undoList[i][0], "delete" : true},
+				data : {"lineId" : undoList[i], "delete" : true},
 				dataType : 'json',
 				success : function (d) {
 					if (d['status'] == "ok") {
@@ -346,6 +346,7 @@ function redraw(canvas) {
 				canvas.beginPath();
 				canvas.lineWidth = lines[lineNum][pos][1];
 				canvas.strokeStyle = lines[lineNum][pos][0];
+				canvas.globalAlpha = lines[lineNum][pos][2];
 			}
 			else {
 				canvas.lineTo(lines[lineNum][pos][0], lines[lineNum][pos][1]);
@@ -368,7 +369,7 @@ function convertResult(d) {
 			lines.push(new Array());
 			counter++;
 			lineID = d[i]['LineID'];
-			lines[counter].push(new Array(d[i]['Color'], d[i]['Width']));
+			lines[counter].push(new Array(d[i]['Color'], d[i]['Width'], d[i]['Transparent']));
 		}
 		lines[counter].push(new Array(d[i]['PointX'], d[i]['PointY']));
 	}
