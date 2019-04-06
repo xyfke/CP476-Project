@@ -64,7 +64,7 @@
 				<form>
 					<div class="mr-3 mt-3" style="float:left;">
 						Color: 
-						<input type="color" id="color1">
+						<input type="color" id="color">
 					</div>	
 					<div class="mr-3 mt-3" style="float:left;">
 						Width:
