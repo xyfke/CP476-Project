@@ -6,9 +6,25 @@
 
     $db = getDB();
 
-    if (isset($_GET['lineId']) && isset($_GET['save'])) {
+    if (isset($_GET['lineId']) && isset($_GET['color'])) {
 
         $lineId = $_GET['lineId'];
+        $color = $_GET['color'];
+        $sql = "UPDATE line SET Color = ? WHERE LineID = ?";
+
+        if ($statement = mysqli_prepare($db, $sql)) {
+            mysqli_stmt_bind_param($statement, 'si', $color ,$lineId);
+            mysqli_stmt_execute($statement);
+
+            echo json_encode(array('status' => 'ok'));
+        }
+        else {
+            echo json_encode(array('status' => 'fail'));
+        }
+
+
+        // PLO : Need for later
+        /*$lineId = $_GET['lineId'];
         $sql = "SELECT point.LineID, PointX, PointY, Color, Width FROM point INNER JOIN 
         line ON line.LineID = point.LineID WHERE point.LineID = ? ORDER BY PointID";
 
@@ -28,8 +44,9 @@
         }
         else {
             echo json_encode(array('status' => 'fail'));
-        }
+        }*/
     }
+    // PLO: Need for later
     else if (isset($_GET['lineId']) && isset($_GET['delete'])) {
         $lineId = $_GET['lineId'];
 
@@ -55,5 +72,7 @@
 
 
     }
+
+
 
 ?>
