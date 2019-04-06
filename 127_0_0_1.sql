@@ -55,10 +55,8 @@ INSERT INTO `chat` (`ChatID`, `UserID`, `SessionID`, `LogLocation`, `Timestamp`)
 CREATE TABLE `line` (
   `LineID` int(11) NOT NULL,
   `SessionID` int(11) NOT NULL,
-  `Color1` varchar(8) NOT NULL,
-  `Color2` varchar(8) NOT NULL,
-  `Width` int(2) NOT NULL,
-  `Gradient` varchar(5) NOT NULL
+  `Color` varchar(8) NOT NULL,
+  `Width` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
