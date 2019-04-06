@@ -155,7 +155,21 @@ function board(){
 		var color = $('#color').val();
 		var width = $('#width').val();
 
-		//undoList.length = 0;
+		for (var i = 0; i < undoList.length; i++) {
+			$.ajax({
+				type : "GET",
+				async : false,
+				url : "undo.php",
+				data : {"lineId" : userDraw[i][0], "delete" : true},
+				dataType : 'json',
+				success : function (d) {
+					if (d['status'] == "ok") {
+						undoList.shift();
+					}
+				}
+			});
+		}
+		undoList.length = 0;
 
 		// ajax call to add line and also set the lineId, for future to add more points
 		$.ajax({
@@ -167,7 +181,7 @@ function board(){
 			success : function (d) {
 				if (d['status'] == "ok") {
 					lineID = d['lineId'];
-					userDraw.push(new Array(lineID, color));
+					userDraw.unshift(new Array(lineID, color));
 				}
 			}
 		});
@@ -216,11 +230,12 @@ function board(){
 				type : "GET",
 				async : false,
 				url : "undo.php",
-				data : {"lineId" : userDraw[userDraw.length -1][0], "color" : "#FFFFFF"},
+				data : {"lineId" : userDraw[0][0], "color" : "#FFFFFF"},
 				dataType : 'json',
 				success : function (d) {
-					undoList.push(new Array(userDraw[userDraw.length -1][0], userDraw[userDraw.length -1][1]));
-					userDraw.pop();
+					undoList.unshift(new Array(userDraw[0][0], userDraw[0][1]));
+					userDraw.shift();
+					alert(undoList[0][0]);
 				}
 			});
 
@@ -273,13 +288,46 @@ function board(){
 				data : {"lineId" : undoList[0][0], "color" : undoList[0][1]},
 				dataType : 'json',
 				success : function (d) {
-					userDraw.push(new Array(undoList[0][0], undoList[0][1]));
+					userDraw.unshift(new Array(undoList[0][0], undoList[0][1]));
 					undoList.shift();
+					alert(userDraw[0][0]);
 				}
 			});
 			
 		}
 	});
+
+	window.onbeforeunload = function(event) {
+		for (var i = 0; i < undoList.length; i++) {
+			$.ajax({
+				type : "GET",
+				async : false,
+				url : "undo.php",
+				data : {"lineId" : undoList[i][0], "delete" : true},
+				dataType : 'json',
+				success : function (d) {
+					if (d['status'] == "ok") {
+					}
+				}
+			});
+		}
+	}
+
+	window.close = function(event) {
+		for (var i = 0; i < undoList.length; i++) {
+			$.ajax({
+				type : "GET",
+				async : false,
+				url : "undo.php",
+				data : {"lineId" : undoList[i][0], "delete" : true},
+				dataType : 'json',
+				success : function (d) {
+					if (d['status'] == "ok") {
+					}
+				}
+			});
+		}
+	}
 
 
 
