@@ -56,7 +56,8 @@ CREATE TABLE `line` (
   `LineID` int(11) NOT NULL,
   `SessionID` int(11) NOT NULL,
   `Color` varchar(8) NOT NULL,
-  `Width` int(2) NOT NULL
+  `Width` int(2) NOT NULL,
+  `Transparent` float(3, 2) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
