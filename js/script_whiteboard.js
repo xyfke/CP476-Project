@@ -134,10 +134,14 @@ function chatRefresh(){
 
 // -------------------------------------------------------------------------------------- drawing on board
 function board(){
+
 	var canvas = document.querySelector("#board").getContext("2d");
     var c = document.querySelector("#board");
     var paint = false;
 	var lineID = -1;
+
+	var userDraw = new Array();
+	var undoList = new Array();
 	
 	// set cursor image in board
 	$('#board').css("cursor", "url('/CP476-Project/images/marker.png') 0 32,auto");
@@ -151,6 +155,8 @@ function board(){
 		var color = $('#color').val();
 		var width = $('#width').val();
 
+		//undoList.length = 0;
+
 		// ajax call to add line and also set the lineId, for future to add more points
 		$.ajax({
 			type : "GET",
@@ -161,6 +167,7 @@ function board(){
 			success : function (d) {
 				if (d['status'] == "ok") {
 					lineID = d['lineId'];
+					userDraw.push(lineID);
 				}
 			}
 		});
@@ -200,9 +207,89 @@ function board(){
 
 
 	// get color
+
 	$('#undo').click(function () {
 
+		if (userDraw.length > 0) {
+			$.ajax({
+				type : "GET",
+				async : false,
+				url : "undo.php",
+				data : {"lineId" : userDraw[userDraw.length -1], "save" : true},
+				dataType : 'json',
+				success : function (d) {
+					undoList.unshift(new Array());
+					for (var i = 0; i < d.length; i++) {
+						if (i == 0) {
+							undoList[0].push(new Array(d[i]['Color'], d[i]['Width'], d[i]['PointX'], d[i]['PointY']));
+						}
+						else {
+							undoList[0].push(new Array(d[i]['PointX'], d[i]['PointY']));
+						}
+					}
+				}
+			});
+			$.ajax({
+				type : "GET",
+				async : false,
+				url : "undo.php",
+				data : {"lineId" : userDraw[userDraw.length -1], "delete" : true},
+				dataType : 'json',
+				success : function (d) {
+					if (d['status'] == "ok") {
+						userDraw.pop();
+					}
+				}
+			});
+		}
+		
 	});
+
+	/*
+	$('#redo').click(function() {
+		var color = "black";
+		var width = 1;
+
+		if (undoList.length > 0) {
+			for (var i = 0; i < undoList[0].length; i++) {
+				if (i = 0) {
+					$.ajax({
+						type : "GET",
+						async : false,
+						url : "create_points.php",
+						data : {"x" : undoList[0][i][2], "y" : undoList[0][i][3], "color" : undoList[0][i][0],  "width" : undoList[0][i][1]},
+						dataType : 'json',
+						success : function (d) {
+							if (d['status'] == "ok") {
+								lineID = d['lineId'];
+								userDraw.push(lineID);
+							}
+						}
+					});
+				}
+				else {
+					$.ajax({
+						type : "GET",
+						async : false,
+						url : "create_points.php",
+						data : {"x" : undoList[0][i][0], "y" : undoList[0][i][1], "lineId" : lineID},
+						dataType : 'json',
+						success : function (d) {
+							if (d['status'] == "ok") {
+								lineID = d['lineId'];
+							}
+						}
+					});
+				}
+				
+			}
+
+			undoList.shift();
+			userDraw.push(lineID);
+		}
+	});*/
+
+
 
 }
 
