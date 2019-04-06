@@ -313,6 +313,22 @@ function board(){
 		}
 	}
 
+	window.close = function(event) {
+		for (var i = 0; i < undoList.length; i++) {
+			$.ajax({
+				type : "GET",
+				async : false,
+				url : "undo.php",
+				data : {"lineId" : undoList[i][0], "delete" : true},
+				dataType : 'json',
+				success : function (d) {
+					if (d['status'] == "ok") {
+					}
+				}
+			});
+		}
+	}
+
 
 
 }
