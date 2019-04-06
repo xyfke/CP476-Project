@@ -56,14 +56,14 @@
 	    <h1><?php echo "Class Name: ".$_SESSION['sessionName']; ?></h1>
 		<div class="mb-1" style="color:#dfd7c3"> <?php echo "Code: ".$_SESSION['sessionCode']; ?></div>
 
-	    <div class="board">
+	    <div class="board" style="background-color:#f6f7f7">
 	        <h3>White Board:</h3>
-	        <canvas class="drawSection" id="board" width="585" height="450" style="width:585;height:450;"></canvas>
+	        <canvas class="drawSection" id="board" width="585" height="450" style="width:585;height:450;background-color:white"></canvas>
 			<!--<div id="coordinates"></div>-->
 			<div class="toolbar mr-2 p-1 text-center">
 				<form>
 					<div class="mr-3" style="float:left;">
-						Color1: 
+						Color1:
 						<input type="color" id="color1">
 					</div>	
 					<div class="mr-3" style="float:left;">
@@ -127,7 +127,7 @@
 
 	    <br style="clear : both;">
 
-	    
+
 	</div>
 
     <?php include("include/footer.php") ?>

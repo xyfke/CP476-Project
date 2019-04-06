@@ -100,7 +100,22 @@
                                 $date = date( 'M-d', $phpdate );
                         ?>
                         <div class="sessionClass row m-1 mb-2">
-                        <div class="title col-xs-10"><?php echo $row[0]; ?></div>
+                        <div class="title2 col-xs-10"><?php echo $row[0]; ?></div>
+                        <div class="date col-xs-2"><?php echo $date; ?></div>
+                        </div>
+                        <?php
+                            }
+                        ?>
+						<?php
+                            $inProg = loadCourse($db, 2, 0, $_SESSION['userId']);
+
+                            while ($row = mysqli_fetch_array($inProg)) {
+                                $params = "join_session.php?sessionCode=".urlencode($row[2])."&fromHome=yes";
+                                $phpdate = strtotime( $row[1] );
+                                $date = date( 'M-d', $phpdate );
+                        ?>
+                        <div class="sessionClass row m-1 mb-2">
+                        <div class="title2 col-xs-10"><?php echo $row[0]; ?></div>
                         <div class="date col-xs-2"><?php echo $date; ?></div>
                         </div>
                         <?php
