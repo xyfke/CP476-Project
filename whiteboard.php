@@ -62,7 +62,7 @@
 			<!--<div id="coordinates"></div>-->
 			<div class="toolbar mt-2 p-1 justify-content-center align-items-center d-flex">
 				<form>
-					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="pen">
+					<div class="mr-2 mt-3 btn btn-light btn-sm active" style="float:left;" id="pen">
 						<i class="fa fa-pen"></i>
 					</div>
 					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="eraser">
