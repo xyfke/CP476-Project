@@ -70,13 +70,20 @@
 						Width:
 						<input type="number" min="1" max="10" value="1" id="width">
 					</div>
-					<div class="mr-3 mt-3 btn btn-light btn-sm" style="float:left;" id="undo">
+					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="undo">
 						<i class="fa fa-undo"></i>
 					</div>
 					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="redo">
 						<i class="fa fa-redo"></i>
 					</div>
-
+					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="x">
+						<i class="fa fa-mouse-pointer"></i>
+					</div>
+					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="y">
+						<i class="fa fa-eraser"></i>
+					</div>
+					
+					
 				</form>
 				<!--<form>
 					<div class="toolbarItems 0" style="margin-left:235px;">
