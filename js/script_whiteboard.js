@@ -150,6 +150,7 @@ function board(){
 	$('#pen').click(function () {
 		$('#eraser').removeClass("active");
 		$('#pen').addClass("active");
+		$('#width').attr({'min' : 1});
 		$('#board').css("cursor", "url('/CP476-Project/images/marker.png') 0 32,auto");
 		colorSet = null;
 	});
@@ -157,8 +158,13 @@ function board(){
 	$('#eraser').click(function () {
 		$('#pen').removeClass("active");
 		$('#eraser').addClass("active");
+		$('#width').attr({'min' : 3});
 		$('#board').css("cursor", "url('/CP476-Project/images/eraser.png') 0 32,auto");
 		colorSet = "#FFFFFF";
+
+		if ($('#width').val() < 3){
+			$('#width').val(3);
+		}
 	});
 
 	// create line with coordinates when mouse down after getting x & y coordinates
