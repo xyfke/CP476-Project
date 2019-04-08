@@ -153,7 +153,7 @@
 			$users = runBindedQuery($userName, -1, -1, 's', $db, $query);
 			$row = mysqli_fetch_row($users);
 			$fields = array_values($row);
-			$userId = $fields[0];
+			$_SESSION['userId'] = $fields[0];
 
 			header("Location: landing_home.php");
 		}
