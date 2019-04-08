@@ -148,7 +148,6 @@ function board(){
 	$('#board').css("cursor", "url('/CP476-Project/images/marker.png') 0 32,auto");
 
 	$('#pen').click(function () {
-		alert("PEN");
 		$('#eraser').removeClass("active");
 		$('#pen').addClass("active");
 		$('#board').css("cursor", "url('/CP476-Project/images/marker.png') 0 32,auto");
@@ -156,7 +155,6 @@ function board(){
 	});
 
 	$('#eraser').click(function () {
-		alert("ERASER");
 		$('#pen').removeClass("active");
 		$('#eraser').addClass("active");
 		$('#board').css("cursor", "url('/CP476-Project/images/eraser.png') 0 32,auto");
