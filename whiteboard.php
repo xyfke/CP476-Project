@@ -62,6 +62,12 @@
 			<!--<div id="coordinates"></div>-->
 			<div class="toolbar mt-2 p-1 justify-content-center align-items-center d-flex">
 				<form>
+					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="pen">
+						<i class="fa fa-pen"></i>
+					</div>
+					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="eraser">
+						<i class="fa fa-eraser"></i>
+					</div>
 					<div class="mr-3 mt-3" style="float:left;">
 						Color: 
 						<input type="color" id="color">
@@ -76,14 +82,6 @@
 					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="redo">
 						<i class="fa fa-redo"></i>
 					</div>
-					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="x">
-						<i class="fa fa-mouse-pointer"></i>
-					</div>
-					<div class="mr-2 mt-3 btn btn-light btn-sm" style="float:left;" id="y">
-						<i class="fa fa-eraser"></i>
-					</div>
-					
-					
 				</form>
 				<!--<form>
 					<div class="toolbarItems 0" style="margin-left:235px;">
