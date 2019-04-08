@@ -55,8 +55,10 @@
 
 		<h2>What can I do during a classroom session?</h2>
 		<div class="pl-3 ml-3 border border-primary" style="max-width:88%">
-			<p>The classroom consists of a white board and a chat. Pick a color, pick a width, and draw! The toolbar also includes an undo and redo button.
-				To chat, enter your message and click Send. If you wish to browse the website during class, don't worry, just click where you want to
+			<p>The classroom consists of a whiteboard and a chat. You can toggle between a marker and an eraser. With the marker; pick a color, pick a width, and draw!
+				For the eraser, your minimum width will be 3, so watch out for it changing when you go back to your marker! And of course, the color doesn't affect anything
+				if the eraser is currently chosen. The toolbar also includes an undo and redo button, which will work for any drawing or erasing action that you have performed.
+				<br> <br> To chat, enter your message and click Send. If you wish to browse the website during class, don't worry, just click where you want to
 				navigate to at the top (navigation bar) and you'll be able to come back to class at any time. You can even log out without affecting the class!
 			</p>
 			<img src="images/help/whiteboard.jpg" alt="Signup Image" style="width:60%;" class="col-12"/>
@@ -101,7 +103,7 @@
 
 		<h2 style="clear:both">Contact Information</h2>
 		<div class="pl-3 ml-3 border border-primary" style="max-width:88%">
-			<p>If you need further assistance. Please contact <a href="mailto:more5580@mylaurier.ca">David</a> for quick response <a href="mailto:kexx7130@mylaurier.ca"><strike>Fafa</strike></a> (she's nicer. but she afks too much).</p>
+			<p>If you have any suggestions or concerns, please contact <a href="mailto:kexx7130@mylaurier.ca"><strike>Fafa</strike></a> <a href="mailto:more5580@mylaurier.ca">David</a> (She keeps crossing out her name; but she's nicer, so I would still contact her anyways. Just don't tell her I said this.)</p>
 			<p style="clear:both"></p>
 		</div>
 
