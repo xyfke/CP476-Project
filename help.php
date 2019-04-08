@@ -35,44 +35,76 @@
 		<?php include("include/header.php") ?>
 
 		<h1>HALPPPPPPPPPPPP PAGE</h1>
-		<h2>To Participate Learn Session</h2>
-		<p>In the navigation bar, click on Start Session to either join or
-			create a Learn Session. Start session will bring the you to a page
-			that contains the option of create new session or join previously
-			created sessions.
-			<img><!-- Insert Screenshot Here! --></img>
-		</p>
-		<h2>What can you do during a learn session?</h2>
-		<p>The page for learn session contains a whiteboard, toolbar for the
-			board and a chat section. The chat section allows student to
-			communicate with the instructor and other students about the material.
-			The whiteboard allows any users withiin the session to draw and create
-			meaningful contents on the board to assists with learning. Toolbar
-			provides the user the objects to interact with on the whiteboard.
-			<img><!-- Insert Screenshot Here! --></img>
-		</p>
-		<h2>How to end a session?</h2>
-		<p> If user has joined a session, they can exit from the session by
-			clicking on exit session from the navigation bar.
-			<img><!-- Insert Screenshot Here! --></img>
-		</p>
-		<h2>What is the profile page?</h2>
-		<p> Profile page enables the user to view the information they have on
-			their account. If they have incorrectly entered any information other
-			than their username, they can go in and change it.
-			<img><!-- Insert Screenshot Here! --></img>
-		</p>
+		<h2>How do I create or join a classroom session?</h2>
+		<div class="pl-3 ml-3 border border-primary" style="max-width:88%">
+			<p>In the navigation bar, click on CLASSROOM to either create or
+				join a learning session.
+			</p>
+			<img src="images/help/classroom.jpg" alt="Signup Image" style="width:60%;" class="col-12"/>
+			<p style="clear:both" class="pt-2">If creating one, enter the name that
+			you wish to give it and click Create; if joining, enter the code for the
+			session you wish to join.
+			</p>
+			<img src="images/help/session.jpg" alt="Signup Image" style="width:60%;" class="col-12"/>
+			<p style="clear:both" class="pt-2">Once a session is created, you can see the code generated underneath
+				the title. This is the code that anyone else can enter to join.
+			</p>
+			<img src="images/help/code.jpg" alt="Signup Image" style="width:60%;" class="col-12"/>
+			<p style="clear:both"></p>
+		</div>
 
-		<!-- remember to get rid of this section -->
-		<h2>In case there are some other questions.....</h2>
-		<p>You should always panic first, if your condition has became
-			life-threatening, please email David (but I would email Fafa first) provided in the contact Information
-			section. No guarantee of when or ever will the email be returned.
-		</p>
-		<!-- -->
+		<h2>What can I do during a classroom session?</h2>
+		<div class="pl-3 ml-3 border border-primary" style="max-width:88%">
+			<p>The classroom consists of a white board and a chat. Pick a color, pick a width, and draw! The toolbar also includes an undo and redo button.
+				To chat, enter your message and click Send. If you wish to browse the website during class, don't worry, just click where you want to
+				navigate to at the top (navigation bar) and you'll be able to come back to class at any time. You can even log out without affecting the class!
+			</p>
+			<img src="images/help/whiteboard.jpg" alt="Signup Image" style="width:60%;" class="col-12"/>
+			<p style="clear:both"></p>
+		</div>
 
-		<h2>Contact Information</h2>
-		<p>If you need further assistance. Please contact <a href="mailto:more5580@mylaurier.ca">David</a></p>
+		<h2>How do I come back to class?</h2>
+		<div class="pl-3 ml-3 border border-primary" style="max-width:88%">
+			<p>To go back to a previous session, first navigate to your home page by clicking the logo!
+			</p>
+			<img src="images/help/home.jpg" alt="Signup Image" style="width:60%;" class="col-12"/>
+			<p style="clear:both" class="pt-2">Once you're there, you will be greeted with a history of all your classroom sessions: the ones you're currently
+				attending, currently teaching, and a list of previously terminated sessions. You are able to click any of the currently attending or teaching
+				sessions to return to class! Another way to go back to a session from anywhere in the website is to click on CLASSROOM at the top and enter
+				the code in the Join Class option.
+			</p>
+			<img src="images/help/history.jpg" alt="Signup Image" style="width:60%;" class="col-12"/>
+			<p style="clear:both"></p>
+		</div>
+
+		<h2>How do I end a classroom session?</h2>
+		<div class="pl-3 ml-3 border border-primary" style="max-width:88%">
+			<p>If you are the creator of the class, you can end the class at any time by clicking on END CLASS at the top of the classroom page. If you did not
+				create the class, you will not have this option.
+			</p>
+			<img src="images/help/end_class.jpg" alt="Signup Image" style="width:60%;" class="col-12"/>
+			<p style="clear:both"></p>
+		</div>
+
+		<h2>How can I see or change my personal information?</h2>
+		<div class="pl-3 ml-3 border border-primary" style="max-width:88%">
+			<p>You have a profile page! To view it, click on PROFILE in the navigation bar at the top.
+			</p>
+			<img src="images/help/profile.jpg" alt="Signup Image" style="width:60%;" class="col-12"/>
+			<p style="clear:both" class="pt-2"> If you wish to change your information, click on Edit Profile at the bottom of the page. You can tell us more
+				about yourself with a short bio, and even upload a profile picture. The only thing you cannot change is your username; members of the site
+				only know you by your username, so we don't want to confuse them!
+			</p>
+			<img src="images/help/edit_profile.jpg" alt="Signup Image" style="width:60%;" class="col-12"/>
+			<p style="clear:both"></p>
+		</div>
+
+		<h2 style="clear:both">Contact Information</h2>
+		<div class="pl-3 ml-3 border border-primary" style="max-width:88%">
+			<p>If you need further assistance. Please contact <a href="mailto:more5580@mylaurier.ca"><strike>David</strike></a> <a href="mailto:kexx7130@mylaurier.ca">Fafa</a> (she's nicer).</p>
+			<p style="clear:both"></p>
+		</div>
+
 		<?php include("include/footer.php") ?>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
