@@ -147,9 +147,21 @@ function board(){
 	// set cursor image in board
 	$('#board').css("cursor", "url('/CP476-Project/images/marker.png') 0 32,auto");
 
+	$('#pen').click(function () {
+		alert("PEN");
+		$('#eraser').removeClass("active");
+		$('#pen').addClass("active");
+		$('#board').css("cursor", "url('/CP476-Project/images/marker.png') 0 32,auto");
+		colorSet = null;
+	});
 
-	
-	
+	$('#eraser').click(function () {
+		alert("ERASER");
+		$('#pen').removeClass("active");
+		$('#eraser').addClass("active");
+		$('#board').css("cursor", "url('/CP476-Project/images/eraser.png') 0 32,auto");
+		colorSet = "#FFFFFF";
+	});
 
 	// create line with coordinates when mouse down after getting x & y coordinates
     $('#board').mousedown(function (e){
@@ -164,6 +176,7 @@ function board(){
 			var color = colorSet;
 		}
 		
+		//alert(color);
 		var width = $('#width').val();
 
 		
@@ -293,20 +306,7 @@ function board(){
 		}
 	});
 
-	console.log("HI");
-
-	$('#eraser').click(function () {
-		
-		/*$('#eraser').addClass("active");
-		$('#mouse').addClass("active");
-		colorSet = "#FFFFFF";*/
-	});
-
-	$('#mouse').click(function () {
-		/*$('#mouse').addClass("active");
-		$('#eraser').addClass("active");
-		colorSet = null;*/
-	});
+	
 
 	
 
