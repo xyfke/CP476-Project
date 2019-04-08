@@ -101,7 +101,7 @@
 
 		<h2 style="clear:both">Contact Information</h2>
 		<div class="pl-3 ml-3 border border-primary" style="max-width:88%">
-			<p>If you need further assistance. Please contact <a href="mailto:more5580@mylaurier.ca"><strike>David</strike></a> <a href="mailto:kexx7130@mylaurier.ca">Fafa</a> (she's nicer).</p>
+			<p>If you need further assistance. Please contact <a href="mailto:more5580@mylaurier.ca">David</a> for quick response <a href="mailto:kexx7130@mylaurier.ca"><strike>Fafa</strike></a> (she's nicer. but she afks too much).</p>
 			<p style="clear:both"></p>
 		</div>
 

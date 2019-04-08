@@ -142,9 +142,14 @@ function board(){
 
 	var userDraw = new Array();
 	var undoList = new Array();
+	var colorSet = null;
 	
 	// set cursor image in board
 	$('#board').css("cursor", "url('/CP476-Project/images/marker.png') 0 32,auto");
+
+
+	
+	
 
 	// create line with coordinates when mouse down after getting x & y coordinates
     $('#board').mousedown(function (e){
@@ -152,7 +157,13 @@ function board(){
         var mouseY = e.clientY - c.getBoundingClientRect().top; 
 		paint = true;
 
-		var color = $('#color').val();
+		if (!colorSet) {
+			var color = $('#color').val();
+		}
+		else {
+			var color = colorSet;
+		}
+		
 		var width = $('#width').val();
 
 		
@@ -281,6 +292,23 @@ function board(){
 			
 		}
 	});
+
+	console.log("HI");
+
+	$('#eraser').click(function () {
+		
+		/*$('#eraser').addClass("active");
+		$('#mouse').addClass("active");
+		colorSet = "#FFFFFF";*/
+	});
+
+	$('#mouse').click(function () {
+		/*$('#mouse').addClass("active");
+		$('#eraser').addClass("active");
+		colorSet = null;*/
+	});
+
+	
 
 	window.onbeforeunload = function(event) {
 		for (var i = 0; i < undoList.length; i++) {
