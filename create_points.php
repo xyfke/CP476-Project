@@ -6,6 +6,7 @@
 
     $db = getDB();
 
+    // get all the lines and points to draw on board for a particular sessioin
     if (isset($_GET['retrieve'])) {
         $sessionId = $_SESSION['classID'];
         
@@ -29,6 +30,7 @@
         }
         
     }
+    // store x and y coordinatees of the line into the database
     else if (isset($_GET['x']) && isset($_GET['y']) ) {
 
         $sessionId = $_SESSION['classID'];
