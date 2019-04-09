@@ -27,7 +27,6 @@ function loadFunctions(func) {
 		}
 	}
 }
-loadFunctions(toolButtons);
 loadFunctions(navLogo);
 loadFunctions(chatRefresh);
 loadFunctions(board);
