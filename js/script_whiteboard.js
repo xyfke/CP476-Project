@@ -35,42 +35,6 @@ loadFunctions(board);
 setInterval(chatRefresh, 2500);
 setInterval(redraw, 100);
 
-// ----------------------------------------------------------------------------------------- tool buttons
-function toolButtons() {
-	// get all the tool buttons
-	var toolBtns = document.querySelectorAll(".toolbarItems");
-	// initialize their "chosen" value as not picked
-	var picked = [0, 0, 0, 0 ,0];
-
-	// walk through all the buttons
-	for (i = 0; i < toolBtns.length; i++) {
-		toolBtns[i].addEventListener("click", function() {
-			// on click, get it's index number (saved on the classlist)
-			index = this.classList[1];
-			if (picked[index] == 0){
-				// if it is not picked, walk through all the buttons and set to not picked
-				// (in case there is another currently picked button)
-				var j;
-				for(j = 0; j < picked.length; j++){
-					picked[j] = 0;
-					toolBtns[j].style.backgroundColor = "#FFFFFF"
-				}
-				// change its background color to "picked" color
-				this.style.backgroundColor = "#808080";
-				// change its value to "picked"
-				picked[index] = 1;
-			}
-			else{
-				// if it is already picked, change its background color to "not picked"
-				this.style.backgroundColor = "#FFFFFF";
-				// also change its value to "not picked"
-				picked[index] = 0;
-			}
-		});
-	}
-
-}
-
 // ----------------------------------------------------------------------------------------- nav bar
 function navLogo() {
 	var logoImgSess = document.querySelector("#logoImgSess");
@@ -147,6 +111,7 @@ function board(){
 	// set cursor image in board
 	$('#board').css("cursor", "url('/CP476-Project/images/marker.png') 0 32,auto");
 
+	// when pen is selected
 	$('#pen').click(function () {
 		$('#eraser').removeClass("active");
 		$('#pen').addClass("active");
@@ -155,6 +120,7 @@ function board(){
 		colorSet = null;
 	});
 
+	// when eraser is selected
 	$('#eraser').click(function () {
 		$('#pen').removeClass("active");
 		$('#eraser').addClass("active");
@@ -234,9 +200,7 @@ function board(){
 		paint = false;
 	});
 
-
-	// get color
-	
+	// undo board
 	$('#undo').click(function () {
 
 		if (userDraw.length > 0) {
@@ -252,43 +216,11 @@ function board(){
 					userDraw.shift();
 				}
 			});
-
-			// future use
-			/*$.ajax({
-				type : "GET",
-				async : false,
-				url : "undo.php",
-				data : {"lineId" : userDraw[userDraw.length -1], "save" : true},
-				dataType : 'json',
-				success : function (d) {
-					undoList.unshift(new Array());
-					for (var i = 0; i < d.length; i++) {
-						if (i == 0) {
-							undoList[0].push(new Array(d[i]['Color'], d[i]['Width'], d[i]['PointX'], d[i]['PointY']));
-						}
-						else {
-							undoList[0].push(new Array(d[i]['PointX'], d[i]['PointY']));
-						}
-					}
-				}
-			});
-			$.ajax({
-				type : "GET",
-				async : false,
-				url : "undo.php",
-				data : {"lineId" : userDraw[userDraw.length -1], "delete" : true},
-				dataType : 'json',
-				success : function (d) {
-					if (d['status'] == "ok") {
-						userDraw.pop();
-					}
-				}
-			});*/
 		}
 		
 	});
 
-	
+	// redo function
 	$('#redo').click(function() {
 		var color = "black";
 		var width = 1;
@@ -310,10 +242,7 @@ function board(){
 		}
 	});
 
-	
-
-	
-
+	// update database before reloading
 	window.onbeforeunload = function(event) {
 		for (var i = 0; i < undoList.length; i++) {
 			$.ajax({
@@ -330,6 +259,7 @@ function board(){
 		}
 	}
 
+	// update database before closing
 	window.close = function(event) {
 		for (var i = 0; i < undoList.length; i++) {
 			$.ajax({
