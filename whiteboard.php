@@ -83,24 +83,6 @@
 						<i class="fa fa-redo"></i>
 					</div>
 				</form>
-				<!--<form>
-					<div class="toolbarItems 0" style="margin-left:235px;">
-						<i  class="fa fa-font"  style="width:100%;height:100%;object-fit:contain;">
-						</i>
-					</div>
-					<div class="toolbarItems 1">
-						<i class="fa fa-image" style="width:100%;height:100%;object-fit:contain;"></i>
-					</div>
-					<div class="toolbarItems 2">
-						<i class="fa fa-pencil" style="width:100%;height:100%;object-fit:contain;"></i>
-					</div>
-					<div class="toolbarItems 3">
-						<i class="fa fa-paint-brush" style="width:100%;height:100%;object-fit:contain;"></i>
-					</div>
-					<div class="toolbarItems 4">
-						<i class="fa fa-eraser" style="width:100%;height:100%;object-fit:contain;"></i>
-					</div>
-				</form>-->
 			</div>
 	    </div>
 
